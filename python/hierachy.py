@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home/')
 def home():
-    return render_template('Homepage.html')
+    return render_template('TemplateHTML/Homepage.html')
 
 ###LEVEL NO. 2
 #PlotOverview Nav.
@@ -16,7 +16,7 @@ def home():
 @app.route('/home/plotoverview/')
 @app.route('/home/PlotOverview/')
 def home():
-    return render_template('PlotOverview.html')
+    return render_template('TemplateHTML/PlotOverview.html')
 
 #ForumPage Nav.
 @app.route('/home/Forum-Page/')
@@ -24,25 +24,25 @@ def home():
 @app.route('/home/forumpage/')
 @app.route('/home/ForumPage/')
 def home():
-    return render_template('ForumPage.html')
+    return render_template('TemplateHTML/ForumPage.html')
 
 #SkillsPage Nav.
 @app.route('/home/Skills/')
 @app.route('/home/skills/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #EnemiesPage Nav.
 @app.route('/home/Enemies/')
 @app.route('/home/enemies/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #CharactersPage Nav.
 @app.route('/home/Characters/')
 @app.route('/home/characters/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #PartyMembersPage Nav.
 @app.route('/home/Party-Members/')
@@ -50,25 +50,25 @@ def home():
 @app.route('/home/PartyMembers/')
 @app.route('/home/partymembers/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #ClassesPage Nav.
 @app.route('/home/Classes/')
 @app.route('/home/classes/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #EquipmentPage Nav.
 @app.route('/home/Equipment/')
 @app.route('/home/equipment/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #LocationsPage Nav.
 @app.route('/home/Locations/')
 @app.route('/home/locations/')
 def home():
-    return render_template('ListPages.html')
+    return render_template('TemplateHTML/ListPages.html')
 
 #EditsPage Nav.
 @app.route('/home/Edits-Log/')
@@ -76,13 +76,13 @@ def home():
 @app.route('/home/editslog/')
 @app.route('/home/EditsLog/')
 def home():
-    return render_template('EditLogPage.html')
+    return render_template('TemplateHTML/EditLogPage.html')
 
 #Credit&Contribution Nav.
 @app.route('/home/Credits/')
 @app.route('/home/credits/')
 def home():
-    return render_template('CreditContributionPage.html')
+    return render_template('TemplateHTML/CreditContributionPage.html')
 
 ###LEVEL NO. 3
 #Templates to be changed later for individual pages.
@@ -92,7 +92,7 @@ def home():
 @app.route('/home/Skills/skill/')
 @app.route('/home/skills/Skill/')
 def home():
-    return render_template('IndividualPages.html')
+    return render_template('TemplateHTML/IndividualPages.html')
 
 #Enemy Nav.
 @app.route('/home/Enemies/Enemy/')
@@ -100,7 +100,7 @@ def home():
 @app.route('/home/Enemies/enemy/')
 @app.route('/home/enemies/Enemy/')
 def home():
-    return render_template('IndividualPages.html')
+    return render_template('TemplateHTML/IndividualPages.html')
 
 #Character Nav.
 @app.route('/home/Characters/Character/')
@@ -108,7 +108,7 @@ def home():
 @app.route('/home/Characters/character/')
 @app.route('/home/characters/Character/')
 def home():
-    return render_template('IndividualPages.html')
+    return render_template('TemplateHTML/IndividualPages.html')
 
 #Member Nav.
 @app.route('/home/Party-Members/Member/')
@@ -120,7 +120,7 @@ def home():
 @app.route('/home/PartyMembers/member/')
 @app.route('/home/partymembers/Member/')
 def home():
-    return render_template('IndividualPages.html')
+    return render_template('TemplateHTML/IndividualPages.html')
 
 #Class Nav.
 @app.route('/home/Classes/Class/')
@@ -128,7 +128,7 @@ def home():
 @app.route('/home/Classes/class/')
 @app.route('/home/classes/Class/')
 def home():
-    return render_template('IndividualPages.html')
+    return render_template('TemplateHTML/IndividualPages.html')
 
 
 ###Happy Ending :)
