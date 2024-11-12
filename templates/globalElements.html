@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Regnella Wiki: {% block title %}{% endblock title %}</title>
+    <nav>
+        <ul>
+            <li><a href="PageHTML/homePage.html">Home</a></li>
+            <li><a href="PageHTML/forumPage.html">Forum</a></li>
+            <li><a href="PageHTML/plotOverview.html">Plot</a></li>
+            <li><a href="PageHTML/charList.html">Chara.</a></li>
+            <li><a href="PageHTML/partyList.html">Party</a></li>
+            <li><a href="PageHTML/classList.html">Class</a></li>
+            <li><a href="PageHTML/skillList.html">Skill</a></li>
+            <li><a href="PageHTML/enemyList.html">Enemy</a></li>
+            <li><a href="PageHTML/equipList.html">Equip.</a></li>
+            <li><a href="PageHTML/locationList.html">Location</a></li>
+            <li><a href="PageHTML/creditAndContributions.html">Credit</a></li>
+            <li><a href="PageHTML/editLog.html">Edits</a></li>
+        </ul>
+    </nav>
 </head>
 <body>
-
+    <header>
+        {% block header %}Header{% endblock header %}
+      </header>
+      <main>
+        {% block content %}<p>Main Body of Text</p>{% endblock content %}
+      </main>
 </body>
+<footer>
+    {% block footer %}Footer Text{% endblock footer %}
+    <button type="button">Edit</button>
+</footer>
 </html>
