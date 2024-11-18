@@ -5,82 +5,82 @@ app = Flask(__name__)
 ###LEVEL NO. 1
 #Homepage Nav.
 @app.route('/')
-@app.route('/home/')
+@app.route('/home')
 def home():
     return render_template('TemplateHTML/Homepage.html')
 
 ###LEVEL NO. 2
 #PlotOverview Nav.
-@app.route('/home/Plot-Overview/')
-@app.route('/home/plot-overview/')
-@app.route('/home/plotoverview/')
-@app.route('/home/PlotOverview/')
+@app.route('/home/Plot-Overview')
+@app.route('/home/plot-overview')
+@app.route('/home/plotoverview')
+@app.route('/home/PlotOverview')
 def home():
     return render_template('TemplateHTML/PlotOverview.html')
 
 #ForumPage Nav.
-@app.route('/home/Forum-Page/')
-@app.route('/home/forum-page/')
-@app.route('/home/forumpage/')
-@app.route('/home/ForumPage/')
+@app.route('/home/Forum-Page')
+@app.route('/home/forum-page')
+@app.route('/home/forumpage')
+@app.route('/home/ForumPage')
 def home():
     return render_template('TemplateHTML/ForumPage.html')
 
 #SkillsPage Nav.
-@app.route('/home/Skills/')
-@app.route('/home/skills/')
+@app.route('/home/Skills')
+@app.route('/home/skills')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #EnemiesPage Nav.
-@app.route('/home/Enemies/')
-@app.route('/home/enemies/')
+@app.route('/home/Enemies')
+@app.route('/home/enemies')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #CharactersPage Nav.
-@app.route('/home/Characters/')
-@app.route('/home/characters/')
+@app.route('/home/Characters')
+@app.route('/home/characters')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #PartyMembersPage Nav.
-@app.route('/home/Party-Members/')
-@app.route('/home/party-members/')
-@app.route('/home/PartyMembers/')
-@app.route('/home/partymembers/')
+@app.route('/home/Party-Members')
+@app.route('/home/party-members')
+@app.route('/home/PartyMembers')
+@app.route('/home/partymembers')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #ClassesPage Nav.
-@app.route('/home/Classes/')
-@app.route('/home/classes/')
+@app.route('/home/Classes')
+@app.route('/home/classes')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #EquipmentPage Nav.
-@app.route('/home/Equipment/')
-@app.route('/home/equipment/')
+@app.route('/home/Equipment')
+@app.route('/home/equipment')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #LocationsPage Nav.
-@app.route('/home/Locations/')
-@app.route('/home/locations/')
+@app.route('/home/Locations')
+@app.route('/home/locations')
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
 #EditsPage Nav.
-@app.route('/home/Edits-Log/')
-@app.route('/home/edits-log/')
-@app.route('/home/editslog/')
-@app.route('/home/EditsLog/')
+@app.route('/home/Edits-Log')
+@app.route('/home/edits-log')
+@app.route('/home/editslog')
+@app.route('/home/EditsLog')
 def home():
     return render_template('TemplateHTML/EditLogPage.html')
 
 #Credit&Contribution Nav.
-@app.route('/home/Credits/')
-@app.route('/home/credits/')
+@app.route('/home/Credits')
+@app.route('/home/credits')
 def home():
     return render_template('TemplateHTML/CreditContributionPage.html')
 
