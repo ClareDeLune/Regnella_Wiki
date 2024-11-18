@@ -1,12 +1,90 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Plot Overview</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h1>Summary</h1>
+    <p>Boundary of Shade and Future follows Selene von Anima; a young Mage from Regnella who, according to her people's customs, devotes her life to fighting monsters and fixing magical anomalies across the land in return for honour and wealth.<br>
+    After a strange force starts corrupting Regnella and her people however, Selene ends up cursed by the perpetrator; losing her mind and will to the very monster she is fighting, and the only way to break this curse is to kill its origin: the ancient and wicked Queen of Time.<br>
+    -However, the witch-queen cannot be slain by ordinary means, leaving the young Mage's only hope to be the mystic Gifts of Arushi...<br>
+    -But even the Gifts of Light are said to contain a dark power, and what of the legendary blade Dainsleif?</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <button type="button" class="collapsible">Act I:</button>
+    <div class="content">
+      <p>Act One's plot.</p>
+    </div>
+    <br>
+    <button type="button" class="collapsible">Act II:</button>
+    <div class="content">
+      <p>Act Two's plot.</p>
+    </div>
+    <br>
+    <button type="button" class="collapsible">Act III:</button>
+    <div class="content">
+      <p>Act Three's plot.</p>
+    </div>
+    <br>
+    <button type="button" class="collapsible">Ending:</button>
+    <div class="content">
+      <p>Endings</p>
+        <!---Selene X Takeo-->
+        <button type="button" class="collapsible">Selene&Takeo</button>
+        <div class="content">
+            <p>ST Ending</p>
+        </div>
+        <!---Selene X Lucas-->
+        <button type="button" class="collapsible">Selene&Lucas</button>
+        <div class="content">
+            <p>SL Ending</p>
+        </div>
+        <!---Selene X MARA-->
+        <button type="button" class="collapsible">Selene&MARA</button>
+        <div class="content">
+            <p>SM Ending</p>
+        </div>
+        <!---Takeo X Yliyaminya-->
+        <button type="button" class="collapsible">Takeo&Ylyiaminya</button>
+        <div class="content">
+            <p>TY Ending</p>
+        </div>
+        <!---Takeo X Clarice-->
+        <button type="button" class="collapsible">Takeo&Clarice</button>
+        <div class="content">
+            <p>TC Ending</p>
+        </div>
+        <!---Lucas X Brenda-->
+        <button type="button" class="collapsible">Lucas&Brenda</button>
+        <div class="content">
+            <p>LB Ending</p>
+        </div>
+        <!---Lucas X Yliyaminya-->
+        <button type="button" class="collapsible">Lucas&Yliyaminya</button>
+        <div class="content">
+            <p>LY Ending</p>
+        </div>
+        <!---Brenda X MARA-->
+        <button type="button" class="collapsible">Brenda&MARA</button>
+        <div class="content">
+            <p>BM Ending</p>
+        </div>
+        <!---Brenda X Takeshi-->
+        <button type="button" class="collapsible">Brenda&Takeshi</button>
+        <div class="content">
+            <p>BT Ending</p>
+        </div>
+        <!---MARA X Takeshi-->
+        <button type="button" class="collapsible">MARA&Takeshi</button>
+        <div class="content">
+            <p>MT Ending</p>
+        </div>
+        <!---Clarice X Takeshi-->
+        <button type="button" class="collapsible">Clarice&Takeshi</button>
+        <div class="content">
+            <p>CT Ending</p>
+        </div>
+    </div>
+{% endblock content %}

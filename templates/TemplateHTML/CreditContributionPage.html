@@ -1,12 +1,24 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Credits and Contributions</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h1>Credit and Contributions Log</h1>
+    <p>
+    Some text about the page's purpose and how grateful we are to ourselves.
+    </p>
+{% endblock header %}
+<br>
+{% block content %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Contribution</th>
+        </tr>
+        <tr>
+            <td>Clare Tait</td>
+            <td>Created Regnella Wiki.</td>
+        </tr>
+    </table>
+{% endblock content %}

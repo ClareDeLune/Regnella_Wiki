@@ -1,12 +1,26 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Edit Log</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h1>Edits Log: Last Edit (00/00/0000)</h1>
+    <p>
+    Some text about the edits log and its purpose.
+    </p>
+{% endblock header %}
+<br>
+{% block content %}
+    <table>
+        <tr>
+            <th>Page</th>
+            <th>Date-Time</th>
+            <th>Change Made</th>
+        </tr>
+        <tr>
+            <td>Placeholder</td>
+            <td>00/00/0000 00:00:00</td>
+            <td>Nothing.</td>
+        </tr>
+    </table>
+{% endblock content %}

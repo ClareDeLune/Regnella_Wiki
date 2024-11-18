@@ -1,12 +1,25 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Forum</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h2>Forum:</h2>
+    <p>
+    Brief explanation about what the forum is for and rules for using it.
+    </p>
+{% endblock header %}
+<br>
+{% block content %}
+    {% block forumMessages %}
+    {% endblock forumMessages %}
+    <br>
+    {% block commentSection %}
+        <h2>Enter a Comment:</h2>
+        {% block forumComment %}
+            <form method="POST" action=""></form>
+        {% endblock forumComment %}
+        <button type="button">Submit</button>
+        <button type="button">Delete</button>
+    {% endblock commentSection %}
+{% endblock content %}

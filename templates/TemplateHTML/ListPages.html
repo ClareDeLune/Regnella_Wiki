@@ -1,12 +1,29 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>PLACEHOLDER List</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <p>
+    An overview of the page and its purpose.
+    </p>
+{% endblock header %}
+
+{% block content %}
+    {% block collapsables %}
+        <p>A Collapsible:</p>
+        <button type="button" class="collapsible">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Column1</th>
+                    <th>Column2</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                    <td>Value2</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsables %}
+{% endblock content %}

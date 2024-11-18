@@ -1,12 +1,32 @@
 #Inherit design from globalElements.
 {% extends '../globalElements.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>PLACEHOLDER List</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <p>
+    A quick description of the individual item being discussed.
+    </p>
+    {% block indivTable %}
+        <table>
+            <tr>
+                <td><img src="sample.png" alt="Sample Image"></td>
+            </tr>
+            <tr>
+                <td>Value1</td>
+            </tr>
+            <tr>
+                <td>Value2</td>
+            </tr>
+            <tr>
+                <td>Value3</td>
+                <td>Value4</td>
+            </tr>
+        </table>
+    {% endblock indivTable %}
+{% endblock header %}
+<br>
+{% block content %}
+    <h2>Overview:</h2>
+    <p>More in-depth description and explanation.</p>
+{% endblock content %}
