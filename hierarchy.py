@@ -1,6 +1,8 @@
 ###Set-Up
 from flask import Flask, render_template
+
 app = Flask(__name__)
+
 
 ###LEVEL NO. 1
 #Homepage Nav.
@@ -8,6 +10,7 @@ app = Flask(__name__)
 @app.route('/home')
 def home():
     return render_template('TemplateHTML/Homepage.html')
+
 
 ###LEVEL NO. 2
 #PlotOverview Nav.
@@ -18,6 +21,7 @@ def home():
 def home():
     return render_template('TemplateHTML/PlotOverview.html')
 
+
 #ForumPage Nav.
 @app.route('/home/Forum-Page')
 @app.route('/home/forum-page')
@@ -26,11 +30,13 @@ def home():
 def home():
     return render_template('TemplateHTML/ForumPage.html')
 
+
 #SkillsPage Nav.
 @app.route('/home/Skills')
 @app.route('/home/skills')
 def home():
     return render_template('TemplateHTML/ListPages.html')
+
 
 #EnemiesPage Nav.
 @app.route('/home/Enemies')
@@ -38,11 +44,13 @@ def home():
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
+
 #CharactersPage Nav.
 @app.route('/home/Characters')
 @app.route('/home/characters')
 def home():
     return render_template('TemplateHTML/ListPages.html')
+
 
 #PartyMembersPage Nav.
 @app.route('/home/Party-Members')
@@ -52,11 +60,13 @@ def home():
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
+
 #ClassesPage Nav.
 @app.route('/home/Classes')
 @app.route('/home/classes')
 def home():
     return render_template('TemplateHTML/ListPages.html')
+
 
 #EquipmentPage Nav.
 @app.route('/home/Equipment')
@@ -64,11 +74,13 @@ def home():
 def home():
     return render_template('TemplateHTML/ListPages.html')
 
+
 #LocationsPage Nav.
 @app.route('/home/Locations')
 @app.route('/home/locations')
 def home():
     return render_template('TemplateHTML/ListPages.html')
+
 
 #EditsPage Nav.
 @app.route('/home/Edits-Log')
@@ -78,11 +90,13 @@ def home():
 def home():
     return render_template('TemplateHTML/EditLogPage.html')
 
+
 #Credit&Contribution Nav.
 @app.route('/home/Credits')
 @app.route('/home/credits')
 def home():
     return render_template('TemplateHTML/CreditContributionPage.html')
+
 
 ###LEVEL NO. 3
 #Templates to be changed later for individual pages.
@@ -94,6 +108,7 @@ def home():
 def home():
     return render_template('TemplateHTML/IndividualPages.html')
 
+
 #Enemy Nav.
 @app.route('/home/Enemies/Enemy/')
 @app.route('/home/enemies/enemy/')
@@ -102,6 +117,7 @@ def home():
 def home():
     return render_template('TemplateHTML/IndividualPages.html')
 
+
 #Character Nav.
 @app.route('/home/Characters/Character/')
 @app.route('/home/characters/character/')
@@ -109,6 +125,7 @@ def home():
 @app.route('/home/characters/Character/')
 def home():
     return render_template('TemplateHTML/IndividualPages.html')
+
 
 #Member Nav.
 @app.route('/home/Party-Members/Member/')
@@ -121,6 +138,7 @@ def home():
 @app.route('/home/partymembers/Member/')
 def home():
     return render_template('TemplateHTML/IndividualPages.html')
+
 
 #Class Nav.
 @app.route('/home/Classes/Class/')
