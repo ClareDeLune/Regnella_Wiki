@@ -11,44 +11,42 @@ app = Flask(__name__)
 def home():
     return render_template('TemplateHTML/Homepage.html')
 
-
 ###LEVEL NO. 2
 #PlotOverview Nav.
+@app.route('/home/PlotOverview')
 @app.route('/home/Plot-Overview')
 @app.route('/home/plot-overview')
 @app.route('/home/plotoverview')
-@app.route('/home/PlotOverview')
-def home():
+def plotOverview():
     return render_template('TemplateHTML/PlotOverview.html')
-
 
 #ForumPage Nav.
 @app.route('/home/Forum-Page')
 @app.route('/home/forum-page')
 @app.route('/home/forumpage')
 @app.route('/home/ForumPage')
-def home():
+def forumPage():
     return render_template('TemplateHTML/ForumPage.html')
 
 
 #SkillsPage Nav.
 @app.route('/home/Skills')
 @app.route('/home/skills')
-def home():
+def skillsPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
 #EnemiesPage Nav.
 @app.route('/home/Enemies')
 @app.route('/home/enemies')
-def home():
+def enemiesPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
 #CharactersPage Nav.
 @app.route('/home/Characters')
 @app.route('/home/characters')
-def home():
+def charactersPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
@@ -57,28 +55,28 @@ def home():
 @app.route('/home/party-members')
 @app.route('/home/PartyMembers')
 @app.route('/home/partymembers')
-def home():
+def partyMembers():
     return render_template('TemplateHTML/ListPages.html')
 
 
 #ClassesPage Nav.
 @app.route('/home/Classes')
 @app.route('/home/classes')
-def home():
+def classesPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
 #EquipmentPage Nav.
 @app.route('/home/Equipment')
 @app.route('/home/equipment')
-def home():
+def equipmentPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
 #LocationsPage Nav.
 @app.route('/home/Locations')
 @app.route('/home/locations')
-def home():
+def locPage():
     return render_template('TemplateHTML/ListPages.html')
 
 
@@ -87,17 +85,18 @@ def home():
 @app.route('/home/edits-log')
 @app.route('/home/editslog')
 @app.route('/home/EditsLog')
-def home():
+def editLog():
     return render_template('TemplateHTML/EditLogPage.html')
 
 
 #Credit&Contribution Nav.
 @app.route('/home/Credits')
 @app.route('/home/credits')
-def home():
+def credits():
     return render_template('TemplateHTML/CreditContributionPage.html')
 
-
+#TO WORK ON LATER!
+'''
 ###LEVEL NO. 3
 #Templates to be changed later for individual pages.
 #Skill Nav.
@@ -105,7 +104,7 @@ def home():
 @app.route('/home/skills/skill/')
 @app.route('/home/Skills/skill/')
 @app.route('/home/skills/Skill/')
-def home():
+def skill():
     return render_template('TemplateHTML/IndividualPages.html')
 
 
@@ -114,7 +113,7 @@ def home():
 @app.route('/home/enemies/enemy/')
 @app.route('/home/Enemies/enemy/')
 @app.route('/home/enemies/Enemy/')
-def home():
+def enemy():
     return render_template('TemplateHTML/IndividualPages.html')
 
 
@@ -123,7 +122,7 @@ def home():
 @app.route('/home/characters/character/')
 @app.route('/home/Characters/character/')
 @app.route('/home/characters/Character/')
-def home():
+def character():
     return render_template('TemplateHTML/IndividualPages.html')
 
 
@@ -136,7 +135,7 @@ def home():
 @app.route('/home/partymembers/member/')
 @app.route('/home/PartyMembers/member/')
 @app.route('/home/partymembers/Member/')
-def home():
+def partyMember():
     return render_template('TemplateHTML/IndividualPages.html')
 
 
@@ -145,9 +144,9 @@ def home():
 @app.route('/home/classes/class/')
 @app.route('/home/Classes/class/')
 @app.route('/home/classes/Class/')
-def home():
+def classFunc():
     return render_template('TemplateHTML/IndividualPages.html')
-
+'''
 
 ###Happy Ending :)
 if __name__ == "__main__":

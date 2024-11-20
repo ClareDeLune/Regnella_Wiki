@@ -1,5 +1,5 @@
 #Inherit design from globalElements.
-{% extends '../globalElementsTwo.html' %}
+{% extends '/globalElements.html' %}
 
 {% block title %}<h1>PLACEHOLDER List</h1>{% endblock title %}
 
@@ -10,7 +10,7 @@
     {% block indivTable %}
         <table>
             <tr>
-                <td><img src="sample.png" alt="Sample Image"></td>
+                <td><img src="/static/img/sample.png" alt="Sample Image"></td>
             </tr>
             <tr>
                 <td>Value1</td>
