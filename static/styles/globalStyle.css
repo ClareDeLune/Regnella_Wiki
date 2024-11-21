@@ -1,0 +1,25 @@
+body
+{
+    background-color: #EDD9A3 !important;
+    color: #00100B !important;
+    text-align: center !important;
+}
+
+.navbar
+{
+    background-color: #550527 !important;
+    color: #EDD9A3 !important;
+    align-content: center !important;
+}
+
+.nav-link
+{
+    color: #EDD9A3 !important;
+    font-weight: bolder !important;
+}
+
+#sectionTitle
+{
+    color: #283044 !important;
+    font-weight: bold !important;
+}

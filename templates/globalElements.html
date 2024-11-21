@@ -1,34 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+        <meta charset="utf-8">
+        <title>Regnella Wiki</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link href="{{ url_for('static', filename='styles/globalStyle.css') }}" rel="stylesheet">
 
-    <nav>
-        <ul>
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('forumPage') }}">Forum</a></li>
-            <li><a href="{{ url_for('plotOverview') }}">Plot</a></li>
-            <li><a href="{{ url_for('charactersPage') }}">Chara.</a></li>
-            <li><a href="{{ url_for('partyMembers') }}">Party</a></li>
-            <li><a href="{{ url_for('classesPage') }}">Class</a></li>
-            <li><a href="{{ url_for('skillsPage') }}">Skill</a></li>
-            <li><a href="{{ url_for('enemiesPage') }}">Enemy</a></li>
-            <li><a href="{{ url_for('equipmentPage') }}">Equip.</a></li>
-            <li><a href="{{ url_for('locPage') }}">Location</a></li>
-            <li><a href="{{ url_for('credits') }}">Credit</a></li>
-            <li><a href="{{ url_for('editLog') }}">Edits</a></li>
-        </ul>
-    </nav>
-</head>
-<body>
-    <header>
-        {% block header %}Header{% endblock header %}
-      </header>
-      <main>
-        {% block content %}<p>Main Body of Text</p>{% endblock content %}
-      </main>
-</body>
-<footer>
-    {% block footer %}Footer Text{% endblock footer %}
-    <button type="button">Edit</button>
-</footer>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('forumPage') }}">Forum</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('plotOverview') }}">Plot</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('charactersPage') }}">Chara.</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('partyMembers') }}">Party</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('classesPage') }}">Class</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('skillsPage') }}">Skill</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('enemiesPage') }}">Enemy</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('equipmentPage') }}">Equip.</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('locPage') }}">Location</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('credits') }}">Credit</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('editLog') }}">Edits</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                {% block header %}Header{% endblock header %}
+              </header>
+              <main>
+                {% block content %}<p>Main Body of Text</p>{% endblock content %}
+              </main>
+        </div>
+    </body>
+    <footer>
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            {% block footer %}Footer Text{% endblock footer %}
+            <button type="button">Edit</button>
+        </div>
+    </footer>
 </html>
