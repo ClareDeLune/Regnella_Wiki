@@ -1,12 +1,36 @@
-#Inherit design from IndividualPages.
-{% extends '../TemplateHTML\IndividualPages.html' %}
+{% extends '/TemplateHTML/IndividualPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Character</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h2 class="pageTitle">Character Name</h2>
+    <p>
+    An overview of who the character is, where you find them, and what they do.
+    </p>
+    <table>
+        <tr>
+            <th><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
+        </tr>
+        <tr>
+            <th>Forename</th>
+        </tr>
+        <tr>
+            <th>Surname</th>
+        </tr>
+        <tr>
+            <td>Type</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+        </tr>
+    </table>
+{% endblock header %}
+
+{% block content %}
+    <div class="individOverview">
+        <p>Long description of who the character is, their purpose, and what relevance they have to anything.<br>
+        Lots and lots of text that just goes on and on.
+        </p>
+    </div>
+{% endblock content %}
+

@@ -1,12 +1,205 @@
-#Inherit design from IndividualPages.
-{% extends '../TemplateHTML\IndividualPages.html' %}
+{% extends '/TemplateHTML/IndividualPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Class</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h2 class="pageTitle">Class Name</h2>
+    <p>
+    An overview of the class, its function, and who it belongs to.
+    </p>
+    <table>
+        <tr>
+            <th><img src="/static/img/DefaultClassImg.png" alt="Class Img" width="100" height="100"></th>
+        </tr>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <th>Owner(s)</th>
+        </tr>
+        <tr>
+            <td>MHP</td>
+            <td>MMP</td>
+        </tr>
+        <tr>
+            <td>ATK</td>
+            <td>DEF</td>
+        </tr>
+        <tr>
+            <td>MAT</td>
+            <td>MDF</td>
+        </tr>
+        <tr>
+            <td>AGI</td>
+            <td>LUK</td>
+        </tr>
+    </table>
+{% endblock header %}
+
+{% block content %}
+    <div class="individOverview">
+        <h2 class="sectionTitle">Overview:</h2>
+        <br>
+        <p>Overview of classes role.</p>
+        <br>
+    </div>
+        <div>
+            <h3 class="minorTitle">Base Stats:</h3>
+            <table>
+                <tr>
+                    <th>MHP:</th>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <th>MMP:</th>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <th>ATK:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>DEF:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>MAT:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>MDF:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>AGI:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>LUK:</th>
+                    <td>10</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3 class="minorTitle">Max Stats:</h3>
+            <table>
+                <tr>
+                    <th>MHP:</th>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <th>MMP:</th>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <th>ATK:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>DEF:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>MAT:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>MDF:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>AGI:</th>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <th>LUK:</th>
+                    <td>10</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3 class="minorTitle">Skills:</h3>
+            <table>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>Level</td>
+                </tr>
+            </table>
+        </div>
+{% endblock content %}

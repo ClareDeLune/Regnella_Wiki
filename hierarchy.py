@@ -95,17 +95,15 @@ def editLog():
 def credits():
     return render_template('PageHTML/creditAndContributions.html')
 
-#TO WORK ON LATER!
-'''
+
 ###LEVEL NO. 3
-#Templates to be changed later for individual pages.
 #Skill Nav.
 @app.route('/home/Skills/Skill/')
 @app.route('/home/skills/skill/')
 @app.route('/home/Skills/skill/')
 @app.route('/home/skills/Skill/')
 def skill():
-    return render_template('TemplateHTML/IndividualPages.html')
+    return render_template('PageHTML/individSkillPage.html')
 
 
 #Enemy Nav.
@@ -114,7 +112,7 @@ def skill():
 @app.route('/home/Enemies/enemy/')
 @app.route('/home/enemies/Enemy/')
 def enemy():
-    return render_template('TemplateHTML/IndividualPages.html')
+    return render_template('PageHTML/individEnemyPage.html')
 
 
 #Character Nav.
@@ -123,7 +121,7 @@ def enemy():
 @app.route('/home/Characters/character/')
 @app.route('/home/characters/Character/')
 def character():
-    return render_template('TemplateHTML/IndividualPages.html')
+    return render_template('PageHTML/individCharPage.html')
 
 
 #Member Nav.
@@ -136,7 +134,7 @@ def character():
 @app.route('/home/PartyMembers/member/')
 @app.route('/home/partymembers/Member/')
 def partyMember():
-    return render_template('TemplateHTML/IndividualPages.html')
+    return render_template('PageHTML/individPartyPage.html')
 
 
 #Class Nav.
@@ -145,7 +143,8 @@ def partyMember():
 @app.route('/home/Classes/class/')
 @app.route('/home/classes/Class/')
 def classFunc():
-    return render_template('TemplateHTML/IndividualPages.html')
+    return render_template('PageHTML/individClassPage.html')
+'''
 '''
 
 ###Happy Ending :)

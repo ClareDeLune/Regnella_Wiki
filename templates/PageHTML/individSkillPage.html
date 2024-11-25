@@ -1,12 +1,38 @@
-#Inherit design from IndividualPages.
-{% extends '../TemplateHTML\IndividualPages.html' %}
+{% extends '/TemplateHTML/IndividualPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Skill</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <h2 class="pageTitle">Skill Name</h2>
+    <p>
+    An overview of the skill, its general information, and who uses it.
+    </p>
+    <table>
+        <tr>
+            <th><img src="/static/img/DefaultLocImg.png" alt="Location Img" width="100" height="100"></th>
+        </tr>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr>
+            <td>Skill Type</td>
+        </tr>
+        <tr>
+            <td>Usage Type</td>
+        </tr>
+        <tr>
+            <td>Element</td>
+        </tr>
+        <tr>
+            <td>Users</td>
+        </tr>
+    </table>
+{% endblock header %}
+
+{% block content %}
+    <div class="individOverview">
+        <p>Long description of the skill and all its effects and uses.<br>
+            Rambles on about the skill for much longer than it deserves.
+        </p>
+    </div>
+{% endblock content %}
