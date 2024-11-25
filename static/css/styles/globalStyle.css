@@ -1,0 +1,88 @@
+body
+{
+    background-color: #EDD9A3 !important;
+    color: #00100B !important;
+    text-align: center !important;
+}
+
+.navbar
+{
+    background-color: #550527 !important;
+    color: #EDD9A3 !important;
+    align-content: center !important;
+}
+
+.nav-link
+{
+    color: #EDD9A3 !important;
+    font-weight: bolder !important;
+}
+
+.pageFooter
+{
+    padding-top: 90px !important;
+}
+
+.pageTitle
+{
+    color: #283044 !important;
+    padding-top: 60px !important;
+    padding-bottom: 30px !important;
+    font-weight: bold !important;
+}
+
+.leftImg
+{
+
+}
+
+.rightImg
+{
+    width: 45%;
+    height: auto;
+    float: right;
+    margin-right: 2%;
+}
+
+.leftImg
+{
+    width: 45%;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+}
+
+.sectionTitle
+{
+    color: #283044 !important;
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+    font-weight: bolder !important;
+}
+
+.Img
+{
+    padding: 50px !important;
+}
+
+.collapsible {
+    background-color: #283044;
+    color: #EDD9A3;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-weight: bolder;
+    outline: none;
+}
+
+.collapsible:hover {
+    background-color: #7785AC;
+}
+
+.content {
+    padding: 10px 20px;
+    display: none;
+    overflow: hidden;
+}

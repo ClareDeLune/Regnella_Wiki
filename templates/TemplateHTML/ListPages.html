@@ -1,9 +1,10 @@
 <!--Inherit design from globalElements.-->
 {% extends '/globalElements.html' %}
 
-{% block title %}<h1>PLACEHOLDER List</h1>{% endblock title %}
+{% block title %}<h1 class="pageTitle">PLACEHOLDER List</h1>{% endblock title %}
 
 {% block header %}
+    <h2 class="pageTitle">PLACEHOLDER List</h2>
     <p>
     An overview of the page and its purpose.
     </p>
@@ -12,7 +13,7 @@
 {% block content %}
     {% block collapsables %}
         <p>A Collapsible:</p>
-        <button type="button" class="collapsible">Collapsible</button>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
             <table>
                 <tr>
