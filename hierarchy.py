@@ -18,7 +18,7 @@ def home():
 @app.route('/home/plot-overview')
 @app.route('/home/plotoverview')
 def plotOverview():
-    return render_template('TemplateHTML/PlotOverview.html')
+    return render_template('PageHTML/plotSummary.html')
 
 #ForumPage Nav.
 @app.route('/home/Forum-Page')
@@ -26,28 +26,28 @@ def plotOverview():
 @app.route('/home/forumpage')
 @app.route('/home/ForumPage')
 def forumPage():
-    return render_template('TemplateHTML/ForumPage.html')
+    return render_template('PageHTML/forumPage.html')
 
 
 #SkillsPage Nav.
 @app.route('/home/Skills')
 @app.route('/home/skills')
 def skillsPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/skillList.html')
 
 
 #EnemiesPage Nav.
 @app.route('/home/Enemies')
 @app.route('/home/enemies')
 def enemiesPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/enemyList.html')
 
 
 #CharactersPage Nav.
 @app.route('/home/Characters')
 @app.route('/home/characters')
 def charactersPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/charList.html')
 
 
 #PartyMembersPage Nav.
@@ -56,28 +56,28 @@ def charactersPage():
 @app.route('/home/PartyMembers')
 @app.route('/home/partymembers')
 def partyMembers():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/partyList.html')
 
 
 #ClassesPage Nav.
 @app.route('/home/Classes')
 @app.route('/home/classes')
 def classesPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/classList.html')
 
 
 #EquipmentPage Nav.
 @app.route('/home/Equipment')
 @app.route('/home/equipment')
 def equipmentPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/equipList.html')
 
 
 #LocationsPage Nav.
 @app.route('/home/Locations')
 @app.route('/home/locations')
 def locPage():
-    return render_template('TemplateHTML/ListPages.html')
+    return render_template('PageHTML/locationList.html')
 
 
 #EditsPage Nav.
@@ -86,14 +86,14 @@ def locPage():
 @app.route('/home/editslog')
 @app.route('/home/EditsLog')
 def editLog():
-    return render_template('TemplateHTML/EditLogPage.html')
+    return render_template('PageHTML/editLog.html')
 
 
 #Credit&Contribution Nav.
 @app.route('/home/Credits')
 @app.route('/home/credits')
 def credits():
-    return render_template('TemplateHTML/CreditContributionPage.html')
+    return render_template('PageHTML/creditAndContributions.html')
 
 #TO WORK ON LATER!
 '''

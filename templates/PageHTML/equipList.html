@@ -1,12 +1,74 @@
-#Inherit design from ListPages.
-{% extends '../TemplateHTML\ListPage.html' %}
+{% extends '/TemplateHTML/ListPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Equipment</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <p>A listing of all weapons, armour, accessories, and spirits found in Boundary of Shade and Future.<br>
+    Click on the name of any piece of equipment for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    {% block collapsable %}
+        <p>Weapons:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                    <td>Value2</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable %}
+    {% block collapsable2 %}
+        <p>Armour:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Slot</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                    <td>Value2</td>
+                    <td>Value3</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable2 %}
+    {% block collapsable3 %}
+        <p>Accessory:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable3 %}
+    {% block collapsable4 %}
+        <p>Spirit:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable4 %}
+{% endblock content %}

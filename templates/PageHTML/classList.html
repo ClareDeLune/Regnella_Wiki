@@ -1,12 +1,22 @@
-#Inherit design from ListPages.
-{% extends '../TemplateHTML\ListPage.html' %}
+{% extends '/TemplateHTML/ListPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Classes</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <p>A listing of all playable characters' classes found in Boundary of Shade and Future.<br>
+    Click on the name of any class for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Character</th>
+        </tr>
+        <tr>
+            <td>Value1</td>
+            <td>Value2</td>
+        </tr>
+    </table>
+{% endblock content %}

@@ -1,12 +1,44 @@
-#Inherit design from ListPages.
-{% extends '../TemplateHTML\ListPage.html' %}
+{% extends '/TemplateHTML/ListPages.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block title %}<h1>Skills</h1>{% endblock title %}
 
-</body>
-</html>
+{% block header %}
+    <p>A listing of all skills found in Boundary of Shade and Future for allies and enemies alike.<br>
+    Click on the name of any skill for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    {% block collapsable %}
+        <p>Player Skills:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Desc.</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Desc.</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable %}
+    {% block collapsable2 %}
+        <p>Enemy Skills:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Column1</th>
+                    <th>Column2</th>
+                </tr>
+                <tr>
+                    <td>Value1</td>
+                    <td>Value2</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable2 %}
+{% endblock content %}
