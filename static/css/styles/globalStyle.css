@@ -31,11 +31,6 @@ body
     font-weight: bold !important;
 }
 
-.leftImg
-{
-
-}
-
 .rightImg
 {
     width: 45%;
@@ -50,6 +45,18 @@ body
     height: auto;
     float: left;
     margin-left: 2%;
+}
+
+.rightAlign
+{
+    float: right;
+    margin-right: 20px;
+}
+
+.leftAlign
+{
+    float: left;
+    margin-left: 20px;
 }
 
 .sectionTitle
@@ -85,4 +92,20 @@ body
     padding: 10px 20px;
     display: none;
     overflow: hidden;
+}
+
+.headerTable {
+    color: #00100B !important;
+    background-color: #F1E4E8 !important;
+}
+
+.bodyTable {
+    color: #00100B !important;
+    background-color: #F1E4E8 !important;
+}
+
+
+
+.stripedRow:nth-child(even) {
+    background-color: #A4B0F5 !important;
 }
