@@ -1,4 +1,3 @@
-<!--Inherit design from globalElements.-->
 {% extends '/globalElements.html' %}
 
 {% block title %}<h1 class="pageTitle">PLACEHOLDER List</h1>{% endblock title %}
@@ -8,19 +7,19 @@
     A quick description of the individual item being discussed.
     </p>
     {% block indivTable %}
-        <table>
+        <table class="bodyTable">
             <tr>
-                <td><img src="/static/img/sample.png" alt="Sample Image"></td>
+                <td class="bodyRow"><img src="/static/img/sample.png" alt="Sample Image"></td>
             </tr>
             <tr>
-                <td>Value1</td>
+                <td class="bodyRow">Value1</td>
             </tr>
             <tr>
-                <td>Value2</td>
+                <td class="bodyRow">Value2</td>
             </tr>
             <tr>
-                <td>Value3</td>
-                <td>Value4</td>
+                <td class="bodyRow">Value3</td>
+                <td class="bodyRow">Value4</td>
             </tr>
         </table>
     {% endblock indivTable %}

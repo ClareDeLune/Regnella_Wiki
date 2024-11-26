@@ -3,6 +3,8 @@
 {% block title %}<h1>Characters</h1>{% endblock title %}
 
 {% block header %}
+    <h2 class="pageTitle">Characters List:</h2>
+    <br>
     <p>A listing of all characters, both ally and foe, found in Boundary of Shade and Future.<br>
     Click on the name of any character for more information.</p>
 {% endblock header %}
@@ -10,49 +12,49 @@
 <br>
 {% block content %}
     {% block collapsable %}
-        <p>Playable:</p>
+        <h4 class="dropdownHeader">Playable:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
-        <div class="content">
-            <table>
+        <div class="content centerAlign">
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Location</th>
+                    <th class="bodyRow">Name</th>
+                    <th class="bodyRow">Location</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
-                    <td>Value2</td>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
                 </tr>
             </table>
         </div>
     {% endblock collapsable %}
     {% block collapsable2 %}
-        <p>Enemy:</p>
+        <h4 class="dropdownHeader">Enemy:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
-        <div class="content">
-            <table>
+        <div class="content centerAlign">
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Location</th>
+                    <th class="bodyRow">Name</th>
+                    <th class="bodyRow">Location</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
-                    <td>Value2</td>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
                 </tr>
             </table>
         </div>
     {% endblock collapsable2 %}
     {% block collapsable3 %}
-        <p>NPC:</p>
+        <h4 class="dropdownHeader">NPC:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
-        <div class="content">
-            <table>
+        <div class="content centerAlign">
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Location</th>
+                    <th class="bodyRow">Name</th>
+                    <th class="bodyRow">Location</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
-                    <td>Value2</td>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
                 </tr>
             </table>
         </div>

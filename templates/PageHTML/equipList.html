@@ -3,6 +3,8 @@
 {% block title %}<h1>Equipment</h1>{% endblock title %}
 
 {% block header %}
+    <h2 class="pageTitle">Equipment List:</h2>
+    <br>
     <p>A listing of all weapons, armour, accessories, and spirits found in Boundary of Shade and Future.<br>
     Click on the name of any piece of equipment for more information.</p>
 {% endblock header %}
@@ -10,63 +12,63 @@
 <br>
 {% block content %}
     {% block collapsable %}
-        <p>Weapons:</p>
+        <h4 class="dropdownHeader">Weapons:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table>
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
+                    <th class="bodyRow">Name</th>
+                    <th class="bodyRow">Type</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
-                    <td>Value2</td>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
                 </tr>
             </table>
         </div>
     {% endblock collapsable %}
     {% block collapsable2 %}
-        <p>Armour:</p>
+        <h4 class="dropdownHeader">Armour:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table>
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Slot</th>
+                    <th class="bodyRow">Name</th>
+                    <th class="bodyRow">Type</th>
+                    <th class="bodyRow">Slot</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
-                    <td>Value2</td>
-                    <td>Value3</td>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
+                    <td class="bodyRow">Value3</td>
                 </tr>
             </table>
         </div>
     {% endblock collapsable2 %}
     {% block collapsable3 %}
-        <p>Accessory:</p>
+        <h4 class="dropdownHeader">Accessory:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table>
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
+                    <th class="bodyRow">Name</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
+                    <td class="bodyRow">Value1</td>
                 </tr>
             </table>
         </div>
     {% endblock collapsable3 %}
     {% block collapsable4 %}
-        <p>Spirit:</p>
+        <h4 class="dropdownHeader">Spirit:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table>
+            <table class="bodyTable">
                 <tr>
-                    <th>Name</th>
+                    <th class="bodyRow">Name</th>
                 </tr>
                 <tr>
-                    <td>Value1</td>
+                    <td class="bodyRow">Value1</td>
                 </tr>
             </table>
         </div>

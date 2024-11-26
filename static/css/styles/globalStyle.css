@@ -31,6 +31,15 @@ body
     font-weight: bold !important;
 }
 
+.dropdownHeader
+{
+    color: #220901 !important;
+    padding-top: 30px !important;
+    padding-bottom: 15px !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+}
+
 .rightImg
 {
     width: 45%;
@@ -59,6 +68,12 @@ body
     margin-left: 20px;
 }
 
+.centerAlign
+{
+    align-items: center;
+    justify-content: center;
+}
+
 .sectionTitle
 {
     color: #283044 !important;
@@ -72,7 +87,8 @@ body
     padding: 50px !important;
 }
 
-.collapsible {
+.collapsible
+{
     background-color: #283044;
     color: #EDD9A3;
     cursor: pointer;
@@ -84,28 +100,60 @@ body
     outline: none;
 }
 
-.collapsible:hover {
+.collapsible:hover
+{
     background-color: #7785AC;
 }
 
-.content {
+.content
+{
     padding: 10px 20px;
     display: none;
     overflow: hidden;
 }
 
-.headerTable {
+.headerTable
+{
     color: #00100B !important;
     background-color: #F1E4E8 !important;
+    border: 1px solid #00100B !important;
+    border-collapse: collapse !important;
 }
 
-.bodyTable {
+.bodyTable
+{
     color: #00100B !important;
     background-color: #F1E4E8 !important;
+    border: 1px groove #00100B !important;
+    border-collapse: collapse !important;
 }
 
+.headerRow
+{
+    text-align: center;
+    width: 20%;
+    border: 1px solid #00100B !important;
+    border-collapse: collapse !important;
+}
 
+.bodyRow
+{
+    text-align: center;
+    width: 20%;
+    border: 1px groove #00100B !important;
+    border-collapse: collapse !important;
+}
 
-.stripedRow:nth-child(even) {
+.stripedRow:nth-child
+{
     background-color: #A4B0F5 !important;
+}
+
+#editButton
+{
+    margin: 0 40px;
+    width: 10%;
+    height: auto;
+    background-color: #7F675B;
+    color: #220901;
 }
