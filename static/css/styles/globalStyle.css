@@ -42,18 +42,14 @@ body
 
 .rightImg
 {
-    width: 45%;
-    height: auto;
     float: right;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 
 .leftImg
 {
-    width: 45%;
-    height: auto;
     float: left;
-    margin-left: 2%;
+    margin-left: 3%;
 }
 
 .rightAlign

@@ -1,5 +1,6 @@
 <!--Inherit design from globalElements.-->
 {% extends '/globalElements.html' %}
+<link href="{{ url_for('static', filename='css/styles/homepageStyle.css') }}" rel="stylesheet">
 
 {% block title %}<h1>Homepage</h1>{% endblock title %}
 
@@ -16,42 +17,42 @@
 <br>
 {% block content %}
     <a href="{{ url_for('charactersPage') }}">
-        <img src="/static/img/CharPage.png" alt="Link to Characters List" class="leftImg">
+        <img src="/static/img/CharPage.png" alt="Link to Characters List" class="leftTile">
     </a>
     <a href="{{ url_for('enemiesPage') }}">
-        <img src="/static/img/EnemyPage.png" alt="Link to Enemies List" class="rightImg">
+        <img src="/static/img/EnemyPage.png" alt="Link to Enemies List" class="rightTile">
     </a>
     <br>
     <a href="{{ url_for('partyMembers') }}">
-        <img src="/static/img/PartyPage.png" alt="Link to Party Members List" class="leftImg">
+        <img src="/static/img/PartyPage.png" alt="Link to Party Members List" class="leftTile">
     </a>
     <a href="{{ url_for('skillsPage') }}">
-        <img src="/static/img/SkillPage.png" alt="Link to Skills List" class="rightImg">
+        <img src="/static/img/SkillPage.png" alt="Link to Skills List" class="rightTile">
     </a>
     <br>
     <a href="{{ url_for('classesPage') }}">
-        <img src="/static/img/ClassPage.png" alt="Link to Classes List" class="leftImg">
+        <img src="/static/img/ClassPage.png" alt="Link to Classes List" class="leftTile">
     </a>
     <a href="{{ url_for('locPage') }}">
-        <img src="/static/img/LocPage.png" alt="Link to Locations List" class="rightImg">
+        <img src="/static/img/LocPage.png" alt="Link to Locations List" class="rightTile">
     </a>
     <br>
     <a href="{{ url_for('equipmentPage') }}">
-        <img src="/static/img/EquipPage.png" alt="Link to Equipment List" class="leftImg">
+        <img src="/static/img/EquipPage.png" alt="Link to Equipment List" class="leftTile">
     </a>
     <a href="{{ url_for('plotOverview') }}">
-        <img src="/static/img/PlotPage.png" alt="Link to Plot Overview" class="rightImg">
+        <img src="/static/img/PlotPage.png" alt="Link to Plot Overview" class="rightTile">
     </a>
     <br>
     <a href="{{ url_for('forumPage') }}">
-        <img src="/static/img/ForumPage.png" alt="Link to Wiki Forum" class="leftImg">
+        <img src="/static/img/ForumPage.png" alt="Link to Wiki Forum" class="leftTile">
     </a>
     <a href="{{ url_for('credits') }}">
-        <img src="/static/img/CreditPage.png" alt="Link to Credits and Contributions Page" class="rightImg">
+        <img src="/static/img/CreditPage.png" alt="Link to Credits and Contributions Page" class="rightTile">
     </a>
     <br>
     <a href="{{ url_for('editLog') }}">
-        <img src="/static/img/ELogPage.png" alt="Link to Edits Log" width="820" height="726">
+        <img src="/static/img/ELogPage.png" alt="Link to Edits Log" class="centerTile">
     </a>
     <br>
     <br>

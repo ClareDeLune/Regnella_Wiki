@@ -1,0 +1,23 @@
+.rightTile
+{
+    width: 45% !important;
+    height: auto !important;
+    float: right !important;
+    margin-right: 2% !important;
+}
+
+.leftTile
+{
+    width: 45% !important;
+    height: auto !important;
+    float: left !important;
+    margin-left: 2% !important;
+}
+
+.centerTile
+{
+    width: 90% !important;
+    height: auto !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+}
