@@ -3,33 +3,32 @@
 {% block title %}<h1>Location</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">Location</h2>
+    <h2 class="pageTitle">{{ location.name }}</h2>
     <p>
-    An overview of the location, which act it first appears in, and anything super interesting about it.
+    {{ location.overview }}
     </p>
     <table class="table table-bordered">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultLocImg.png" alt="Location Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <td class="bodyRow">Full Name</td>
+            <td class="bodyRow">{{ location.name }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">Act</td>
+            <td class="bodyRow">{{ location.act }}</td>
         </tr>
         <tr>
-            <th class="bodyRow">Connections:</th>
+            <th class="bodyRow">{{ location.type }}</th>
         </tr>
         <tr>
-            <td class="bodyRow">Connections List</td>
+            <td class="bodyRow">{{ location.connect }}</td>
         </tr>
     </table>
 {% endblock header %}
 
 {% block content %}
     <div class="individOverview">
-        <p>Long description of the location and its deep, interesting law.<br>
-            Rambles on about the characters there and what relevance it has to the plot.
+        <p>{{ location.desc }}
         </p>
     </div>
 {% endblock content %}

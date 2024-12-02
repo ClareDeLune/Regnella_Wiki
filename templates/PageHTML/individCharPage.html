@@ -3,42 +3,41 @@
 {% block title %}<h1>Character</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">Character Name</h2>
+    <h2 class="pageTitle">{{ character.name }}</h2>
     <p>
-    An overview of who the character is, where you find them, and what they do.
+    {{ character.overview }}
     </p>
     <table class="headerTable">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{  character.firstName }}</th>
+            <th class="bodyRow">{{ character.firstName }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{  character.lastName }}</th>
+            <th class="bodyRow">{{ character.lastName }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{  character.age }}</th>
+            <th class="bodyRow">{{ character.age }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{  character.race }}</th>
+            <th class="bodyRow">{{ character.race }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{  character.family }}</th>
+            <th class="bodyRow">{{ character.family }}</th>
         </tr>
         <tr>
-            <td class="bodyRow">{{  character.type }}</td>
+            <td class="bodyRow">{{ character.type }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{  character.location }}</td>
+            <td class="bodyRow">{{ character.location }}</td>
         </tr>
     </table>
 {% endblock header %}
 
 {% block content %}
     <div class="individOverview">
-        <p>Long description of who the character is, their purpose, and what relevance they have to anything.<br>
-        Lots and lots of text that just goes on and on.
+        <p>{{ character.desc }}
         </p>
     </div>
 {% endblock content %}

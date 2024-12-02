@@ -100,19 +100,18 @@ def credits():
 
 ###LEVEL NO. 3
 #Skill Nav.
-@app.route('/home/Skills/Skill/')
-@app.route('/home/skills/skill/')
-@app.route('/home/Skills/skill/')
-@app.route('/home/skills/Skill/')
-def skill():
-    return render_template('PageHTML/individSkillPage.html')
+@app.route('/home/Skills/Skill/<name>')
+@app.route('/home/skills/skill/<name>')
+def skill(name=None):
+    id = name
+    accessSkill(name)
 
 
 #Enemy Nav.
 @app.route('/home/Enemies/<name>')
 def enemy(name=None):
     id = name
-    accessChar(name)
+    accessEnemy(name)
 
 
 #Character Nav.
@@ -123,25 +122,29 @@ def character(name=None):
     accessChar(name)
 
 #Member Nav.
-@app.route('/home/Party-Members/Member/')
-@app.route('/home/party-members/member/')
-@app.route('/home/Party-Members/member/')
-@app.route('/home/party-members/Member/')
-@app.route('/home/PartyMembers/Member/')
-@app.route('/home/partymembers/member/')
-@app.route('/home/PartyMembers/member/')
-@app.route('/home/partymembers/Member/')
-def partyMember():
-    return render_template('PageHTML/individPartyPage.html')
+@app.route('/home/Party-Members/<name>')
+@app.route('/home/party-members/<name>')
+@app.route('/home/PartyMembers/<name>')
+@app.route('/home/partymembers/<name>')
+def partyMember(name=None):
+    id = name
+    accessMember(name)
 
 
 #Class Nav.
-@app.route('/home/Classes/Class/')
-@app.route('/home/classes/class/')
-@app.route('/home/Classes/class/')
-@app.route('/home/classes/Class/')
-def classFunc():
-    return render_template('PageHTML/individClassPage.html')
+@app.route('/home/Classes/<name>')
+@app.route('/home/classes/<name>>')
+def classFunc(name=None):
+    id = name
+    accessClass(name)
+
+
+#Location Nav.
+@app.route('/home/Locations/<name>')
+@app.route('/home/locations/<name>>')
+def locationFunc(name=None):
+    id = name
+    accessLocation(name)
 '''
 '''
 
