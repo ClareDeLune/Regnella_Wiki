@@ -1,5 +1,7 @@
 ###Set-Up
-from flask import Flask, render_template
+from flask import Flask, render_template, g
+import sqlite3
+from python.databaseFunctions import *
 
 app = Flask(__name__)
 
@@ -107,22 +109,18 @@ def skill():
 
 
 #Enemy Nav.
-@app.route('/home/Enemies/Enemy/')
-@app.route('/home/enemies/enemy/')
-@app.route('/home/Enemies/enemy/')
-@app.route('/home/enemies/Enemy/')
-def enemy():
-    return render_template('PageHTML/individEnemyPage.html')
+@app.route('/home/Enemies/<name>')
+def enemy(name=None):
+    id = name
+    accessChar(name)
 
 
 #Character Nav.
-@app.route('/home/Characters/Character/')
-@app.route('/home/characters/character/')
-@app.route('/home/Characters/character/')
-@app.route('/home/characters/Character/')
-def character():
-    return render_template('PageHTML/individCharPage.html')
-
+@app.route('/home/Characters/<name>')
+@app.route('/home/characters/<name>')
+def character(name=None):
+    id = name
+    accessChar(name)
 
 #Member Nav.
 @app.route('/home/Party-Members/Member/')

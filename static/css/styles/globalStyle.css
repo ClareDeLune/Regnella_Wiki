@@ -110,6 +110,7 @@ body
 
 .headerTable
 {
+    margin: 0 auto !important;
     color: #00100B !important;
     background-color: #F1E4E8 !important;
     border: 1px solid #00100B !important;
@@ -118,6 +119,7 @@ body
 
 .bodyTable
 {
+    margin: 0 auto !important;
     color: #00100B !important;
     background-color: #F1E4E8 !important;
     border: 1px groove #00100B !important;
@@ -126,16 +128,16 @@ body
 
 .headerRow
 {
-    text-align: center;
-    width: 20%;
+    text-align: center !important;;
+    width: 20% !important;;
     border: 1px solid #00100B !important;
     border-collapse: collapse !important;
 }
 
 .bodyRow
 {
-    text-align: center;
-    width: 20%;
+    text-align: center !important;;
+    width: 20% !important;;
     border: 1px groove #00100B !important;
     border-collapse: collapse !important;
 }
