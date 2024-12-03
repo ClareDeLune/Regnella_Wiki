@@ -6,14 +6,13 @@ app = Flask(__name__)
 
 
 def openDatabase():
-    def create_database():
-        base = os.path.abspath(os.path.dirname(__name__))
-        db_location = base + "\database\RegnellaDB.db"
-        database = getattr(g, 'database', None)
-        if database is None:
-            database = sqlite3.connect(db_location)
-            g.database = database
-        return database
+    base = os.path.abspath(os.path.dirname(__name__))
+    db_location = base + "\database\RegnellaDB.db"
+    database = getattr(g, 'database', None)
+    if database is None:
+        database = sqlite3.connect(db_location)
+        g.database = database
+    return database
 
 def closeDatabase(exception):
     database = getattr(g, 'database' , None )
