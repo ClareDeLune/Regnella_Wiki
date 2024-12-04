@@ -98,18 +98,17 @@ def credits():
 
 ###LEVEL NO. 3
 #Skill Nav.
-@app.route('/home/Skills/Skill/<name>')
-@app.route('/home/skills/skill/<name>')
+@app.route('/home/Skills/<name>')
+@app.route('/home/skills/<name>')
 def skill(name=None):
     sName = name
-    accessSkill(name)
-
+    return accessSkill(name)
 
 #Enemy Nav.
 @app.route('/home/Enemies/<name>')
 def enemy(name=None):
     sName = name
-    accessEnemy(name)
+    return accessEnemy(name)
 
 
 #Character Nav.
@@ -126,7 +125,7 @@ def character(name=None):
 @app.route('/home/partymembers/<name>')
 def partyMember(name=None):
     sName = name
-    accessMember(name)
+    return accessMember(name)
 
 
 #Class Nav.
@@ -134,7 +133,7 @@ def partyMember(name=None):
 @app.route('/home/classes/<name>>')
 def classFunc(name=None):
     sName = name
-    accessClass(name)
+    return accessClass(name)
 
 
 #Location Nav.
@@ -142,7 +141,7 @@ def classFunc(name=None):
 @app.route('/home/locations/<name>>')
 def locationFunc(name=None):
     sName = name
-    accessLocation(name)
+    return accessLocation(name)
 '''
 '''
 

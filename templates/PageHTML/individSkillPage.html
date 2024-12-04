@@ -3,32 +3,32 @@
 {% block title %}<h1>Skill</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">{{ skill.name }}</h2>
+    <h2 class="pageTitle">{{ name }}</h2>
     <p>
-    {{ skill.overview }}
+    {{ overview }}
     </p>
     <table class="table table-bordered">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultLocImg.png" alt="Location Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ skill.name }}</th>
+            <th class="bodyRow">{{ name }}</th>
         </tr>
         <tr>
-            <td class="bodyRow">{{ skill.type }}</td>
+            <td class="bodyRow">{{ type }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ skill.usage }}</td>
+            <td class="bodyRow">{{ usage }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ skill.element }}</td>
+            <td class="bodyRow">{{ element }}</td>
         </tr>
     </table>
 {% endblock header %}
 
 {% block content %}
     <div class="individOverview">
-        <p>{{ skill.desc }}
+        <p>{{ description }}
         </p>
     </div>
 {% endblock content %}
