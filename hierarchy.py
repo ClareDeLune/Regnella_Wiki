@@ -119,7 +119,7 @@ def enemy(name=None):
 @app.route('/home/characters/<name>')
 def character(name=None):
     sName = name
-    accessChar(sName)
+    return accessChar(sName)
 
 #Member Nav.
 @app.route('/home/Party-Members/<name>')
