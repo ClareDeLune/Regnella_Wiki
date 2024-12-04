@@ -103,14 +103,14 @@ def credits():
 @app.route('/home/Skills/Skill/<name>')
 @app.route('/home/skills/skill/<name>')
 def skill(name=None):
-    id = name
+    sName = name
     accessSkill(name)
 
 
 #Enemy Nav.
 @app.route('/home/Enemies/<name>')
 def enemy(name=None):
-    id = name
+    sName = name
     accessEnemy(name)
 
 
@@ -118,8 +118,8 @@ def enemy(name=None):
 @app.route('/home/Characters/<name>')
 @app.route('/home/characters/<name>')
 def character(name=None):
-    id = name
-    accessChar(name)
+    sName = name
+    accessChar(sName)
 
 #Member Nav.
 @app.route('/home/Party-Members/<name>')
@@ -127,7 +127,7 @@ def character(name=None):
 @app.route('/home/PartyMembers/<name>')
 @app.route('/home/partymembers/<name>')
 def partyMember(name=None):
-    id = name
+    sName = name
     accessMember(name)
 
 
@@ -135,7 +135,7 @@ def partyMember(name=None):
 @app.route('/home/Classes/<name>')
 @app.route('/home/classes/<name>>')
 def classFunc(name=None):
-    id = name
+    sName = name
     accessClass(name)
 
 
@@ -143,7 +143,7 @@ def classFunc(name=None):
 @app.route('/home/Locations/<name>')
 @app.route('/home/locations/<name>>')
 def locationFunc(name=None):
-    id = name
+    sName = name
     accessLocation(name)
 '''
 '''

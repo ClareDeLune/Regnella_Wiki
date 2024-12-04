@@ -25,12 +25,13 @@ def accessChar(name):
     dbc = db.cursor()
 
     data = []
-    sql = "SELECT * FROM characters WHERE characters.FirstName = (%name)", name
-    for column in db.cursor().execute(sql):
-            data.append(str(column))
-
-    character = {"firstName": data[0], "lastName": data[1], "age": data[2], "race": data[3], "family": data[4], "type": data[5], "location": data[6]}
-    return render_template('PageHTML/individCharPage.html', character=character)
+    sql = "SELECT * FROM characters WHERE characters.FirstName = ?"
+    args = [name]
+    for row in db.cursor().execute(sql, args):
+            data.append(str(row))
+    print(data)
+    character = {"firstName": data[1], "lastName": data[2], "age": data[3], "race": data[4], "family": data[5], "type": data[6], "location": data[6], "overview": data[7], "description": data[8]}
+    return render_template('PageHTML/individCharPage.html', firstName = character["firstName"], lastName = character["lastName"], age = character["age"], race = character["race"], family = character["family"], type = character["type"], location = character["location"], overview = character["overview"], description = character["description"],)
 
 
 

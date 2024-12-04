@@ -3,41 +3,41 @@
 {% block title %}<h1>Character</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">{{ character.name }}</h2>
+    <h2 class="pageTitle">{{ name }}</h2>
     <p>
-    {{ character.overview }}
+    {{ overview }}
     </p>
     <table class="headerTable">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ character.firstName }}</th>
+            <th class="bodyRow">{{ firstName }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ character.lastName }}</th>
+            <th class="bodyRow">{{ lastName }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ character.age }}</th>
+            <th class="bodyRow">{{ age }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ character.race }}</th>
+            <th class="bodyRow">{{ race }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ character.family }}</th>
+            <th class="bodyRow">{{ family }}</th>
         </tr>
         <tr>
-            <td class="bodyRow">{{ character.type }}</td>
+            <td class="bodyRow">{{ type }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ character.location }}</td>
+            <td class="bodyRow">{{ location }}</td>
         </tr>
     </table>
 {% endblock header %}
 
 {% block content %}
     <div class="individOverview">
-        <p>{{ character.desc }}
+        <p>{{ desc }}
         </p>
     </div>
 {% endblock content %}
