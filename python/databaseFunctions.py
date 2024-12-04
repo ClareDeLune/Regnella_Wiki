@@ -1,6 +1,5 @@
 ###Set-Up
-from flask import Flask, render_template, g
-import sqlite3, os
+from python.globalFunctions import *
 
 app = Flask(__name__)
 
@@ -36,8 +35,7 @@ def accessChar(name):
     print(isNull)
     print("\n")
     if isNull:
-        print("Page not found!\nSome sort of error page should appear here.")
-        return render_template('TemplateHTML/Homepage.html')
+        return accessPageNotFound()
     else:
         character = {"name": data[1] + " " + data[2], "firstName": data[1], "lastName": data[2], "age": data[3], "race": data[4], "family": data[5], "type": data[6], "location": data[7], "overview": data[8], "description": data[9]}
         print(character)

@@ -1,7 +1,5 @@
 ###Set-Up
-from flask import Flask, render_template, g
-import sqlite3
-from python.databaseFunctions import *
+from python.globalFunctions import *
 
 app = Flask(__name__)
 
