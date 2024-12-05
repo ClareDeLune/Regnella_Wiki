@@ -3,38 +3,38 @@
 {% block title %}<h1>Party Member</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">{{ member.name }}</h2>
+    <h2 class="pageTitle">{{ name }}</h2>
     <p>
-    {{ member.overview }}
+    {{ overview }}
     </p>
     <table class="table table-bordered">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ member.name }}</th>
+            <th class="bodyRow">{{ name }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ member.class }}</th>
+            <th class="bodyRow">{{ class }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ member.level }}</th>
+            <th class="bodyRow">{{ level }}</th>
         </tr>
         <tr>
-            <td class="bodyRow">MHP: {{ member.MHP }}</td>
-            <td class="bodyRow">MMP: {{ member.MMP }}</td>
+            <td class="bodyRow">MHP: {{ MHP }}</td>
+            <td class="bodyRow">MMP: {{ MMP }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">ATK: {{ member.ATK }}</td>
-            <td class="bodyRow">DEF: {{ member.DEF }}</td>
+            <td class="bodyRow">ATK: {{ ATK }}</td>
+            <td class="bodyRow">DEF: {{ DEF }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">MAT: {{ member.MAT }}</td>
-            <td class="bodyRow">MDF: {{ member.MDF }}</td>
+            <td class="bodyRow">MAT: {{ MAT }}</td>
+            <td class="bodyRow">MDF: {{ MDF }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">AGI: {{ member.AGI }}</td>
-            <td class="bodyRow">LUK: {{ member.LUK }}</td>
+            <td class="bodyRow">AGI: {{ AGI }}</td>
+            <td class="bodyRow">LUK: {{ LUK }}</td>
         </tr>
     </table>
 {% endblock header %}
@@ -43,7 +43,7 @@
     <div class="individOverview">
         <h2 class="sectionTitle">Overview:</h2>
         <br>
-        <p>{{ member.desc }}</p>
+        <p>{{ description }}</p>
         <br>
     </div>
         <div>
@@ -51,35 +51,35 @@
             <table class="table table-bordered">
                 <tr>
                     <th class="bodyRow">MHP:</th>
-                    <td class="bodyRow">{{ member.MHP }}</td>
+                    <td class="bodyRow">{{ MHP }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MMP:</th>
-                    <td class="bodyRow">{{ member.MMP }}</td>
+                    <td class="bodyRow">{{ MMP }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">ATK:</th>
-                    <td class="bodyRow">{{ member.ATK }}</td>
+                    <td class="bodyRow">{{ ATK }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">DEF:</th>
-                    <td class="bodyRow">{{ member.DEF }}</td>
+                    <td class="bodyRow">{{ DEF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MAT:</th>
-                    <td class="bodyRow">{{ member.MAT }}</td>
+                    <td class="bodyRow">{{ MAT }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MDF:</th>
-                    <td class="bodyRow">{{ member.MDF }}</td>
+                    <td class="bodyRow">{{ MDF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">AGI:</th>
-                    <td class="bodyRow">{{ member.AGI }}</td>
+                    <td class="bodyRow">{{ AGI }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">LUK:</th>
-                    <td class="bodyRow">{{ member.LUK }}</td>
+                    <td class="bodyRow">{{ LUK }}</td>
                 </tr>
             </table>
         </div>
@@ -88,35 +88,35 @@
             <table class="table table-bordered">
                 <tr>
                     <th class="bodyRow">MHP:</th>
-                    <td class="bodyRow">{{ member.MaxMHP }}</td>
+                    <td class="bodyRow">{{ MaxMHP }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MMP:</th>
-                    <td class="bodyRow">{{ member.MaxMMP }}</td>
+                    <td class="bodyRow">{{ MaxMMP }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">ATK:</th>
-                    <td class="bodyRow">{{ member.MaxATK }}</td>
+                    <td class="bodyRow">{{ MaxATK }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">DEF:</th>
-                    <td class="bodyRow">{{ member.MaxDEF }}</td>
+                    <td class="bodyRow">{{ MaxDEF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MAT:</th>
-                    <td class="bodyRow">{{ member.MaxMAT }}</td>
+                    <td class="bodyRow">{{ MaxMAT }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MDF:</th>
-                    <td class="bodyRow">{{ member.MaxMDF }}</td>
+                    <td class="bodyRow">{{ MaxMDF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">AGI:</th>
-                    <td class="bodyRow">{{ member.MaxAGI }}</td>
+                    <td class="bodyRow">{{ MaxAGI }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">LUK:</th>
-                    <td class="bodyRow">{{ member.MaxLUK }}</td>
+                    <td class="bodyRow">{{ MaxLUK }}</td>
                 </tr>
             </table>
         </div>
@@ -258,24 +258,24 @@
                     <th class="bodyRow">Options:</th>
                 </tr>
                 <tr>
-                    <td class="bodyRow">{{ member.support1N }}</td>
-                    <td class="bodyRow">{{ member.support1L }}</td>
+                    <td class="bodyRow">{{ support1N }}</td>
+                    <td class="bodyRow">{{ support1L }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">{{ member.support2N }}</td>
-                    <td class="bodyRow">{{ member.support2L }}</td>
+                    <td class="bodyRow">{{ support2N }}</td>
+                    <td class="bodyRow">{{ support2L }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">{{ member.support3N }}</td>
-                    <td class="bodyRow">{{ member.support3L }}</td>
+                    <td class="bodyRow">{{ support3N }}</td>
+                    <td class="bodyRow">{{ support3L }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">{{ member.support4N }}</td>
-                    <td class="bodyRow">{{ member.support4L }}</td>
+                    <td class="bodyRow">{{ support4N }}</td>
+                    <td class="bodyRow">{{ support4L }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">{{ member.support5N }}</td>
-                    <td class="bodyRow">{{ member.support5L }}</td>
+                    <td class="bodyRow">{{ support5N }}</td>
+                    <td class="bodyRow">{{ support5L }}</td>
                 </tr>
             </table>
         </div>

@@ -3,19 +3,19 @@
 {% block title %}<h1>Enemy</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">{{ enemy.name }}</h2>
+    <h2 class="pageTitle">{{ name }}</h2>
     <p>
-    {{ enemy.overview }}
+    {{ overview }}
     </p>
     <table class="bodyTable">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Class Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ enemy.name }}</th>
+            <th class="bodyRow">{{ name }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ enemy.act }}</th>
+            <th class="bodyRow">{{ act }}</th>
         </tr>
     </table>
 {% endblock header %}
@@ -24,7 +24,7 @@
     <div class="individOverview">
         <h2 class="sectionTitle">Overview:</h2>
         <br>
-        <p>{{ enemy.desc }}</p>
+        <p>{{ description }}</p>
         <br>
     </div>
         <div>
@@ -32,35 +32,35 @@
             <table class="table table-bordered">
                <tr>
                    <th class="bodyRow">MHP:</th>
-                   <td class="bodyRow">{{ enemy.maxMHP }}</td>
+                   <td class="bodyRow">{{ MHP }}</td>
                </tr>
                 <tr>
                     <th class="bodyRow">MMP:</th>
-                    <td class="bodyRow">{{ enemy.maxMMP }}</td>
+                    <td class="bodyRow">{{ mMMP }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">ATK:</th>
-                    <td class="bodyRow">{{ enemy.maxATK }}</td>
+                    <td class="bodyRow">{{ ATK }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">DEF:</th>
-                    <td class="bodyRow">{{ enemy.maxDEF }}</td>
+                    <td class="bodyRow">{{ DEF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MAT:</th>
-                    <td class="bodyRow">{{ enemy.maxMAT }}</td>
+                    <td class="bodyRow">{{ MAT }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">MDF:</th>
-                    <td class="bodyRow">{{ enemy.maxMDF }}</td>
+                    <td class="bodyRow">{{ MDF }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">AGI:</th>
-                    <td class="bodyRow">{{ enemy.maxAGI }}</td>
+                    <td class="bodyRow">{{ AGI }}</td>
                 </tr>
                 <tr>
                     <th class="bodyRow">LUK:</th>
-                    <td class="bodyRow">{{ enemy.maxLUK }}</td>
+                    <td class="bodyRow">{{ LUK }}</td>
                 </tr>
             </table>
         </div>

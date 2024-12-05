@@ -3,35 +3,35 @@
 {% block title %}<h1>Class</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">{{ class.name }}</h2>
+    <h2 class="pageTitle">{{ name }}</h2>
     <p>
-    {{ class.overview }}
+    {{ overview }}
     </p>
     <table class="table table-bordered">
         <tr>
             <th class="bodyRow"><img src="/static/img/DefaultClassImg.png" alt="Class Img" width="100" height="100"></th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ class.name }}</th>
+            <th class="bodyRow">{{ name }}</th>
         </tr>
         <tr>
-            <th class="bodyRow">{{ class.owner}}</th>
+            <th class="bodyRow">{{ owner}}</th>
         </tr>
         <tr>
-            <td class="bodyRow">{{ class.baseMHP }}</td>
-            <td class="bodyRow">{{ class.baseMMP }}</td>
+            <td class="bodyRow">{{ baseMHP }}</td>
+            <td class="bodyRow">{{ baseMMP }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ class.baseATK }}</td>
-            <td class="bodyRow">{{ class.baseDEF }}</td>
+            <td class="bodyRow">{{ baseATK }}</td>
+            <td class="bodyRow">{{ baseDEF }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ class.baseMAT }}</td>
-            <td class="bodyRow">{{ class.baseMDF }}</td>
+            <td class="bodyRow">{{ baseMAT }}</td>
+            <td class="bodyRow">{{ baseMDF }}</td>
         </tr>
         <tr>
-            <td class="bodyRow">{{ class.baseAGI }}</td>
-            <td class="bodyRow">{{ class.baseLUK }}</td>
+            <td class="bodyRow">{{ baseAGI }}</td>
+            <td class="bodyRow">{{ baseLUK }}</td>
         </tr>
     </table>
 {% endblock header %}
@@ -40,27 +40,43 @@
     <div class="individOverview">
         <h2 class="sectionTitle">Overview:</h2>
         <br>
-        <p>{{ class.desc }}</p>
+        <p>{{ description }}</p>
         <br>
     </div>
         <div>
             <h3 class="minorTitle">Base Stats:</h3>
             <table class="table table-bordered">
                 <tr>
-                    <td class="bodyRow">MHP: {{ class.baseMHP }}</td>
-                    <td class="bodyRow">MMP: {{ class.baseMMP }}</td>
+                    <th class="bodyRow">MHP:</th>
+                    <td class="bodyRow"> {{ baseMHP }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">ATK: {{ class.baseATK }}</td>
-                    <td class="bodyRow">DEF: {{ class.baseDEF }}</td>
+                    <th class="bodyRow">MMP:</th>
+                    <td class="bodyRow"> {{ baseMMP }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">MAT: {{ class.baseMAT }}</td>
-                    <td class="bodyRow">MDF: {{ class.baseMDF }}</td>
+                    <th class="bodyRow">ATK:</th>
+                    <td class="bodyRow"> {{ baseATK }}</td>
                 </tr>
                 <tr>
-                    <td class="bodyRow">AGI: {{ class.baseAGI }}</td>
-                    <td class="bodyRow">LUK: {{ class.baseLUK }}</td>
+                    <th class="bodyRow">DEF:</th>
+                    <td class="bodyRow"> {{ baseDEF }}</td>
+                </tr>
+                <tr>
+                    <th class="bodyRow">MAT:</th>
+                    <td class="bodyRow"> {{ baseMAT }}</td>
+                </tr>
+                <tr>
+                    <th class="bodyRow">MDF:</th>
+                    <td class="bodyRow"> {{ baseMDF }}</td>
+                </tr>
+                <tr>
+                    <th class="bodyRow">AGI:</th>
+                    <td class="bodyRow"> {{ baseAGI }}</td>
+                </tr>
+                <tr>
+                    <th class="bodyRow">LUK:</th>
+                    <td class="bodyRow"> {{ baseLUK }}</td>
                 </tr>
                     </table>
                 </div>
@@ -69,35 +85,35 @@
                     <table class="table table-bordered">
                         <tr>
                             <th class="bodyRow">MHP:</th>
-                            <td class="bodyRow">{{ class.maxMHP }}</td>
+                            <td class="bodyRow">{{ maxMHP }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">MMP:</th>
-                            <td class="bodyRow">{{ class.maxMMP }}</td>
+                            <td class="bodyRow">{{ maxMMP }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">ATK:</th>
-                            <td class="bodyRow">{{ class.maxATK }}</td>
+                            <td class="bodyRow">{{ maxATK }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">DEF:</th>
-                            <td class="bodyRow">{{ class.maxDEF }}</td>
+                            <td class="bodyRow">{{ maxDEF }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">MAT:</th>
-                            <td class="bodyRow">{{ class.maxMAT }}</td>
+                            <td class="bodyRow">{{ maxMAT }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">MDF:</th>
-                            <td class="bodyRow">{{ class.maxMDF }}</td>
+                            <td class="bodyRow">{{ maxMDF }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">AGI:</th>
-                            <td class="bodyRow">{{ class.maxAGI }}</td>
+                            <td class="bodyRow">{{ maxAGI }}</td>
                         </tr>
                         <tr>
                             <th class="bodyRow">LUK:</th>
-                            <td class="bodyRow">{{ class.maxLUK }}</td>
+                            <td class="bodyRow">{{ maxLUK }}</td>
                         </tr>
             </table>
         </div>

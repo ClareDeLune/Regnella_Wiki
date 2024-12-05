@@ -106,6 +106,7 @@ def skill(name=None):
 
 #Enemy Nav.
 @app.route('/home/Enemies/<name>')
+@app.route('/home/enemies/<name>')
 def enemy(name=None):
     sName = name
     return accessEnemy(name)
@@ -130,7 +131,7 @@ def partyMember(name=None):
 
 #Class Nav.
 @app.route('/home/Classes/<name>')
-@app.route('/home/classes/<name>>')
+@app.route('/home/classes/<name>')
 def classFunc(name=None):
     sName = name
     return accessClass(name)
@@ -138,7 +139,7 @@ def classFunc(name=None):
 
 #Location Nav.
 @app.route('/home/Locations/<name>')
-@app.route('/home/locations/<name>>')
+@app.route('/home/locations/<name>')
 def locationFunc(name=None):
     sName = name
     return accessLocation(name)
