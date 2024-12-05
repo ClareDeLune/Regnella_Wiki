@@ -1,44 +1,87 @@
 {% extends '/TemplateHTML/IndividualPages.html' %}
 
-{% block title %}<h1>Character</h1>{% endblock title %}
+{% if edit == False %}
+    {% block title %}<h1>Character</h1>{% endblock title %}
 
-{% block header %}
-    <h2 class="pageTitle">{{ name }}</h2>
-    <p>
-    {{ overview }}
-    </p>
-    <table class="headerTable">
-        <tr>
-            <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ firstName }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ lastName }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ age }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ race }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ family }}</th>
-        </tr>
-        <tr>
-            <td class="bodyRow">{{ type }}</td>
-        </tr>
-        <tr>
-            <td class="bodyRow">{{ location }}</td>
-        </tr>
-    </table>
-{% endblock header %}
-
-{% block content %}
-    <div class="individOverview">
-        <p>{{ description }}
+    {% block header %}
+        <h2 class="pageTitle">{{ name }}</h2>
+        <p>
+        {{ overview }}
         </p>
-    </div>
-{% endblock content %}
+        <table class="headerTable">
+            <tr>
+                <th class="bodyRow"><img src= "{{ img }}" alt="Character Img" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ firstName }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ lastName }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ age }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ race }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ family }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" placeholder={{ type }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" placeholder={{ location }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
 
+    {% block content %}
+        <div class="individOverview">
+            <p><input type="text" placeholder={{ description }}>
+            </p>
+        </div>
+    {% endblock content %}
+{% else %}
+    {% block title %}<h1>Character</h1>{% endblock title %}
+
+    {% block header %}
+        <h2 class="pageTitle">{{ name }}</h2>
+        <p>
+        <input type="text" placeholder= {{ overview }}>
+        </p>
+        <table class="headerTable">
+            <tr>
+                <th class="bodyRow"><img src="{{ img }}" alt="Character Img" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ firstName }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ lastName }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ age }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ race }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ family }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" placeholder={{ type }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" placeholder={{ location }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <p><input type="text" placeholder={{ description }}>
+            </p>
+        </div>
+    {% endblock content %}
+{% endif %}

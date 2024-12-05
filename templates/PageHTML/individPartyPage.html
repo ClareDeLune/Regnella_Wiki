@@ -1,284 +1,416 @@
 {% extends '/TemplateHTML/IndividualPages.html' %}
 
-{% block title %}<h1>Party Member</h1>{% endblock title %}
+{% if edit == False %}
+    {% block title %}<h1>Party Member</h1>{% endblock title %}
 
-{% block header %}
-    <h2 class="pageTitle">{{ name }}</h2>
-    <p>
-    {{ overview }}
-    </p>
-    <table class="table table-bordered">
-        <tr>
-            <th class="bodyRow"><img src="/static/img/DefaultCharImg.png" alt="Character Img" width="100" height="100"></th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ name }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ class }}</th>
-        </tr>
-        <tr>
-            <th class="bodyRow">{{ level }}</th>
-        </tr>
-        <tr>
-            <td class="bodyRow">MHP: {{ MHP }}</td>
-            <td class="bodyRow">MMP: {{ MMP }}</td>
-        </tr>
-        <tr>
-            <td class="bodyRow">ATK: {{ ATK }}</td>
-            <td class="bodyRow">DEF: {{ DEF }}</td>
-        </tr>
-        <tr>
-            <td class="bodyRow">MAT: {{ MAT }}</td>
-            <td class="bodyRow">MDF: {{ MDF }}</td>
-        </tr>
-        <tr>
-            <td class="bodyRow">AGI: {{ AGI }}</td>
-            <td class="bodyRow">LUK: {{ LUK }}</td>
-        </tr>
-    </table>
-{% endblock header %}
+    {% block header %}
+        <h2 class="pageTitle">{{ name }}</h2>
+        <p>
+        {{ overview }}
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <th class="bodyRow"><img src="{{ img }}" alt="Character Img" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th class="bodyRow">{{ name }}</th>
+            </tr>
+            <tr>
+                <th class="bodyRow">{{ class }}</th>
+            </tr>
+            <tr>
+                <th class="bodyRow">{{ level }}</th>
+            </tr>
+            <tr>
+                <td class="bodyRow">MHP: {{ MHP }}</td>
+                <td class="bodyRow">MMP: {{ MMP }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">ATK: {{ ATK }}</td>
+                <td class="bodyRow">DEF: {{ DEF }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">MAT: {{ MAT }}</td>
+                <td class="bodyRow">MDF: {{ MDF }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">AGI: {{ AGI }}</td>
+                <td class="bodyRow">LUK: {{ LUK }}</td>
+            </tr>
+        </table>
+    {% endblock header %}
 
-{% block content %}
-    <div class="individOverview">
-        <h2 class="sectionTitle">Overview:</h2>
-        <br>
-        <p>{{ description }}</p>
-        <br>
-    </div>
-        <div>
-            <h3 class="minorTitle">Base Stats:</h3>
-            <table class="table table-bordered">
-                <tr>
-                    <th class="bodyRow">MHP:</th>
-                    <td class="bodyRow">{{ MHP }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MMP:</th>
-                    <td class="bodyRow">{{ MMP }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">ATK:</th>
-                    <td class="bodyRow">{{ ATK }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">DEF:</th>
-                    <td class="bodyRow">{{ DEF }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MAT:</th>
-                    <td class="bodyRow">{{ MAT }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MDF:</th>
-                    <td class="bodyRow">{{ MDF }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">AGI:</th>
-                    <td class="bodyRow">{{ AGI }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">LUK:</th>
-                    <td class="bodyRow">{{ LUK }}</td>
-                </tr>
-            </table>
+    {% block content %}
+        <div class="individOverview">
+            <h2 class="sectionTitle">Overview:</h2>
+            <br>
+            <p>{{ description }}</p>
+            <br>
         </div>
-        <div>
-            <h3 class="minorTitle">Max Stats:</h3>
-            <table class="table table-bordered">
-                <tr>
-                    <th class="bodyRow">MHP:</th>
-                    <td class="bodyRow">{{ MaxMHP }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MMP:</th>
-                    <td class="bodyRow">{{ MaxMMP }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">ATK:</th>
-                    <td class="bodyRow">{{ MaxATK }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">DEF:</th>
-                    <td class="bodyRow">{{ MaxDEF }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MAT:</th>
-                    <td class="bodyRow">{{ MaxMAT }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">MDF:</th>
-                    <td class="bodyRow">{{ MaxMDF }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">AGI:</th>
-                    <td class="bodyRow">{{ MaxAGI }}</td>
-                </tr>
-                <tr>
-                    <th class="bodyRow">LUK:</th>
-                    <td class="bodyRow">{{ MaxLUK }}</td>
-                </tr>
-            </table>
-        </div>
-        <div>
-            <h3 class="minorTitle">Skills:</h3>
-            <table class="table table-bordered">
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Skill Name</td>
-                    <td class="bodyRow">Level</td>
-                </tr>
-            </table>
-        </div>
-    <br>
-    <div class="individSupport">
-        <h2 class="sectionTitle">Supports:</h2>
+            <div>
+                <h3 class="minorTitle">Base Stats:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">MHP:</th>
+                        <td class="bodyRow">{{ MHP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MMP:</th>
+                        <td class="bodyRow">{{ MMP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">ATK:</th>
+                        <td class="bodyRow">{{ ATK }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">DEF:</th>
+                        <td class="bodyRow">{{ DEF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MAT:</th>
+                        <td class="bodyRow">{{ MAT }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MDF:</th>
+                        <td class="bodyRow">{{ MDF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">AGI:</th>
+                        <td class="bodyRow">{{ AGI }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">LUK:</th>
+                        <td class="bodyRow">{{ LUK }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3 class="minorTitle">Max Stats:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">MHP:</th>
+                        <td class="bodyRow">{{ MaxMHP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MMP:</th>
+                        <td class="bodyRow">{{ MaxMMP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">ATK:</th>
+                        <td class="bodyRow">{{ MaxATK }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">DEF:</th>
+                        <td class="bodyRow">{{ MaxDEF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MAT:</th>
+                        <td class="bodyRow">{{ MaxMAT }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MDF:</th>
+                        <td class="bodyRow">{{ MaxMDF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">AGI:</th>
+                        <td class="bodyRow">{{ MaxAGI }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">LUK:</th>
+                        <td class="bodyRow">{{ MaxLUK }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3 class="minorTitle">Skills:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="bodyRow">Skill Name</td>
+                        <td class="bodyRow">Level</td>
+                    </tr>
+                </table>
+            </div>
         <br>
-        <div>
-            <h3 class="minorTitle">Ranks:</h3>
+        <div class="individSupport">
+            <h2 class="sectionTitle">Supports:</h2>
+            <br>
+            <div>
+                <h3 class="minorTitle">Ranks:</h3>
+                <div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bodyRow">Stat</th>
+                            <th class="bodyRow">Values</th>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MHP</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MMP</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">ATK</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">DEF</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MAT</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MDF</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">AGI</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">LUK</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
             <div>
                 <table class="table table-bordered">
                     <tr>
-                        <th class="bodyRow">Stat</th>
-                        <th class="bodyRow">Values</th>
+                        <th class="bodyRow">Options:</th>
                     </tr>
                     <tr>
-                        <td class="bodyRow">MHP</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        <td class="bodyRow">{{ support1N }}</td>
+                        <td class="bodyRow">{{ support1L }}</td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">MMP</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        <td class="bodyRow">{{ support2N }}</td>
+                        <td class="bodyRow">{{ support2L }}</td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">ATK</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        <td class="bodyRow">{{ support3N }}</td>
+                        <td class="bodyRow">{{ support3L }}</td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">DEF</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        <td class="bodyRow">{{ support4N }}</td>
+                        <td class="bodyRow">{{ support4L }}</td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">MAT</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">MDF</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">AGI</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">LUK</td>
-                        <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        <td class="bodyRow">{{ support5N }}</td>
+                        <td class="bodyRow">{{ support5L }}</td>
                     </tr>
                 </table>
             </div>
         </div>
-        <div>
-            <table class="table table-bordered">
-                <tr>
-                    <th class="bodyRow">Options:</th>
-                </tr>
-                <tr>
-                    <td class="bodyRow">{{ support1N }}</td>
-                    <td class="bodyRow">{{ support1L }}</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">{{ support2N }}</td>
-                    <td class="bodyRow">{{ support2L }}</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">{{ support3N }}</td>
-                    <td class="bodyRow">{{ support3L }}</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">{{ support4N }}</td>
-                    <td class="bodyRow">{{ support4L }}</td>
-                </tr>
-                <tr>
-                    <td class="bodyRow">{{ support5N }}</td>
-                    <td class="bodyRow">{{ support5L }}</td>
-                </tr>
-            </table>
+    {% endblock content %}
+{% else %}
+        {% block title %}<h1>Party Member</h1>{% endblock title %}
+
+    {% block header %}
+        <h2 class="pageTitle">{{ name }}</h2>
+        <p>
+        {{ overview }}
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <th class="bodyRow"><img src="{{ img }}" alt="Character Img" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder= {{ name }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ class }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" placeholder={{ level }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow">MHP: <input type="text" placeholder={{ MHP }}></td>
+                <td class="bodyRow">MMP: <input type="text" placeholder={{ MMP }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow">ATK: <input type="text" placeholder={{ ATK }}></td>
+                <td class="bodyRow">DEF: <input type="text" placeholder={{ DEF }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow">MAT: <input type="text" placeholder={{ MAT }}></td>
+                <td class="bodyRow">MDF: <input type="text" placeholder={{ MDF }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow">AGI: <input type="text" placeholder={{ AGI }}></td>
+                <td class="bodyRow">LUK: <input type="text" placeholder={{ LUK }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <h2 class="sectionTitle">Overview:</h2>
+            <br>
+            <p><input type="text" placeholder={{ description }}></p>
+            <br>
         </div>
-    </div>
-{% endblock content %}
+            <div>
+                <h3 class="minorTitle">Base Stats:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">MHP:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MHP }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MMP:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MMP }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">ATK:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ ATK }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">DEF:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ DEF }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MAT:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MAT }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MDF:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MDF }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">AGI:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ AGI }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">LUK:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ LUK }}></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3 class="minorTitle">Max Stats:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">MHP:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxMHP }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MMP:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxMMP }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">ATK:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxATK }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">DEF:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxDEF }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MAT:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxMAT }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MDF:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxMDF }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">AGI:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxAGI }}></td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">LUK:</th>
+                        <td class="bodyRow"><input type="text" placeholder={{ MaxLUK }}></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3 class="minorTitle">Skills:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="bodyRow">Skill Name</td>
+                        <td class="bodyRow">Level</td>
+                    </tr>
+                </table>
+            </div>
+        <br>
+        <div class="individSupport">
+            <h2 class="sectionTitle">Supports:</h2>
+            <br>
+            <div>
+                <h3 class="minorTitle">Ranks:</h3>
+                <div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bodyRow">Stat</th>
+                            <th class="bodyRow">Values</th>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MHP</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MMP</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">ATK</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">DEF</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MAT</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">MDF</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">AGI</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow">LUK</td>
+                            <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">Options:</th>
+                    </tr>
+                    <tr>
+                        <td class="bodyRow"><input type="text" placeholder={{ support1N }}></td>
+                        <td class="bodyRow"><input type="text" placeholder={{ support1L }}></td>
+                    </tr>
+                    <tr>
+                        <td class="bodyRow"><input type="text" placeholder={{ support2N }}></td>
+                        <td class="bodyRow"><input type="text" placeholder={{ support2L }}></td>
+                    </tr>
+                    <tr>
+                        <td class="bodyRow"><input type="text" placeholder={{ support3N }}></td>
+                        <td class="bodyRow"><input type="text" placeholder={{ support3L }}></td>
+                    </tr>
+                    <tr>
+                        <td class="bodyRow"><input type="text" placeholder={{ support4N }}></td>
+                        <td class="bodyRow"><input type="text" placeholder={{ support4L }}></td>
+                    </tr>
+                    <tr>
+                        <td class="bodyRow"><input type="text" placeholder={{ support5N }}></td>
+                        <td class="bodyRow"><input type="text" placeholder={{ support5L }}></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endblock content %}
+{% endif %}
 
