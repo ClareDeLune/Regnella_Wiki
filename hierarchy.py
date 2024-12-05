@@ -63,7 +63,7 @@ def partyMembers():
 @app.route('/home/Classes')
 @app.route('/home/classes')
 def classesPage():
-    return render_template('PageHTML/classList.html')
+    return loadList('Classes')
 
 
 #EquipmentPage Nav.

@@ -11,36 +11,10 @@
 <br>
 <br>
 {% block content %}
-    {% block collapsable %}
-        <h4 class="dropdownHeader">Player Skills:</h4>
-        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
-        <div class="content">
-            <table class="bodyTable">
-                <tr>
-                    <th class="bodyRow">Name</th>
-                    <th class="bodyRow">Desc.</th>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Name</td>
-                    <td class="bodyRow">Desc.</td>
-                </tr>
-            </table>
-        </div>
-    {% endblock collapsable %}
-    {% block collapsable2 %}
-        <h4 class="dropdownHeader">Enemy Skills:</h4>
-        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
-        <div class="content">
-            <table class="bodyTable">
-                <tr>
-                    <th class="bodyRow">Column1</th>
-                    <th class="bodyRow">Column2</th>
-                </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                    <td class="bodyRow">Value2</td>
-                </tr>
-            </table>
-        </div>
-    {% endblock collapsable2 %}
+    <table class="bodyTable">
+        <tr>
+            <th class="bodyRow">Name</th>
+        </tr>
+        {{ tableData }}
+    </table>
 {% endblock content %}

@@ -162,6 +162,237 @@ def accessLocation(name):
         return render_template('PageHTML/individLocationPage.html', name = location["name"], act = location["act"], connect = location["connect"], overview = location["overview"], description = location["description"])
 
 
+def loadList(tableName):
+    db = openDatabase()
+    dbc = db.cursor()
+    data = []
+    if tableName == "Characters":
+        sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'Enemy'"
+        foeData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            foeData.append('<tr>')
+            foeData.append('<td class="bodyRow">')
+            foeData.append(str(row))
+            foeData.append('</td>')
+            foeData.append('</tr>')
+        print(foeData)
+        print("\n")
+        foeTData = ''.join(foeData)
+        print(foeTData)
+
+        sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'Playable'"
+        playData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            playData.append('<tr>')
+            playData.append('<td class="bodyRow">')
+            playData.append(str(row))
+            playData.append('</td>')
+            playData.append('</tr>')
+        print(playData)
+        print("\n")
+        playTData = ''.join(playData)
+        print(playTData)
+
+        sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'NPC'"
+        npcData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            npcData.append('<tr>')
+            npcData.append('<td class="bodyRow">')
+            npcData.append(str(row))
+            npcData.append('</td>')
+            npcData.append('</tr>')
+        print(npcData)
+        print("\n")
+        npcTData = ''.join(npcData)
+        print(npcTData)
+        return render_template('PageHTML/charList.html', playableTable = playTData, enemyTable = foeTData, npcTable = npcTData)
+
+    elif tableName == "Classes":
+        sql = "SELECT Classes.name FROM Classes"
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            data.append('<tr>')
+            data.append('<td class="bodyRow">')
+            data.append(str(row))
+            data.append('</td>')
+            data.append('</tr>')
+        print(data)
+        print("\n")
+        tableData = ''.join(data)
+        print(tableData)
+        return render_template('PageHTML/classList.html', tableData = tableData)
+
+    elif tableName == "Enemies":
+        sql = "SELECT Enemies.name FROM Enemies"
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            data.append('<tr>')
+            data.append('<td class="bodyRow">')
+            data.append(str(row))
+            data.append('</td>')
+            data.append('</tr>')
+        print(data)
+        print("\n")
+        tableData = ''.join(data)
+        print(tableData)
+        return render_template('PageHTML/enemyList.html', tableData = tableData)
+
+    elif tableName == "Equipment":
+        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Weapon'"
+        weaponData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            weaponData.append('<tr>')
+            weaponData.append('<td class="bodyRow">')
+            weaponData.append(str(row))
+            weaponData.append('</td>')
+            weaponData.append('</tr>')
+        print(data)
+        print("\n")
+        weaponTData = ''.join(weaponData)
+        print(weaponTData)
+
+        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Armour'"
+        armourData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            armourData.append('<tr>')
+            armourData.append('<td class="bodyRow">')
+            armourData.append(str(row))
+            armourData.append('</td>')
+            armourData.append('</tr>')
+        print(armourData)
+        print("\n")
+        armourTData = ''.join(armourData)
+        print(armourTData)
+
+        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Accessory'"
+        accData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            accData.append('<tr>')
+            accData.append('<td class="bodyRow">')
+            accData.append(str(row))
+            accData.append('</td>')
+            accData.append('</tr>')
+        print(accData)
+        print("\n")
+        accTData = ''.join(accData)
+        print(accTData)
+
+        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Spirit'"
+        spiritData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            spiritData.append('<tr>')
+            spiritData.append('<td class="bodyRow">')
+            spiritData.append(str(row))
+            spiritData.append('</td>')
+            spiritData.append('</tr>')
+        print(spiritData)
+        print("\n")
+        spiritTData = ''.join(spiritData)
+        print(spiritTData)
+        return render_template('PageHTML/equipList.html', weaponTable = weaponTData, armourTable = armourTData, accTable = accTData, spiritTable = spiritTData)
+
+    elif tableName == "Locations":
+        sql = "SELECT Locations.name FROM Location for Location.act = 1"
+        actIData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            actIData.append('<tr>')
+            actIData.append('<td class="bodyRow">')
+            actIData.append(str(row))
+            actIData.append('</td>')
+            actIData.append('</tr>')
+        print(actIData)
+        print("\n")
+        actITData = ''.join(actIData)
+        print(actITData)
+
+        sql = "SELECT Locations.name FROM Location for Location.act = 2"
+        actIIData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            actIIData.append('<tr>')
+            actIIData.append('<td class="bodyRow">')
+            actIIData.append(str(row))
+            actIIData.append('</td>')
+            actIIData.append('</tr>')
+        print(actIIData)
+        print("\n")
+        actIITData = ''.join(actIIData)
+        print(actIITData)
+
+        sql = "SELECT Locations.name FROM Location for Location.act = 3"
+        actIIIData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            actIIIData.append('<tr>')
+            actIIIData.append('<td class="bodyRow">')
+            actIIIData.append(str(row))
+            actIIIData.append('</td>')
+            actIIIData.append('</tr>')
+        print(actIIIData)
+        print("\n")
+        actIIITData = ''.join(actIIIData)
+        print(actIIITData)
+        return render_template('PageHTML/locationList.html', act1Table = actIData, act2Table = actIIData, act3Table = actIIIData)
+
+
+    elif tableName == "PartyMembers":
+        sql = "SELECT PartyMembers.firstName, PartyMembers.surname FROM PartyMembers"
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            data.append('<tr>')
+            data.append('<td class="bodyRow">')
+            data.append(str(row))
+            data.append('</td>')
+            data.append('</tr>')
+        print(data)
+        print("\n")
+        tableData = ''.join(data)
+        print(tableData)
+        return render_template('PageHTML/partyList.html', tableData=tableData)
+
+
+    elif tableName == "Skills":
+        sql = "SELECT Skills.name FROM Skills"
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            data.append('<tr>')
+            data.append('<td class="bodyRow">')
+            data.append(str(row))
+            data.append('</td>')
+            data.append('</tr>')
+        print(data)
+        print("\n")
+        tableData = ''.join(data)
+        print(tableData)
+        db.close()
+        return render_template('PageHTML/skillList.html', tableData=tableData)
+    return accessPageNotFound()
+
+
+
+
 def accessPageNotFound():
     print("Page not found!\nSome sort of error page should appear here.")
     return render_template('TemplateHTML/Homepage.html')
