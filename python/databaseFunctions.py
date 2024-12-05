@@ -174,6 +174,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             foeData.append('<tr>')
             foeData.append('<td class="bodyRow">')
+            foeData.append('<a href="{{ url_for(')
+            foeData.append(str(row))
+            foeData.append(') }}">')
             foeData.append(str(row))
             foeData.append('</td>')
             foeData.append('</tr>')
@@ -189,6 +192,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             playData.append('<tr>')
             playData.append('<td class="bodyRow">')
+            playData.append('<a href="{{ url_for(')
+            playData.append(str(row))
+            playData.append(') }}">')
             playData.append(str(row))
             playData.append('</td>')
             playData.append('</tr>')
@@ -204,6 +210,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             npcData.append('<tr>')
             npcData.append('<td class="bodyRow">')
+            npcData.append('<a href="{{ url_for(')
+            npcData.append(str(row))
+            npcData.append(') }}">')
             npcData.append(str(row))
             npcData.append('</td>')
             npcData.append('</tr>')
@@ -220,6 +229,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             data.append('<tr>')
             data.append('<td class="bodyRow">')
+            data.append('<a href="{{ url_for(')
+            data.append(str(row))
+            data.append(') }}">')
             data.append(str(row))
             data.append('</td>')
             data.append('</tr>')
@@ -236,6 +248,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             data.append('<tr>')
             data.append('<td class="bodyRow">')
+            data.append('<a href="{{ url_for(')
+            data.append(str(row))
+            data.append(') }}">')
             data.append(str(row))
             data.append('</td>')
             data.append('</tr>')
@@ -253,6 +268,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             weaponData.append('<tr>')
             weaponData.append('<td class="bodyRow">')
+            weaponData.append('<a href="{{ url_for(')
+            weaponData.append(str(row))
+            weaponData.append(') }}">')
             weaponData.append(str(row))
             weaponData.append('</td>')
             weaponData.append('</tr>')
@@ -268,6 +286,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             armourData.append('<tr>')
             armourData.append('<td class="bodyRow">')
+            armourData.append('<a href="{{ url_for(')
+            armourData.append(str(row))
+            armourData.append(') }}">')
             armourData.append(str(row))
             armourData.append('</td>')
             armourData.append('</tr>')
@@ -283,6 +304,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             accData.append('<tr>')
             accData.append('<td class="bodyRow">')
+            accData.append('<a href="{{ url_for(')
+            accData.append(str(row))
+            accData.append(') }}">')
             accData.append(str(row))
             accData.append('</td>')
             accData.append('</tr>')
@@ -298,6 +322,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             spiritData.append('<tr>')
             spiritData.append('<td class="bodyRow">')
+            spiritData.append('<a href="{{ url_for(')
+            spiritData.append(str(row))
+            spiritData.append(') }}">')
             spiritData.append(str(row))
             spiritData.append('</td>')
             spiritData.append('</tr>')
@@ -315,6 +342,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             actIData.append('<tr>')
             actIData.append('<td class="bodyRow">')
+            actIData.append('<a href="{{ url_for(')
+            actIData.append(str(row))
+            actIData.append(') }}">')
             actIData.append(str(row))
             actIData.append('</td>')
             actIData.append('</tr>')
@@ -330,6 +360,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             actIIData.append('<tr>')
             actIIData.append('<td class="bodyRow">')
+            actIIData.append('<a href="{{ url_for(')
+            actIIData.append(str(row))
+            actIIData.append(') }}">')
             actIIData.append(str(row))
             actIIData.append('</td>')
             actIIData.append('</tr>')
@@ -345,6 +378,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             actIIIData.append('<tr>')
             actIIIData.append('<td class="bodyRow">')
+            actIIIData.append('<a href="{{ url_for(')
+            actIIIData.append(str(row))
+            actIIIData.append(') }}">')
             actIIIData.append(str(row))
             actIIIData.append('</td>')
             actIIIData.append('</tr>')
@@ -362,6 +398,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             data.append('<tr>')
             data.append('<td class="bodyRow">')
+            data.append('<a href="{{ url_for(')
+            data.append(str(row))
+            data.append(') }}">')
             data.append(str(row))
             data.append('</td>')
             data.append('</tr>')
@@ -379,6 +418,9 @@ def loadList(tableName):
         for row in db.cursor().execute(sql):
             data.append('<tr>')
             data.append('<td class="bodyRow">')
+            data.append('<a href="{{ url_for(')
+            data.append(str(row))
+            data.append(') }}">')
             data.append(str(row))
             data.append('</td>')
             data.append('</tr>')
