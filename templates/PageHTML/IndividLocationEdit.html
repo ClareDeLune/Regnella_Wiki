@@ -1,0 +1,33 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Location</h1>{% endblock title %}
+
+    {% block header %}
+            <h2><input type="text" value={{ name }}></h2>
+        <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <td class="bodyRow"><input type="text" value={{ img }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" value={{ name }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" value={{ act }}></td>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input type="text" value={{ type }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input type="text" value={{ connect }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <p><input type="text" value={{ desc }}>
+            </p>
+        </div>
+    {% endblock content %}

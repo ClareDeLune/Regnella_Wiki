@@ -1,0 +1,33 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Skill</h1>{% endblock title %}
+
+{% block header %}
+    <h2><input type="text" value={{ name }}></h2>
+    <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <th class="bodyRow"><input type="text" value={{ img }}></th>
+        </tr>
+        <tr>
+            <th class="bodyRow"><input type="text" value={{ name }}></th>
+        </tr>
+        <tr>
+            <td class="bodyRow"><input type="text" value={{ type }}></td>
+            </tr>
+        <tr>
+            <td class="bodyRow"><input type="text" value={{ usage }}></td>
+        </tr>
+        <tr>
+            <td class="bodyRow"><input type="text" value={{ element }}></td>
+        </tr>
+    </table>
+{% endblock header %}
+
+{% block content %}
+    <div class="individOverview">
+        <p><input type="text" value={{ description }}>
+        </p>
+    </div>
+{% endblock content %}

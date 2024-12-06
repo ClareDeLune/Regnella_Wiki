@@ -1,7 +1,6 @@
 {% extends '/TemplateHTML/IndividualPages.html' %}
 
-{% if edit == False %}
-    {% block title %}<h1>Enemy</h1>{% endblock title %}
+{% block title %}<h1>Enemy</h1>{% endblock title %}
 
     {% block header %}
         <h2 class="pageTitle">{{ name }}</h2>
@@ -119,79 +118,3 @@
                 </table>
             </div>
     {% endblock content %}
-{% else %}
-    {% block title %}<h1>Enemy</h1>{% endblock title %}
-
-    {% block header %}
-        <h2 class="pageTitle">{{ name }}</h2>
-        <p>
-        {{ overview }}
-        </p>
-        <table class="bodyTable">
-            <tr>
-                <th class="bodyRow"><img src="{{ img }}" alt="Class Img" width="100" height="100"></th>
-            </tr>
-            <tr>
-                <th class="bodyRow"><input type="text" placeholder= {{ name }}></th>
-            </tr>
-            <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ act }}></th>
-            </tr>
-        </table>
-    {% endblock header %}
-
-    {% block content %}
-        <div class="individOverview">
-            <h2 class="sectionTitle">Overview:</h2>
-            <br>
-            <p><input type="text" placeholder={{ description }}></p>
-            <br>
-        </div>
-            <div>
-                <h3 class="minorTitle">Stats:</h3>
-                <table class="table table-bordered">
-                   <tr>
-                       <th class="bodyRow">MHP:</th>
-                       <td class="bodyRow"><input type="text" placeholder={{ MHP }}></td>
-                   </tr>
-                    <tr>
-                        <th class="bodyRow">MMP:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ mMMP }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">ATK:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ ATK }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">DEF:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ DEF }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">MAT:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ MAT }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">MDF:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ MDF }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">AGI:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ AGI }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">LUK:</th>
-                        <td class="bodyRow"><input type="text" placeholder={{ LUK }}></td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <h3 class="minorTitle">Skills:</h3>
-                <table class="table table-bordered">
-                    <tr>
-                        <td class="bodyRow"><input type="text" placeholder="Skill Name"></td>
-                        <td class="bodyRow"><input type="text" placeholder="Level"></td>
-                    </tr>
-                </table>
-            </div>
-    {% endblock content %}
-{% endif %}

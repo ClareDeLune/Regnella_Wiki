@@ -1,40 +1,39 @@
 {% extends '/TemplateHTML/IndividualPages.html' %}
 
-    {% block title %}<h1>Party Member</h1>{% endblock title %}
+{% block title %}<h1>Party Member</h1>{% endblock title %}
 
-    {% block header %}
-        <h2 class="pageTitle">{{ name }}</h2>
-        <p>
-        {{ overview }}
+   {% block header %}
+       <h2><input type="text" value={{ name }}></h2>
+        <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
         </p>
         <table class="table table-bordered">
             <tr>
-                <th class="bodyRow"><img src="{{ img }}" alt="Character Img" width="100" height="100"></th>
+                <th class="bodyRow"><input type="text" value= {{ img }}></th>
             </tr>
             <tr>
-                <th class="bodyRow">{{ name }}</th>
+                <th class="bodyRow"><input type="text" value= {{ name }}></th>
             </tr>
             <tr>
-                <th class="bodyRow">{{ class }}</th>
+                <th class="bodyRow"><input type="text" value={{ class }}></th>
             </tr>
             <tr>
-                <th class="bodyRow">{{ level }}</th>
+                <th class="bodyRow"><input type="text" value={{ level }}></th>
             </tr>
             <tr>
-                <td class="bodyRow">MHP: {{ MHP }}</td>
-                <td class="bodyRow">MMP: {{ MMP }}</td>
+                <td class="bodyRow">MHP: <input type="text" value={{ MHP }}></td>
+                <td class="bodyRow">MMP: <input type="text" value={{ MMP }}></td>
             </tr>
             <tr>
-                <td class="bodyRow">ATK: {{ ATK }}</td>
-                <td class="bodyRow">DEF: {{ DEF }}</td>
+                <td class="bodyRow">ATK: <input type="text" value={{ ATK }}></td>
+                <td class="bodyRow">DEF: <input type="text" value={{ DEF }}></td>
             </tr>
             <tr>
-                <td class="bodyRow">MAT: {{ MAT }}</td>
-                <td class="bodyRow">MDF: {{ MDF }}</td>
+                <td class="bodyRow">MAT: <input type="text" value={{ MAT }}></td>
+                <td class="bodyRow">MDF: <input type="text" value={{ MDF }}></td>
             </tr>
             <tr>
-                <td class="bodyRow">AGI: {{ AGI }}</td>
-                <td class="bodyRow">LUK: {{ LUK }}</td>
+                <td class="bodyRow">AGI: <input type="text" value={{ AGI }}></td>
+                <td class="bodyRow">LUK: <input type="text" value={{ LUK }}></td>
             </tr>
         </table>
     {% endblock header %}
@@ -43,7 +42,7 @@
         <div class="individOverview">
             <h2 class="sectionTitle">Overview:</h2>
             <br>
-            <p>{{ description }}</p>
+            <p><input type="text" value={{ description }}></p>
             <br>
         </div>
             <div>
@@ -51,35 +50,35 @@
                 <table class="table table-bordered">
                     <tr>
                         <th class="bodyRow">MHP:</th>
-                        <td class="bodyRow">{{ MHP }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MHP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MMP:</th>
-                        <td class="bodyRow">{{ MMP }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MMP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">ATK:</th>
-                        <td class="bodyRow">{{ ATK }}</td>
+                        <td class="bodyRow"><input type="text" value={{ ATK }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">DEF:</th>
-                        <td class="bodyRow">{{ DEF }}</td>
+                        <td class="bodyRow"><input type="text" value={{ DEF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MAT:</th>
-                        <td class="bodyRow">{{ MAT }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MAT }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MDF:</th>
-                        <td class="bodyRow">{{ MDF }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MDF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">AGI:</th>
-                        <td class="bodyRow">{{ AGI }}</td>
+                        <td class="bodyRow"><input type="text" value={{ AGI }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">LUK:</th>
-                        <td class="bodyRow">{{ LUK }}</td>
+                        <td class="bodyRow"><input type="text" value={{ LUK }}></td>
                     </tr>
                 </table>
             </div>
@@ -88,35 +87,35 @@
                 <table class="table table-bordered">
                     <tr>
                         <th class="bodyRow">MHP:</th>
-                        <td class="bodyRow">{{ MaxMHP }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxMHP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MMP:</th>
-                        <td class="bodyRow">{{ MaxMMP }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxMMP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">ATK:</th>
-                        <td class="bodyRow">{{ MaxATK }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxATK }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">DEF:</th>
-                        <td class="bodyRow">{{ MaxDEF }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxDEF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MAT:</th>
-                        <td class="bodyRow">{{ MaxMAT }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxMAT }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MDF:</th>
-                        <td class="bodyRow">{{ MaxMDF }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxMDF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">AGI:</th>
-                        <td class="bodyRow">{{ MaxAGI }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxAGI }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">LUK:</th>
-                        <td class="bodyRow">{{ MaxLUK }}</td>
+                        <td class="bodyRow"><input type="text" value={{ MaxLUK }}></td>
                     </tr>
                 </table>
             </div>
@@ -182,26 +181,27 @@
                         <th class="bodyRow">Options:</th>
                     </tr>
                     <tr>
-                        <td class="bodyRow">{{ support1N }}</td>
-                        <td class="bodyRow">{{ support1L }}</td>
+                        <td class="bodyRow"><input type="text" value={{ support1N }}></td>
+                        <td class="bodyRow"><input type="text" value={{ support1L }}></td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">{{ support2N }}</td>
-                        <td class="bodyRow">{{ support2L }}</td>
+                        <td class="bodyRow"><input type="text" value={{ support2N }}></td>
+                        <td class="bodyRow"><input type="text" value={{ support2L }}></td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">{{ support3N }}</td>
-                        <td class="bodyRow">{{ support3L }}</td>
+                        <td class="bodyRow"><input type="text" value={{ support3N }}></td>
+                        <td class="bodyRow"><input type="text" value={{ support3L }}></td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">{{ support4N }}</td>
-                        <td class="bodyRow">{{ support4L }}</td>
+                        <td class="bodyRow"><input type="text" value={{ support4N }}></td>
+                        <td class="bodyRow"><input type="text" value={{ support4L }}></td>
                     </tr>
                     <tr>
-                        <td class="bodyRow">{{ support5N }}</td>
-                        <td class="bodyRow">{{ support5L }}</td>
+                        <td class="bodyRow"><input type="text" value={{ support5N }}></td>
+                        <td class="bodyRow"><input type="text" value={{ support5L }}></td>
                     </tr>
                 </table>
             </div>
         </div>
     {% endblock content %}
+

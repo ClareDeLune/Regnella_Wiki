@@ -11,6 +11,10 @@ app = Flask(__name__)
 def home():
     return render_template('TemplateHTML/Homepage.html')
 
+@app.route('/home/submit')
+def submit(address='None'):
+    return submitPage()
+
 ###LEVEL NO. 2
 #PlotOverview Nav.
 @app.route('/home/PlotOverview')
@@ -102,14 +106,16 @@ def credits():
 @app.route('/home/skills/<name>')
 def skill(name=None):
     sName = name
-    return accessSkill(name)
+    address = 'skillEdit'
+    return accessSkill(name, address)
 
 #Enemy Nav.
 @app.route('/home/Enemies/<name>')
 @app.route('/home/enemies/<name>')
 def enemy(name=None):
     sName = name
-    return accessEnemy(name)
+    address = 'enemyEdit'
+    return accessEnemy(name, address)
 
 
 #Character Nav.
@@ -117,7 +123,8 @@ def enemy(name=None):
 @app.route('/home/characters/<name>')
 def character(name=None):
     sName = name
-    return accessChar(sName)
+    address = 'charEdit'
+    return accessChar(name, address)
 
 #Member Nav.
 @app.route('/home/Party-Members/<name>')
@@ -126,7 +133,8 @@ def character(name=None):
 @app.route('/home/partymembers/<name>')
 def partyMember(name=None):
     sName = name
-    return accessMember(name)
+    address = 'memberEdit'
+    return accessMember(name, address)
 
 
 #Class Nav.
@@ -134,7 +142,8 @@ def partyMember(name=None):
 @app.route('/home/classes/<name>')
 def classFunc(name=None):
     sName = name
-    return accessClass(name)
+    address = 'classEdit'
+    return accessClass(name, address)
 
 
 #Location Nav.
@@ -142,7 +151,63 @@ def classFunc(name=None):
 @app.route('/home/locations/<name>')
 def locationFunc(name=None):
     sName = name
-    return accessLocation(name)
+    address = 'locationEdit'
+    return accessLocation(name, address)
+
+
+###LEVEL NO. 4
+###Skill Edit:
+@app.route('/home/Skills/Edit/<name>')
+@app.route('/home/skills/edit/<name>')
+def skillEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessSkill(name, address)
+
+###Enemy Edit:
+@app.route('/home/Enemies/Edit/<name>')
+@app.route('/home/enemies/edit/<name>')
+def enemyEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessEnemy(name, address)
+
+
+#Character Edit:
+@app.route('/home/Characters/Edit/<name>')
+@app.route('/home/characters/edit/<name>')
+def characterEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessChar(name, address)
+
+#Member Edit:
+@app.route('/home/Party-Members/Edit/<name>')
+@app.route('/home/party-members/edit/<name>')
+@app.route('/home/PartyMembers/Edit/<name>')
+@app.route('/home/partymembers/edit/<name>')
+def partyMemberEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessMember(name, address)
+
+
+#Class Edit:
+@app.route('/home/Classes/Edit/<name>')
+@app.route('/home/classes/edit/<name>')
+def classEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessClass(name, address)
+
+
+#Location Edit:
+@app.route('/home/Locations/Edit/<name>')
+@app.route('/home/locations/edit/<name>')
+def locationEdit(name=None):
+    sName = name
+    address = 'Edit'
+    return accessLocation(name, address)
 '''
 '''
 
