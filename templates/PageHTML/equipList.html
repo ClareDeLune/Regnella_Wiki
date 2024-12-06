@@ -18,12 +18,12 @@
             <table class="bodyTable">
                 <tr>
                     <th class="bodyRow">Name</th>
-                    <th class="bodyRow">Type</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                    <td class="bodyRow">Value2</td>
-                </tr>
+                 {% for item in weaponData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable %}
@@ -34,14 +34,12 @@
             <table class="bodyTable">
                 <tr>
                     <th class="bodyRow">Name</th>
-                    <th class="bodyRow">Type</th>
-                    <th class="bodyRow">Slot</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                    <td class="bodyRow">Value2</td>
-                    <td class="bodyRow">Value3</td>
-                </tr>
+                 {% for item in armourData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable2 %}
@@ -53,9 +51,11 @@
                 <tr>
                     <th class="bodyRow">Name</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                </tr>
+                 {% for item in accData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable3 %}
@@ -67,9 +67,11 @@
                 <tr>
                     <th class="bodyRow">Name</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                </tr>
+                 {% for item in spiritData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable4 %}

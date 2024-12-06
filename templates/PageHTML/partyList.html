@@ -15,8 +15,10 @@
         <tr>
             <th class="bodyRow">Name</th>
         </tr>
-        <tr>
-            <td class="bodyRow">Value2</td>
-        </tr>
+        {% for item in data %}
+            <tr>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
     </table>
 {% endblock content %}

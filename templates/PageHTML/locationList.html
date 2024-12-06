@@ -33,9 +33,11 @@
                 <tr>
                     <th class="bodyRow">Name</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                </tr>
+                 {% for item in actIData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable2 %}
@@ -47,9 +49,11 @@
                 <tr>
                     <th class="bodyRow">Name</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                </tr>
+                 {% for item in actIIData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable3 %}
@@ -61,9 +65,11 @@
                 <tr>
                     <th class="bodyRow">Name</th>
                 </tr>
-                <tr>
-                    <td class="bodyRow">Value1</td>
-                </tr>
+                 {% for item in actIIIData %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     {% endblock collapsable4 %}

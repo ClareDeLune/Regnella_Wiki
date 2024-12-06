@@ -37,21 +37,21 @@ def forumPage():
 @app.route('/home/Skills')
 @app.route('/home/skills')
 def skillsPage():
-    return render_template('PageHTML/skillList.html')
+    return loadList('Skills')
 
 
 #EnemiesPage Nav.
 @app.route('/home/Enemies')
 @app.route('/home/enemies')
 def enemiesPage():
-    return render_template('PageHTML/enemyList.html')
+    return loadList('Enemies')
 
 
 #CharactersPage Nav.
 @app.route('/home/Characters')
 @app.route('/home/characters')
 def charactersPage():
-    return render_template('PageHTML/charList.html')
+    return loadList("Characters")
 
 
 #PartyMembersPage Nav.
@@ -60,7 +60,7 @@ def charactersPage():
 @app.route('/home/PartyMembers')
 @app.route('/home/partymembers')
 def partyMembers():
-    return render_template('PageHTML/partyList.html')
+    return loadList('PartyMembers')
 
 
 #ClassesPage Nav.
@@ -74,14 +74,14 @@ def classesPage():
 @app.route('/home/Equipment')
 @app.route('/home/equipment')
 def equipmentPage():
-    return render_template('PageHTML/equipList.html')
+    return loadList('Equipment')
 
 
 #LocationsPage Nav.
 @app.route('/home/Locations')
 @app.route('/home/locations')
 def locPage():
-    return render_template('PageHTML/locationList.html')
+    return loadList('Locations')
 
 
 #EditsPage Nav.
