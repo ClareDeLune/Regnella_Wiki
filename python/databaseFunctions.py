@@ -90,11 +90,12 @@ def accessEnemy(name, address):
     if isNull:
         return accessPageNotFound()
     else:
-        enemy = {"name": data[1], "act": data[2], "MHP": data[3], "MMP": data[4], "ATK": data[5], "DEF": data[6], "MAT": data[7], "MDF": data[8], "AGI": data[9], "LUK": data[10], "overview": data[11], "description": data[12]}
+        skillList = getSkillsList(name, "Enemy")
+        enemy = {"name": data[1], "act": data[2], "MHP": data[3], "MMP": data[4], "ATK": data[5], "DEF": data[6], "MAT": data[7], "MDF": data[8], "AGI": data[9], "LUK": data[10], "overview": data[11], "description": data[12], "skillList": skillList}
         print(enemy)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individEnemyEdit.html', name=enemy["name"], act=enemy["act"], MHP=enemy["MHP"], MMP=enemy["MMP"], ATK=enemy["ATK"], DEF=enemy["DEF"], MAT=enemy["MAT"], MDF=enemy["MDF"], AGI=enemy["AGI"], LUK=enemy["LUK"], overview=enemy["overview"], description=enemy["description"], address=address)
+            return render_template('PageHTML/individEnemyEdit.html', name=enemy["name"], act=enemy["act"], MHP=enemy["MHP"], MMP=enemy["MMP"], ATK=enemy["ATK"], DEF=enemy["DEF"], MAT=enemy["MAT"], MDF=enemy["MDF"], AGI=enemy["AGI"], LUK=enemy["LUK"], overview=enemy["overview"], description=enemy["description"], skillList=enemy["skillList"], address=address)
         else:
             return render_template('PageHTML/individEnemyPage.html', name=enemy["name"], act=enemy["act"], MHP=enemy["MHP"], MMP=enemy["MMP"], ATK=enemy["ATK"], DEF=enemy["DEF"], MAT=enemy["MAT"], MDF=enemy["MDF"], AGI=enemy["AGI"], LUK=enemy["LUK"], overview=enemy["overview"], description=enemy["description"], address=address)
 
@@ -116,11 +117,12 @@ def accessClass(name, address):
     if isNull:
         return accessPageNotFound()
     else:
-        classD = {"name": data[1], "sMHP": data[2], "sMMP": data[3], "sATK": data[4], "sDEF": data[5], "sMAT": data[6], "sMDF": data[7], "sAGI": data[8], "sLUK": data[9], "fMHP": data[10], "fMMP": data[11], "fATK": data[12], "fDEF": data[13], "fMAT": data[14], "fMDF": data[15], "fAGI": data[16], "fLUK": data[17], "overview": data[18], "description": data[19]}
+        skillList = getSkillsList(name, "Class")
+        classD = {"name": data[1], "sMHP": data[2], "sMMP": data[3], "sATK": data[4], "sDEF": data[5], "sMAT": data[6], "sMDF": data[7], "sAGI": data[8], "sLUK": data[9], "fMHP": data[10], "fMMP": data[11], "fATK": data[12], "fDEF": data[13], "fMAT": data[14], "fMDF": data[15], "fAGI": data[16], "fLUK": data[17], "overview": data[18], "description": data[19], "skillList": skillList}
         print(classD)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individClassEdit.html', name=classD["name"], baseMHP=classD["sMHP"], baseMMP=classD["sMMP"], baseATK=classD["sATK"], baseDEF=classD["sDEF"], baseMAT=classD["sMAT"], baseMDF=classD["sMDF"], baseAGI=classD["sAGI"], baseLUK=classD["sLUK"], maxMHP=classD["fMHP"], maxMMP=classD["fMMP"], maxATK=classD["fATK"], maxDEF=classD["fDEF"], maxMAT=classD["fMAT"], maxMDF=classD["fMDF"], maxAGI=classD["fAGI"], maxLUK=classD["fLUK"], overview=classD["overview"], description=classD["description"], address=address)
+            return render_template('PageHTML/individClassEdit.html', name=classD["name"], baseMHP=classD["sMHP"], baseMMP=classD["sMMP"], baseATK=classD["sATK"], baseDEF=classD["sDEF"], baseMAT=classD["sMAT"], baseMDF=classD["sMDF"], baseAGI=classD["sAGI"], baseLUK=classD["sLUK"], maxMHP=classD["fMHP"], maxMMP=classD["fMMP"], maxATK=classD["fATK"], maxDEF=classD["fDEF"], maxMAT=classD["fMAT"], maxMDF=classD["fMDF"], maxAGI=classD["fAGI"], maxLUK=classD["fLUK"], overview=classD["overview"], description=classD["description"], skillList=classD["skillList"], address=address)
         else:
             return render_template('PageHTML/individClassPage.html', name = classD["name"], baseMHP = classD["sMHP"], baseMMP = classD["sMMP"], baseATK = classD["sATK"], baseDEF = classD["sDEF"], baseMAT = classD["sMAT"], baseMDF = classD["sMDF"], baseAGI = classD["sAGI"], baseLUK = classD["sLUK"], maxMHP = classD["fMHP"], maxMMP = classD["fMMP"], maxATK = classD["fATK"], maxDEF = classD["fDEF"], maxMAT = classD["fMAT"], maxMDF = classD["fMDF"], maxAGI = classD["fAGI"], maxLUK = classD["fLUK"], overview = classD["overview"], description = classD["description"], address=address)
 
@@ -143,11 +145,12 @@ def accessMember(name, address):
     if isNull:
         return accessPageNotFound()
     else:
-        member = {"name": data[1] + " " + data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23]}
+        skillList = getSkillsList(name, "Player")
+        member = {"name": data[1] + " " + data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "skillList": skillList}
         print(member)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individPartyEdit.html', name=member["name"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], address=address)
+            return render_template('PageHTML/individPartyEdit.html', name=member["name"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], skillList=member["skillList"], address=address)
         else:
             return render_template('PageHTML/individPartyPage.html', name = member["name"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], address=address)
 
@@ -450,6 +453,57 @@ def loadList(tableName):
         return render_template('PageHTML/skillList.html', tableData=tableData)
     return accessPageNotFound()
 
+def getSkillsList(name, type):
+    db = openDatabase()
+    dbc = db.cursor()
+    skillIds = []
+    skillList = []
+    id = 0
+    memberID = 0
+    sql = ""
+    if type == "Player":
+        sql = "SELECT MemberID FROM PartyMembers WHERE PartyMembers.FirstName = ?"
+        args = [name]
+        for item in db.cursor().execute(sql, args):
+            memberID = item
+            print(id)
+            print("\n")
+        sql = "SELECT ClassID FROM PartyMembers WHERE PartyMember.MemberID = ?"
+        args = [memberID]
+        for item in db.cursor().execute(sql, args):
+            if id == 0:
+                id = item
+        sql = "SELECT SkillID, Level FROM SkillToUser WHERE SkillToUser.ClassID = ?"
+
+    elif type == "Class":
+        sql = "SELECT ClassID FROM Classes WHERE Classes.Name = ?"
+        args = [name]
+        for item in db.cursor().execute(sql, args):
+            id = item
+            print(id)
+            print("\n")
+        sql = "SELECT SkillID, Level FROM SkillToUser WHERE SkillToUser.ClassID = ?"
+
+    else:
+        sql = "SELECT EnemyID FROM Enemies WHERE enemy.Name = ?"
+        args = [name]
+        for item in db.cursor().execute(sql, args):
+            id = item
+            print(id)
+            print("\n")
+        sql = "SELECT SkillID FROM SkillToUser WHERE SkillToUser.EnemyID = ?"
+
+    for row in db.cursor().execute(sql,id):
+        for item in row:
+            sql2 = "SELECT Skills.Name FROM Skills, SkillToUser WHERE SkillId = ? AND Skills.SkillId = SkillToUser.SkillId"
+            for line in db.cursor().execute(sql2, item):
+                for index in row:
+                    skillList.append(str(item))
+            print(skillList)
+            print('\n')
+            print(item)
+            print('\n')
+    return skillList
 
 def submitPage():
     return render_template('TemplateHTML/Homepage.html')

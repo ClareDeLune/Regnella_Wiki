@@ -67,54 +67,11 @@
             <div>
                 <h3 class="minorTitle">Skills:</h3>
                 <table class="table table-bordered">
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
-                    <tr>
-                        <td class="bodyRow">Skill Name</td>
-                        <td class="bodyRow">Level</td>
-                    </tr>
+                    {% for item in skillList %}
+                        <tr>
+                            <td>{{ item }}</td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
     {% endblock content %}
