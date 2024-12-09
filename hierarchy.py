@@ -176,7 +176,7 @@ def enemyEdit(name=None):
 #Character Edit:
 @app.route('/home/Characters/Edit/<name>')
 @app.route('/home/characters/edit/<name>')
-def characterEdit(name=None):
+def charEdit(name=None):
     sName = name
     address = 'Edit'
     return accessChar(name, address)

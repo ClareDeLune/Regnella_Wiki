@@ -3,41 +3,41 @@
 {% block title %}<h1>Character</h1>{% endblock title %}
 
     {% block header %}
-        <h2 class="pageTitle">{{ name }}</h2>
+        <h2 class="pageTitle">{{ charName }}</h2>
         <p>
         {{ overview }}
         </p>
         <table class="headerTable">
             <tr>
-                <th class="bodyRow"><img src= "{{ img }}" alt="Character Img" width="100" height="100"></th>
+                <th class="bodyRow"><img src="/static/img/{{ img }}.png" alt="Character Img" width="100" height="100"></th>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ firstName }}></th>
+                <th class="bodyRow">{{ firstName }}</th>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ lastName }}></th>
+                <td class="bodyRow">{{ lastName }}</td>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ age }}></th>
+                <td class="bodyRow">{{ age }}</td>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ race }}></th>
+                <td class="bodyRow">{{ race }}</td>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" placeholder={{ family }}></th>
+                <td class="bodyRow">{{ family }}</td>
             </tr>
             <tr>
-                <td class="bodyRow"><input type="text" placeholder={{ type }}></td>
+                <td class="bodyRow">{{ type }}</td>
             </tr>
             <tr>
-                <td class="bodyRow"><input type="text" placeholder={{ location }}></td>
+                <td class="bodyRow">{{ location }}</td>
             </tr>
         </table>
     {% endblock header %}
 
     {% block content %}
         <div class="individOverview">
-            <p><input type="text" placeholder={{ description }}>
+            <p>{{ description }}
             </p>
         </div>
     {% endblock content %}
