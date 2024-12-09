@@ -193,7 +193,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            foeData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            foeData.append(stringy)
         print(foeData)
         print("\n")
         foeTData = ''.join(foeData)
@@ -204,7 +206,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            playData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            playData.append(stringy)
         print(playData)
         print("\n")
         playTData = ''.join(playData)
@@ -215,7 +219,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            npcData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            npcData.append(stringy)
         print(npcData)
         print("\n")
         npcTData = ''.join(npcData)
@@ -227,10 +233,12 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            data.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
         print(data)
         print("\n")
-        tableData = ''.join(data)
+        tableData = ' '.join(data)
         print(tableData)
         return render_template('PageHTML/classList.html', tableData = data)
 
@@ -239,12 +247,14 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            data.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
         print(data)
         print("\n")
         tableData = ''.join(data)
         print(tableData)
-        return render_template('PageHTML/enemyList.html', tableData = tableData)
+        return render_template('PageHTML/enemyList.html', tableData = data)
 
     elif tableName == "Equipment":
         sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Weapon'"
@@ -252,7 +262,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            weaponData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            weaponData.append(stringy)
         print(data)
         print("\n")
         weaponTData = ''.join(weaponData)
@@ -263,7 +275,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            armourData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            armourData.append(stringy)
         print(armourData)
         print("\n")
         armourTData = ''.join(armourData)
@@ -274,7 +288,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            accData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            accData.append(stringy)
         print(accData)
         print("\n")
         accTData = ''.join(accData)
@@ -285,7 +301,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            spiritData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            spiritData.append(stringy)
         print(spiritData)
         print("\n")
         spiritTData = ''.join(spiritData)
@@ -293,39 +311,58 @@ def loadList(tableName):
         return render_template('PageHTML/equipList.html', weaponTable = weaponData, armourTable = armourData, accTable = accData, spiritTable = spiritData)
 
     elif tableName == "Locations":
-        sql = "SELECT Locations.name FROM Locations for Locations.act = '1'"
+        sql = "SELECT Locations.name FROM Locations WHERE Locations.act = '1'"
         actIData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            actIData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            actIData.append(stringy)
         print(actIData)
         print("\n")
         actITData = ''.join(actIData)
         print(actIData)
 
-        sql = "SELECT Locations.name FROM Locations for Locations.act = '2'"
+        sql = "SELECT Locations.name FROM Locations WHERE Locations.act = '2'"
         actIIData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            actIIData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            actIIData.append(stringy)
         print(actIIData)
         print("\n")
         actIITData = ''.join(actIIData)
         print(actIITData)
 
-        sql = "SELECT Locations.name FROM Locations for Locations.act = '3'"
+        sql = "SELECT Locations.name FROM Locations WHERE Locations.act = '3'"
         actIIIData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            actIIIData.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            actIIIData.append(stringy)
         print(actIIIData)
         print("\n")
         actIIITData = ''.join(actIIIData)
         print(actIIITData)
-        return render_template('PageHTML/locationList.html', act1Table = actIData, act2Table = actIIData, act3Table = actIIIData)
+
+        sql = "SELECT Locations.name FROM Locations WHERE Locations.act = '4' OR Locations.act = '0'"
+        actIVData = []
+        print(sql)
+        print('\n')
+        for row in db.cursor().execute(sql):
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            actIVData.append(stringy)
+        print(actIVData)
+        print("\n")
+        actIVTData = ''.join(actIVData)
+        print(actIVTData)
+        return render_template('PageHTML/locationList.html', act1Table = actIData, act2Table = actIIData, act3Table = actIIIData, act4Table = actIVData)
 
 
     elif tableName == "PartyMembers":
@@ -333,7 +370,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            data.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
         print(data)
         print("\n")
         tableData = ''.join(data)
@@ -346,7 +385,9 @@ def loadList(tableName):
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            data.append(str(row))
+            stringy = str(row)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
         print(data)
         print("\n")
         tableData = ''.join(data)
@@ -400,7 +441,9 @@ def getSkillsList(name, type):
             sql2 = "SELECT Skills.Name FROM Skills, SkillToUser WHERE SkillId = ? AND Skills.SkillId = SkillToUser.SkillId"
             for line in db.cursor().execute(sql2, item):
                 for index in row:
-                    skillList.append(str(item))
+                    stringy = str(item)
+                    stringy = stringFormat(stringy)
+                    skillList.append(stringy)
             print(skillList)
             print('\n')
             print(item)
@@ -412,6 +455,12 @@ def submitPage():
 
 
 
+def stringFormat(stringy):
+    stringy = stringy.replace("(", "")
+    stringy = stringy.replace(")", "")
+    stringy = stringy.replace("'", "")
+    stringy = stringy.replace(",", "")
+    return stringy
 
 def accessPageNotFound():
     print("Page not found!\nSome sort of error page should appear here.")
