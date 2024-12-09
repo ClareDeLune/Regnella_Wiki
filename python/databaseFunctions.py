@@ -166,7 +166,6 @@ def accessLocation(name, address):
     data = []
     sql = "SELECT * FROM locations  WHERE locations.name = ?"
     args = [name]
-    args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
             data.append(str(item))
@@ -185,6 +184,32 @@ def accessLocation(name, address):
             return render_template('PageHTML/individLocationEdit.html', name=location["name"], act=location["act"], connect=location["connect"], overview=location["overview"], description=location["description"], img = location["img"], address=address)
         else:
             return render_template('PageHTML/individLocationPage.html', name = location["name"], act = location["act"], connect = location["connect"], overview = location["overview"], description = location["description"], img = location["img"], address=address)
+
+
+def accessPlot(address):
+    db = openDatabase()
+    dbc = db.cursor()
+
+    data = []
+    sql = "SELECT * FROM plot WHERE plot.plotID = 1"
+    for row in db.cursor().execute(sql):
+        for item in row:
+            data.append(str(item))
+    print(data)
+    print("\n")
+    isNull = (data == [])
+    print(isNull)
+    print("\n")
+    if isNull:
+        return accessPageNotFound()
+    else:
+        plot = {"overview": data[1], "act1": data[2], "act2": data[3], "act3": data[4], "SeTa": data[5], "SeLu": data[6], "SeMa": data[7], "TaYl": data[8], "TaCl": data[9], "LuBr": data[10], "LuYl": data[11], "BrMa": data[12], "BrTa": data[13], "MaTa": data[14], "ClTa": data[15]}
+        print(plot)
+        db.close()
+        if address == 'Edit':
+            return render_template('PageHTML/plotEdit.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
+        else:
+            return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
 
 
 def loadList(tableName):
@@ -453,6 +478,7 @@ def getSkillsList(name, type):
             print(item)
             print('\n')
     return skillList
+
 
 def submitPage():
     return render_template('TemplateHTML/Homepage.html')

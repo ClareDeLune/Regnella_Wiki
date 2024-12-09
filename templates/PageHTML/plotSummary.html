@@ -5,7 +5,7 @@
 
 {% block header %}
     <h2 class="pageTitle">Summary</h2>
-    <p>{ overview }</p>
+    <p>{{ overview }}</p>
 {% endblock header %}
 <br>
 <br>
@@ -13,7 +13,7 @@
     <button type="button" class="collapsible" onclick="globalCollapsability()">Act I:</button>
     <div class="content">
         {% block actOne %}
-             <p>{ actOne }</p>
+             <p>{{ actOne }}</p>
         {% endblock actOne %}
     </div>
     <br>
@@ -22,7 +22,7 @@
     <button type="button" class="collapsible" onclick="globalCollapsability()">Act II:</button>
     <div class="content">
         {% block actTwo %}
-             <p>{ actTwo }</p>
+             <p>{{ actTwo }}</p>
         {% endblock actTwo %}
     </div>
     <br>
@@ -31,7 +31,7 @@
     <button type="button" class="collapsible" onclick="globalCollapsability()">Act III:</button>
     <div class="content">
         {% block actThree %}
-             <p>{ actThree }</p>
+             <p>{{ actThree }}</p>
         {% endblock actThree %}
     </div>
     <br>
@@ -40,84 +40,100 @@
     <button type="button" class="collapsible" onclick="globalCollapsability()">Ending:</button>
     <div class="content">
         {% block extraEndings %}
-            <p>Endings</p>
             <!---Selene X Takeo-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Takeo</button>
             <div class="content">
-                <p>{ SetaEnd }</p>
+                <p>{{ SetaEnd }}</p>
             </div>
             <br>
             <br>
             <!---Selene X Lucas-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Lucas</button>
             <div class="content">
-                <p>{ SeLuEnd }</p>
+                <p>{{ SeLuEnd }}</p>
             </div>
             <br>
             <br>
             <!---Selene X MARA-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&MARA</button>
             <div class="content">
-                <p>{ SeMaEnd }</p>
+                <p>{{ SeMaEnd }}</p>
             </div>
             <br>
             <br>
             <!---Takeo X Yliyaminya-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Ylyiaminya</button>
             <div class="content">
-                <p>{ TaYlEnd }</p>
+                <p>{{ TaYlEnd }}</p>
             </div>
             <br>
             <br>
             <!---Takeo X Clarice-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Clarice</button>
             <div class="content">
-                <p>{ TaClEnd }</p>
+                <p>{{ TaClEnd }}</p>
             </div>
             <br>
             <br>
             <!---Lucas X Brenda-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Brenda</button>
             <div class="content">
-                <p>{ LuBrEnd }</p>
+                <p>{{ LuBrEnd }}</p>
             </div>
             <br>
             <br>
             <!---Lucas X Yliyaminya-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Yliyaminya</button>
             <div class="content">
-                <p>{ LuYlEnd }</p>
+                <p>{{ LuYlEnd }}</p>
             </div>
             <br>
             <br>
             <!---Brenda X MARA-->
             <button type="button" class="collapsible"onclick="globalCollapsability()">Brenda&MARA</button>
             <div class="content">
-                <p>{ BrMaEnd }</p>
+                <p>{{ BrMaEnd }}</p>
             </div>
             <br>
             <br>
             <!---Brenda X Takeshi-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Brenda&Takeshi</button>
             <div class="content">
-                <p>{ BrTaEnd }</p>
+                <p>{{ BrTaEnd }}</p>
             </div>
             <br>
             <br>
             <!---MARA X Takeshi-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">MARA&Takeshi</button>
             <div class="content">
-                <p>{ MaTaEnd }</p>
+                <p>{{ MaTaEnd }}</p>
             </div>
             <br>
             <br>
             <!---Clarice X Takeshi-->
             <button type="button" class="collapsible" onclick="globalCollapsability()">Clarice&Takeshi</button>
             <div class="content">
-                <p>{ ClTaEnd }</p>
+                <p>{{ ClTaEnd }}</p>
             </div>
             <br>
             <br>
         </div>
     {% endblock extraEndings %}
 {% endblock content %}
+<footer class="pageFooter">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            {% block footer %}
+                {% if address != 'Edit' %}
+                	Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                    <form action="{{ url_for( address, name=name ) }}">
+                        <input id="editButton" type="submit" value="Edit">
+                    </form>
+                {% else %}
+                    Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                    <form action="{{ url_for( 'submit', address=address ) }}">
+                        <input id="editButton" type="submit" value="Submit">
+                    </form>
+                {% endif %}
+            {% endblock footer %}
+        </div>
+</footer>

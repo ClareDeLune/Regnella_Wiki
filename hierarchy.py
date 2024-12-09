@@ -22,7 +22,8 @@ def submit(address='None'):
 @app.route('/home/plot-overview')
 @app.route('/home/plotoverview')
 def plotOverview():
-    return render_template('PageHTML/plotSummary.html')
+    address = 'plotEdit'
+    return accessPlot(address)
 
 #ForumPage Nav.
 @app.route('/home/Forum-Page')
@@ -208,6 +209,14 @@ def locationEdit(name=None):
     sName = name
     address = 'Edit'
     return accessLocation(name, address)
+
+@app.route('/home/PlotOverview/Edit')
+@app.route('/home/Plot-Overview/Edit')
+@app.route('/home/plot-overview/edit')
+@app.route('/home/plotoverview/edit')
+def plotEdit():
+    address = 'Edit'
+    return accessPlot(address)
 '''
 '''
 
