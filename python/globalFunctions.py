@@ -1,5 +1,5 @@
 ###Set-Up
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import sqlite3, os
 from python.databaseFunctions import *
 

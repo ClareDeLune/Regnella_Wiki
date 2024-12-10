@@ -1,11 +1,9 @@
 {% extends '/globalElements.html' %}
 
-{% block title %}<h1 class="pageTitle">PLACEHOLDER List</h1>{% endblock title %}
+{% block title %}<h1 class="pageTitle">PLACEHOLDER</h1>{% endblock title %}
 
 {% block header %}
-    <p>
-    A quick description of the individual item being discussed.
-    </p>
+            <p>A quick description of the individual item being discussed.</p>
     {% block indivTable %}
         <table class="bodyTable">
             <tr>
@@ -24,26 +22,26 @@
         </table>
     {% endblock indivTable %}
 {% endblock header %}
-<br>
-{% block content %}
-    <h2>Overview:</h2>
-    <p>More in-depth description and explanation.</p>
-{% endblock content %}
+        <br>
+        {% block content %}
+            <h2>Overview:</h2>
+            <p>More in-depth description and explanation.</p>
+        {% endblock content %}
 
-<footer class="pageFooter">
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            {% block footer %}
-                {% if address != 'Edit' %}
-                	Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
-                    <form action="{{ url_for( address, name=name ) }}">
-                        <input id="editButton" type="submit" value="Edit">
-                    </form>
-                {% else %}
-                    Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
-                    <form action="{{ url_for( 'submit', address=address ) }}">
-                        <input id="editButton" type="submit" value="Submit">
-                    </form>
-                {% endif %}
-            {% endblock footer %}
-        </div>
-</footer>
+        <footer class="pageFooter">
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    {% block footer %}
+                        {% if address != 'Edit' %}
+                            Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                            <form action="{{ url_for( address, name=name ) }}">
+                                <input id="editButton" type="submit" value="Edit">
+                            </form>
+                        {% else %}
+                            Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                            <form action="{{ url_for( "home" ) }}"  method="post">
+                                <input id="editButton" type="submit" value="Submit">
+                            </form>
+                        {% endif %}
+                    {% endblock footer %}
+                </div>
+        </footer>

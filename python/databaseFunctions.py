@@ -507,9 +507,40 @@ def getSkillsList(name, type):
     return skillList
 
 
+def submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM characters WHERE characters.firstName = ?"
+    nameCheck = [firstName]
+    print(nameCheck)
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    if isNull:
+        sql = "INSERT INTO characters (firstName, surname, age, race, family, type, location, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        db.close()
+        print("Character Added!")
+    else:
+        sql = "UPDATE characters SET (firstName = ?, surname = ?, age = ?, race = ?, family = ?, type = ?, location = ?, overview = ?, description = ?, img = ?) WHERE firstName = ?"
+        args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString, nameCheck]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        db.close()
+        print("Character Updated!")
+    return "Character Added Successfully"
+
+
+
 def submitPage():
     return render_template('TemplateHTML/Homepage.html')
-
 
 
 def stringFormat(stringy):

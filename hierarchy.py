@@ -11,9 +11,10 @@ app = Flask(__name__)
 def home():
     return render_template('TemplateHTML/Homepage.html')
 
-@app.route('/home/submit')
+'''@app.route('/home/submit', methods=['GET', 'POST'])
 def submit(address='None'):
-    return submitPage()
+    return submitPage()'''
+
 
 ###LEVEL NO. 2
 #PlotOverview Nav.
@@ -175,12 +176,35 @@ def enemyEdit(name=None):
 
 
 #Character Edit:
-@app.route('/home/Characters/Edit/<name>')
-@app.route('/home/characters/edit/<name>')
+@app.route('/home/Characters/Edit/<name>', methods = ['GET', 'POST'])
+@app.route('/home/characters/edit/<name>', methods=['GET', 'POST'])
 def charEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessChar(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        charName = request.form.get('charName')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        firstName = request.form.get('firstName')
+        lastName = request.form.get('lastName')
+        age = request.form.get('age')
+        race = request.form.get('race')
+        familyMembers = request.form.get('familyMembers')
+        charType = request.form.get('charType')
+        location = request.form.get('location')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(charName)
+        print(age)
+        print(overview)
+        print("\n")
+        submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description)
+        return loadList("Characters")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessChar(name, address)
 
 #Member Edit:
 @app.route('/home/Party-Members/Edit/<name>')
@@ -217,6 +241,7 @@ def locationEdit(name=None):
 def plotEdit():
     address = 'Edit'
     return accessPlot(address)
+
 '''
 '''
 
