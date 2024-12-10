@@ -98,7 +98,7 @@ def editLog():
 @app.route('/home/Credits')
 @app.route('/home/credits')
 def credits():
-    return render_template('PageHTML/creditAndContributions.html')
+    return accessCredits()
 
 
 ###LEVEL NO. 3

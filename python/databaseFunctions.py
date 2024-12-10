@@ -211,6 +211,33 @@ def accessPlot(address):
         else:
             return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
 
+def accessCredits():
+    db = openDatabase()
+    dbc = db.cursor()
+
+    dataName = []
+    dataContributor = []
+    sql = "SELECT * FROM contributors"
+    for row in db.cursor().execute(sql):
+        stringy = str(row[0])
+        stringy = stringFormat(stringy)
+        dataName.append(stringy)
+        stringy = str(row[1])
+        stringy = stringFormat(stringy)
+        dataContributor.append(stringy)
+    print(dataName)
+    print("\n")
+    print(dataContributor)
+    print("\n")
+    isNull = (dataName == [])
+    print(isNull)
+    print("\n")
+    if isNull:
+        return accessPageNotFound()
+    else:
+        db.close()
+        return render_template('PageHTML/creditAndContributions.html', items=dataName, items2=dataContributor)
+
 
 def loadList(tableName):
     db = openDatabase()
