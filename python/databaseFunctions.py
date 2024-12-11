@@ -513,7 +513,7 @@ def submitCharacter(charName, overview, imgString, firstName, lastName, age, rac
     check = ""
     sql = "SELECT * FROM characters WHERE characters.firstName = ?"
     nameCheck = [firstName]
-    print(nameCheck)
+    print(nameCheck[0])
     for row in db.cursor().execute(sql, nameCheck):
         check = row
     isNull = (check == "")
@@ -525,15 +525,13 @@ def submitCharacter(charName, overview, imgString, firstName, lastName, age, rac
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
-        db.close()
         print("Character Added!")
     else:
-        sql = "UPDATE characters SET (firstName = ?, surname = ?, age = ?, race = ?, family = ?, type = ?, location = ?, overview = ?, description = ?, img = ?) WHERE firstName = ?"
-        args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString, nameCheck]
+        sql = "UPDATE characters SET firstName = ?, surname = ?, age = ?, race = ?, family = ?, type = ?, location = ?, overview = ?, description = ?, img = ? WHERE firstName = ?"
+        args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString, nameCheck[0]]
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
-        db.close()
         print("Character Updated!")
     return "Character Added Successfully"
 
