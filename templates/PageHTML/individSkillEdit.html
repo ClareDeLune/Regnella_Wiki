@@ -3,31 +3,33 @@
 {% block title %}<h1>Skill</h1>{% endblock title %}
 
 {% block header %}
-    <h2><input type="text" value={{ name }}></h2>
-    <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
-    </p>
-    <table class="table table-bordered">
-        <tr>
-            <th class="bodyRow"><input type="text" value={{ img }}></th>
-        </tr>
-        <tr>
-            <th class="bodyRow"><input type="text" value={{ name }}></th>
-        </tr>
-        <tr>
-            <td class="bodyRow"><input type="text" value={{ type }}></td>
-            </tr>
-        <tr>
-            <td class="bodyRow"><input type="text" value={{ usage }}></td>
-        </tr>
-        <tr>
-            <td class="bodyRow"><input type="text" value={{ element }}></td>
-        </tr>
-    </table>
-{% endblock header %}
-
-{% block content %}
-    <div class="individOverview">
-        <p><input type="text" value={{ description }}>
+    <form action="{{ url_for( "skillEdit", name=name ) }}"  method="post">
+        <h2><input name="skillName" type="text" value={{ name }}></h2>
+        <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>>
         </p>
-    </div>
-{% endblock content %}
+        <table class="table table-bordered">
+            <tr>
+                <th class="bodyRow"><input name="imgString" type="text" value={{ img }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input name="name" type="text" value={{ name }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input name="skillType" type="text" value={{ type }}></td>
+                </tr>
+            <tr>
+                <td class="bodyRow"><input name="usage" type="text" value={{ usage }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input name="skillElement" type="text" value={{ element }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea>
+            </p>
+        </div>
+    {% endblock content %}
+</form>

@@ -507,6 +507,62 @@ def getSkillsList(name, type):
     return skillList
 
 
+def submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM classes WHERE classes.skillName = ?"
+    nameCheck = [className]
+    print(nameCheck[0])
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    if isNull:
+        sql = "INSERT INTO skills (name, StartMHP, StartMHP, StartMMP, StartATK, StartDEF, StartMAT, StartMDF, StartAGI, StartLUK, FinalMHP, FinalMMP, FinalATK, FinalDEF, FinalMAT, FinalMDF, FinalAGI, FinalLUK, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        args = [name, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, overview, description, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Class Added!")
+    else:
+        sql = "UPDATE characters SET name = ?, StartMHP = ?, StartMHP = ?, StartMMP = ?, StartATK = ?, StartDEF = ?, StartMAT = ?, StartMDF = ?, StartAGI = ?, StartLUK = ?, FinalMHP = ?, FinalMMP = ?, FinalATK = ?, FinalDEF = ?, FinalMAT = ?, FinalMDF = ?, FinalAGI = ?, FinalLUK = ?, overview = ?, description = ?, img = ? WHERE name = ?"
+        args = [name, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, overview, description, imgString, nameCheck[0]]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Class Updated!")
+    return "Class Added/Updated Successfully"
+
+def submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM skills WHERE skills.name = ?"
+    nameCheck = [skillName]
+    print(nameCheck[0])
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    if isNull:
+        sql = "INSERT INTO skills (name, type, usage, element, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        args = [name, skillType, usage, skillElement, overview, description, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Skill Added!")
+    else:
+        sql = "UPDATE skills SET name = ?, type = ?, usage = ?, element = ?, overview = ?, description = ?, img = ? WHERE skillName = ?"
+        args = [name, skillType, usage, skillElement, overview, description, imgString, nameCheck[0]]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Skill Updated!")
+    return "Skill Added/Updated Successfully"
+
 def submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description):
     db = openDatabase()
     dbc = db.cursor()
@@ -533,7 +589,7 @@ def submitCharacter(charName, overview, imgString, firstName, lastName, age, rac
         db.cursor().execute(sql, args)
         db.commit()
         print("Character Updated!")
-    return "Character Added Successfully"
+    return "Character Added/Updated Successfully"
 
 
 

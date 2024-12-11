@@ -1,4 +1,6 @@
 ###Set-Up
+from crypt import methods
+
 from python.globalFunctions import *
 
 app = Flask(__name__)
@@ -159,12 +161,32 @@ def locationFunc(name=None):
 
 ###LEVEL NO. 4
 ###Skill Edit:
-@app.route('/home/Skills/Edit/<name>')
-@app.route('/home/skills/edit/<name>')
+@app.route('/home/Skills/Edit/<name>', methods=['GET', 'POST'])
+@app.route('/home/skills/edit/<name>', methods=['GET', 'POST'])
 def skillEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessSkill(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        skillName = request.form.get('skillName')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        name = request.form.get('name')
+        skillType = request.form.get('skillType')
+        usage = request.form.get('usage')
+        skillElement = request.form.get('skillElement')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(skillName)
+        print(usage)
+        print(overview)
+        print("\n")
+        submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description)
+        return loadList("Skills")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessSkill(name, address)
 
 ###Enemy Edit:
 @app.route('/home/Enemies/Edit/<name>')
@@ -218,12 +240,46 @@ def partyMemberEdit(name=None):
 
 
 #Class Edit:
-@app.route('/home/Classes/Edit/<name>')
-@app.route('/home/classes/edit/<name>')
+@app.route('/home/Classes/Edit/<name>', methods = ['GET', 'POST'])
+@app.route('/home/classes/edit/<name>', methods = ['GET', 'POST'])
 def classEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessClass(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        className = request.form.get('className')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        name = request.form.get('name')
+        owner = request.form.get('owner')
+        BaseMHP = request.form.get('BaseMHP')
+        BaseMMP = request.form.get('BaseMMP')
+        BaseATK = request.form.get('BaseATK')
+        BaseDEF = request.form.get('BaseDEF')
+        BaseMAT = request.form.get('BaseMAT')
+        BaseMDF = request.form.get('BaseMDF')
+        BaseAGI = request.form.get('BaseAGI')
+        BaseLUK = request.form.get('BaseLUK')
+        MaxMHP = request.form.get('MaxMHP')
+        MaxMMP = request.form.get('MaxMMP')
+        MaxATK = request.form.get('MaxATK')
+        MaxDEF = request.form.get('MaxDEF')
+        MaxMAT = request.form.get('MaxMAT')
+        MaxMDF = request.form.get('MaxMDF')
+        MaxAGI = request.form.get('MaxAGI')
+        MaxLUK = request.form.get('MaxLUK')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(name)
+        print(MaxMHP)
+        print(overview)
+        print("\n")
+        submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, description)
+        return loadList("Classes")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessClass(name, address)
 
 
 #Location Edit:

@@ -3,18 +3,19 @@
 {% block title %}<h1>Class</h1>{% endblock title %}
 
     {% block header %}
-            <h2><input type="text" value={{ name }}></h2>
-            <p><textarea rows="3" cols="80">{{ overview }}</textarea>
+        <form action="{{ url_for( "classEdit", name=name ) }}"  method="post">
+            <h2><input name="className" type="text" value={{ name }}></h2>
+            <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>
             </p>
         <table class="table table-bordered">
             <tr>
-                <th class="bodyRow"><input type="text" value={{ img }}></th>
+                <th class="bodyRow"><input name="imgString" type="text" value={{ img }}></th>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" value= {{ name }}></th>
+                <th class="bodyRow"><input name="name" type="text" value= {{ name }}></th>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" value= {{ owner}}></th>
+                <th class="bodyRow"><input name="owner" type="text" value= {{ owner}}></th>
             </tr>
             <tr>
                 <td class="bodyRow"><input type="text" value= {{ baseMHP }}></td>
@@ -39,7 +40,7 @@
         <div class="individOverview">
             <h2 class="sectionTitle">Overview:</h2>
             <br>
-            <input type="text" value= {{ description }}>
+            <textarea name="description" rows="12" cols="80">{{ description }}</textarea>
             <br>
         </div>
             <div>
@@ -47,35 +48,35 @@
                 <table class="table table-bordered">
                     <tr>
                         <th class="bodyRow">MHP:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseMHP }}></td>
+                        <td class="bodyRow"><input name="baseMHP" type="text" value= {{ baseMHP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MMP:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseMMP }}></td>
+                        <td class="bodyRow"><input name="baseMMP" type="text" value= {{ baseMMP }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">ATK:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseATK }}></td>
+                        <td class="bodyRow"><input name="baseATK" type="text" value= {{ baseATK }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">DEF:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseDEF }}></td>
+                        <td class="bodyRow"><input name="baseDEF" type="text" value= {{ baseDEF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MAT:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseMAT }}></td>
+                        <td class="bodyRow"><input name="baseMAT" type="text" value= {{ baseMAT }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">MDF:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseMDF }}></td>
+                        <td class="bodyRow"><input name="baseMDF" type="text" value= {{ baseMDF }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">AGI:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseAGI }}></td>
+                        <td class="bodyRow"><input name="baseAGI" type="text" value= {{ baseAGI }}></td>
                     </tr>
                     <tr>
                         <th class="bodyRow">LUK:</th>
-                        <td class="bodyRow"><input type="text" value= {{ baseLUK }}></td>
+                        <td class="bodyRow"><input name="baseLUK" type="text" value= {{ baseLUK }}></td>
                     </tr>
                         </table>
                     </div>
@@ -84,45 +85,46 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th class="bodyRow">MHP:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxMHP }}></td>
+                                <td class="bodyRow"><input name="maxMHP" type="text" value= {{ maxMHP }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">MMP:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxMMP }}></td>
+                                <td class="bodyRow"><input name="maxMMP" type="text" value= {{ maxMMP }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">ATK:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxATK }}></td>
+                                <td class="bodyRow"><input name="maxATK" type="text" value= {{ maxATK }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">DEF:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxDEF }}></td>
+                                <td class="bodyRow"><input name="maxDEF" type="text" value= {{ maxDEF }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">MAT:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxMAT }}></td>
+                                <td class="bodyRow"><input name="maxMAT" type="text" value= {{ maxMAT }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">MDF:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxMDF }}></td>
+                                <td class="bodyRow"><input name="maxMDF" type="text" value= {{ maxMDF }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">AGI:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxAGI }}></td>
+                                <td class="bodyRow"><input name="maxAGI" type="text" value= {{ maxAGI }}></td>
                             </tr>
                             <tr>
                                 <th class="bodyRow">LUK:</th>
-                                <td class="bodyRow"><input type="text" value= {{ maxLUK }}></td>
+                                <td class="bodyRow"><input name="maxLUK" type="text" value= {{ maxLUK }}></td>
                             </tr>
-                </table>
-            </div>
-            <div>
-                <h3 class="minorTitle">Skills:</h3>
-                <table class="table table-bordered">
-                    <tr>
-                        <td class="bodyRow"><input type="text" value= "Skill Name"></td>
-                        <td class="bodyRow"><input type="text" value= "Level"></td>
-                    </tr>
-                </table>
-            </div>
+                    </table>
+                    </div>
+                <div>
+                    <h3 class="minorTitle">Skills:</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="bodyRow">Skill Names</td>
+                            <td class="bodyRow">Levels</td>
+                        </tr>
+                    </table>
+                </div>
     {% endblock content %}
+</form>
