@@ -150,7 +150,7 @@ def accessMember(name, address):
         return accessPageNotFound()
     else:
         skillList = getSkillsList(name, "Player")
-        member = {"firstName": data[1], lastName: data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
+        member = {"firstName": data[1], "lastName": data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
         print(member)
         db.close()
         if address == 'Edit':
@@ -720,6 +720,25 @@ def submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl,
     db.commit()
     return "Plot Added/Updated Successfully"
 
+
+
+def generateEdit(editMessage, page):
+    editTime = datetime.datetime.now()
+    db = openDatabase()
+    dbc = db.cursor()
+    messageNull = (editMessage == "")
+    pageNull = (page == "")
+    if messageNull or pageNull:
+        ###Prevents edit to website...somehow.
+        return render_template('PageHTML/editLog.html')
+    else:
+        sql = "INSERT INTO Edits (page, date-time, change) VALUES (?, ?, ?)"
+        args = [page, editTime, editMessage]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Edit Added!")
+    return "Edit Generator Function Complete!"
 
 
 def submitPage():
