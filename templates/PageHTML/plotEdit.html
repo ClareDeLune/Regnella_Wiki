@@ -4,136 +4,138 @@
 {% block title %}<h1>Plot Overview</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">Summary</h2>
-    <textarea rows="8" cols="80">{{ overview }}</textarea>
-{% endblock header %}
-<br>
-<br>
-{% block content %}
-    <button type="button" class="collapsible" onclick="globalCollapsability()">Act I:</button>
-    <div class="content">
-        {% block actOne %}
-             <textarea rows="20" cols="80">{{ actOne }}</textarea>
-        {% endblock actOne %}
-    </div>
+    <form action="{{ url_for( "plotEdit", name=name ) }}"  method="post">
+        <h2 class="pageTitle">Summary</h2>
+        <textarea name="overview" rows="8" cols="80">{{ overview }}</textarea>
+    {% endblock header %}
     <br>
     <br>
-    <br>
-    <button type="button" class="collapsible" onclick="globalCollapsability()">Act II:</button>
-    <div class="content">
-        {% block actTwo %}
-             <textarea rows="20" cols="80">{{ actTwo }}</textarea>
-        {% endblock actTwo %}
-    </div>
-    <br>
-    <br>
-    <br>
-    <button type="button" class="collapsible" onclick="globalCollapsability()">Act III:</button>
-    <div class="content">
-        {% block actThree %}
-             <textarea rows="20" cols="80">{{ actThree }}</textarea>
-        {% endblock actThree %}
-    </div>
-    <br>
-    <br>
-    <br>
-    <button type="button" class="collapsible" onclick="globalCollapsability()">Ending:</button>
-    <div class="content">
-        {% block extraEndings %}
-            <!---Selene X Takeo-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Takeo</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ SeTaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Selene X Lucas-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Lucas</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ SeLuEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Selene X MARA-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&MARA</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ SeMaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Takeo X Yliyaminya-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Ylyiaminya</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ TaYlEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Takeo X Clarice-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Clarice</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ TaClEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Lucas X Brenda-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Brenda</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ LuBrEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Lucas X Yliyaminya-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Yliyaminya</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ LuYlEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Brenda X MARA-->
-            <button type="button" class="collapsible"onclick="globalCollapsability()">Brenda&MARA</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ BrMaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Brenda X Takeshi-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Brenda&Takeshi</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ BrTaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---MARA X Takeshi-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">MARA&Takeshi</button>
-            <div class="content">
-                <textarea rows="10" cols="80">{{ MaTaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
-            <!---Clarice X Takeshi-->
-            <button type="button" class="collapsible" onclick="globalCollapsability()">Clarice&Takeshi</button>
-            <div class="content">
-               <textarea rows="10" cols="80">{{ ClTaEnd }}</textarea>
-            </div>
-            <br>
-            <br>
+    {% block content %}
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Act I:</button>
+        <div class="content">
+            {% block actOne %}
+                 <textarea name="actOne" rows="20" cols="80">{{ actOne }}</textarea>
+            {% endblock actOne %}
         </div>
-    {% endblock extraEndings %}
-{% endblock content %}
-<footer class="pageFooter">
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            {% block footer %}
-                {% if address != 'Edit' %}
-                	Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
-                    <form action="{{ url_for( address, name=name ) }}">
-                        <input id="editButton" type="submit" value="Edit">
-                    </form>
-                {% else %}
-                    Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
-                    <form action="{{ url_for( 'submit', address=address ) }}">
-                        <input id="editButton" type="submit" value="Submit">
-                    </form>
-                {% endif %}
-            {% endblock footer %}
+        <br>
+        <br>
+        <br>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Act II:</button>
+        <div class="content">
+            {% block actTwo %}
+                 <textarea name="actTwo" rows="20" cols="80">{{ actTwo }}</textarea>
+            {% endblock actTwo %}
         </div>
-</footer>
+        <br>
+        <br>
+        <br>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Act III:</button>
+        <div class="content">
+            {% block actThree %}
+                 <textarea name="actThree" rows="20" cols="80">{{ actThree }}</textarea>
+            {% endblock actThree %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Ending:</button>
+        <div class="content">
+            {% block extraEndings %}
+                <!---Selene X Takeo-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Takeo</button>
+                <div class="content">
+                    <textarea name="SeTa" rows="10" cols="80">{{ SeTaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Selene X Lucas-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Lucas</button>
+                <div class="content">
+                    <textarea name="SeLu" rows="10" cols="80">{{ SeLuEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Selene X MARA-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&MARA</button>
+                <div class="content">
+                    <textarea name="SeMa" rows="10" cols="80">{{ SeMaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Takeo X Yliyaminya-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Ylyiaminya</button>
+                <div class="content">
+                    <textarea name="TaYl" rows="10" cols="80">{{ TaYlEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Takeo X Clarice-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Clarice</button>
+                <div class="content">
+                    <textarea name="TaCl" rows="10" cols="80">{{ TaClEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Lucas X Brenda-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Brenda</button>
+                <div class="content">
+                    <textarea name="LuBr" rows="10" cols="80">{{ LuBrEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Lucas X Yliyaminya-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Yliyaminya</button>
+                <div class="content">
+                    <textarea name="LuYl" rows="10" cols="80">{{ LuYlEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Brenda X MARA-->
+                <button type="button" class="collapsible"onclick="globalCollapsability()">Brenda&MARA</button>
+                <div class="content">
+                    <textarea name="BrMa" rows="10" cols="80">{{ BrMaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Brenda X Takeshi-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Brenda&Takeshi</button>
+                <div class="content">
+                    <textarea name="BrTa" rows="10" cols="80">{{ BrTaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---MARA X Takeshi-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">MARA&Takeshi</button>
+                <div class="content">
+                    <textarea name="MaTa" rows="10" cols="80">{{ MaTaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+                <!---Clarice X Takeshi-->
+                <button type="button" class="collapsible" onclick="globalCollapsability()">Clarice&Takeshi</button>
+                <div class="content">
+                   <textarea name="ClTa" rows="10" cols="80">{{ ClTaEnd }}</textarea>
+                </div>
+                <br>
+                <br>
+            </div>
+        {% endblock extraEndings %}
+    {% endblock content %}
+    <footer class="pageFooter">
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                {% block footer %}
+                    {% if address != 'Edit' %}
+                        Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                        <form action="{{ url_for( address, name=name ) }}">
+                            <input id="editButton" type="submit" value="Edit">
+                        </form>
+                    {% else %}
+                        Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                        <form action="{{ url_for( 'submit', address=address ) }}">
+                            <input id="editButton" type="submit" value="Submit">
+                        </form>
+                    {% endif %}
+                {% endblock footer %}
+            </div>
+    </footer>
+</form>

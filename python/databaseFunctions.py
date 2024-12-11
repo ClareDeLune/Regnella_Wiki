@@ -613,7 +613,7 @@ def submitMember(memberName, overview, imgString, firstName, lastName, memberCla
         db.commit()
         print("Party Member Added!")
     else:
-        sql = "UPDATE enemies SET firstName = ?, surname = ?, classID = ?, startingLevel = ?, MHP = ?, MMP = ?, ATK = ?, DEF = ?, MAT = ?, MDF = ?, AGI = ?, LUK = ?, support1 = ?, support1Lv = ?, support2 = ?, support2Lv = ?, support3 = ?, support3Lv = ?, support4 = ?, support4Lv = ?, support5 = ?, support5Lv = ?, overview = ?, description = ?, img = ? WHERE name = ?"
+        sql = "UPDATE partymembers SET firstName = ?, surname = ?, classID = ?, startingLevel = ?, MHP = ?, MMP = ?, ATK = ?, DEF = ?, MAT = ?, MDF = ?, AGI = ?, LUK = ?, support1 = ?, support1Lv = ?, support2 = ?, support2Lv = ?, support3 = ?, support3Lv = ?, support4 = ?, support4Lv = ?, support5 = ?, support5Lv = ?, overview = ?, description = ?, img = ? WHERE name = ?"
         args = [firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description, overview, imgString, nameCheck[0]]
         print(args)
         db.cursor().execute(sql, args)
@@ -676,6 +676,16 @@ def submitLocation(locName, overview, imgString, name, act, locType, locConnect,
         db.commit()
         print("Character Updated!")
     return "Character Added/Updated Successfully"
+
+def submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa):
+    db = openDatabase()
+    dbc = db.cursor()
+    sql = "UPDATE plot SET overview = ?, actI = ?, actII = ?, EndST = ?, EndSL = ?, EndSM = ?, EndTY = ?, EndTC = ?, EndLB = ?, EndLY = ?, EndBM = ?, EndBT = ?, EndMT = ?, EndCT = ? WHERE plot.PlotID = 1"
+    args = [overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa]
+    print(args)
+    db.cursor().execute(sql, args)
+    db.commit()
+    return "Plot Added/Updated Successfully"
 
 
 

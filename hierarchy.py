@@ -376,13 +376,40 @@ def locationEdit(name=None):
         address = 'Edit'
         return accessLocation(name, address)
 
-@app.route('/home/PlotOverview/Edit')
-@app.route('/home/Plot-Overview/Edit')
-@app.route('/home/plot-overview/edit')
-@app.route('/home/plotoverview/edit')
+@app.route('/home/PlotOverview/Edit', methods = ['GET', 'POST'])
+@app.route('/home/Plot-Overview/Edit', methods = ['GET', 'POST'])
+@app.route('/home/plot-overview/edit', methods = ['GET', 'POST'])
+@app.route('/home/plotoverview/edit', methods = ['GET', 'POST'])
 def plotEdit():
-    address = 'Edit'
-    return accessPlot(address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        overview = request.form.get('overview')
+        actOne = request.form.get('actOne')
+        actTwo = request.form.get('actTwo')
+        actThree = request.form.get('actThree')
+        SeTa = request.form.get('SeTa')
+        SeLu = request.form.get('SeLu')
+        SeMa = request.form.get('SeMa')
+        TaYl = request.form.get('TaYl')
+        TaCl = request.form.get('TaCl')
+        LuBr = request.form.get('LuBr')
+        LuYl = request.form.get('LuYl')
+        BrMa = request.form.get('BrMa')
+        BrTa = request.form.get('BrTa')
+        MaTa = request.form.get('MaTa')
+        ClTa = request.form.get('ClTa')
+        print("requests made:")
+        print("\n")
+        print(actOne)
+        print(LuBr)
+        print(overview)
+        print("\n")
+        submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa)
+        return render_template('TemplateHTML/Homepage.html')
+    else:
+        address = 'Edit'
+        return accessPlot(address)
 
 '''
 '''
