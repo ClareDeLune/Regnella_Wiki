@@ -238,6 +238,39 @@ def accessCredits():
         db.close()
         return render_template('PageHTML/creditAndContributions.html', items=dataName, items2=dataContributor)
 
+def accessEdits():
+    db = openDatabase()
+    dbc = db.cursor()
+
+    dataPage = []
+    dataDT = []
+    dataChange = []
+    sql = "SELECT * FROM contributors"
+    for row in db.cursor().execute(sql):
+        stringy = str(row[0])
+        stringy = stringFormat(stringy)
+        dataPage.append(stringy)
+        stringy = str(row[1])
+        stringy = stringFormat(stringy)
+        dataDT.append(stringy)
+        stringy = str(row[2])
+        stringy = stringFormat(stringy)
+        dataChange.append(stringy)
+    print(dataPage)
+    print("\n")
+    print(dataDT)
+    print("\n")
+    print(dataChange)
+    print("\n")
+    isNull = (dataChange == [])
+    print(isNull)
+    print("\n")
+    if isNull:
+        return accessPageNotFound()
+    else:
+        db.close()
+        return render_template('PageHTML/creditAndContributions.html', items=dataPage, items2=dataDT, items3=dataChange)
+
 
 def loadList(tableName):
     db = openDatabase()

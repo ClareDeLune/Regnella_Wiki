@@ -4,7 +4,7 @@
 {% block title %}<h1 class="pageTitle">Edit Log</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">Edits Log: Last Edit (00/00/0000)</h2>
+    <h2 class="pageTitle">Edits Log: Last Edit {{ lastEdit }}</h2>
     <p>
     Some text about the edits log and its purpose.
     </p>
@@ -17,10 +17,15 @@
             <th class="bodyRow">Date-Time</th>
             <th class="bodyRow">Change Made</th>
         </tr>
-        <tr>
-            <td class="bodyRow">Placeholder</td>
-            <td class="bodyRow">00/00/0000 00:00:00</td>
-            <td class="bodyRow">Nothing.</td>
-        </tr>
+        {% for i in items %}
+            {% set item1 = items[loop.index-1] %}
+            {% set item2 = items2[loop.index-1] %}
+            {% set item3 = items3[loop.index-1] %}
+            <tr>
+                <td class="bodyRow"> {{ item1 }} </td>
+                <td class="bodyRow">  {{ item2 }} </td>
+                <td class="bodyRow">  {{ item3 }} </td>
+            </tr>
+        {% endfor %}
     </table>
 {% endblock content %}
