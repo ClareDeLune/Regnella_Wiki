@@ -192,9 +192,35 @@ def skillEdit(name=None):
 @app.route('/home/Enemies/Edit/<name>')
 @app.route('/home/enemies/edit/<name>')
 def enemyEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessEnemy(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        enemyName = request.form.get('enemyName')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        name = request.form.get('name')
+        act = request.form.get('act')
+        MHP = request.form.get('MHP')
+        MMP = request.form.get('MMP')
+        ATK = request.form.get('ATK')
+        DEF = request.form.get('DEF')
+        MAT = request.form.get('MAT')
+        MDF = request.form.get('MDF')
+        AGI = request.form.get('AGI')
+        LUK = request.form.get('LUK')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(enemyName)
+        print(act)
+        print(overview)
+        print("\n")
+        submitEnemy(enemyName, overview, imgString, name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, description)
+        return loadList("Enemies")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessEnemy(name, address)
 
 
 #Character Edit:
@@ -229,14 +255,54 @@ def charEdit(name=None):
         return accessChar(name, address)
 
 #Member Edit:
-@app.route('/home/Party-Members/Edit/<name>')
-@app.route('/home/party-members/edit/<name>')
-@app.route('/home/PartyMembers/Edit/<name>')
-@app.route('/home/partymembers/edit/<name>')
+@app.route('/home/Party-Members/Edit/<name>', methods=['GET', 'POST'])
+@app.route('/home/party-members/edit/<name>', methods=['GET', 'POST'])
+@app.route('/home/PartyMembers/Edit/<name>', methods=['GET', 'POST'])
+@app.route('/home/partymembers/edit/<name>', methods=['GET', 'POST'])
 def partyMemberEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessMember(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        memberName = request.form.get('memberName')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        firstName = request.form.get('firstName')
+        lastName = request.form.get('lastName')
+        memberClass = request.form.get('memberClass')
+        level = request.form.get('level')
+        MHP = request.form.get('MHP')
+        MMP = request.form.get('MMP')
+        ATK = request.form.get('ATK')
+        DEF = request.form.get('DEF')
+        MAT = request.form.get('MAT')
+        MDF = request.form.get('MDF')
+        AGI = request.form.get('AGI')
+        LUK = request.form.get('LUK')
+        support1Name = request.form.get('support1Name')
+        support1Lv = request.form.get('support1Lv')
+        support2Name = request.form.get('support2Name')
+        support2Lv = request.form.get('support2Lv')
+        support3Name = request.form.get('support3Name')
+        support3Lv = request.form.get('support3Lv')
+        support4Name = request.form.get('support4Name')
+        support4Lv = request.form.get('support4Lv')
+        support5Name = request.form.get('support5Name')
+        support5Lv = request.form.get('support5Lv')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(memberName)
+        print(level)
+        print(ATK)
+        print(support2Name)
+        print(overview)
+        print("\n")
+        submitMember(memberName, overview, imgString, firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description)
+        return loadList("Members")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessMember(name, address)
 
 
 #Class Edit:
@@ -283,12 +349,32 @@ def classEdit(name=None):
 
 
 #Location Edit:
-@app.route('/home/Locations/Edit/<name>')
-@app.route('/home/locations/edit/<name>')
+@app.route('/home/Locations/Edit/<name>', methods=['GET', 'POST'])
+@app.route('/home/locations/edit/<name>', methods=['GET', 'POST'])
 def locationEdit(name=None):
-    sName = name
-    address = 'Edit'
-    return accessLocation(name, address)
+    if request.method == 'POST':
+        print("correct branch")
+        print("\n")
+        locName = request.form.get('locName')
+        overview = request.form.get('overview')
+        imgString = request.form.get('imgString')
+        name = request.form.get('name')
+        act = request.form.get('act')
+        locType = request.form.get('locType')
+        locConnect = request.form.get('locConnect')
+        description = request.form.get('description')
+        print("requests made:")
+        print("\n")
+        print(locName)
+        print(locType)
+        print(overview)
+        print("\n")
+        submitLocation(locName, overview, imgString, name, act, locType, locConnect, description)
+        return loadList("Locations")
+    else:
+        sName = name
+        address = 'Edit'
+        return accessLocation(name, address)
 
 @app.route('/home/PlotOverview/Edit')
 @app.route('/home/Plot-Overview/Edit')

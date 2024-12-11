@@ -3,73 +3,75 @@
 {% block title %}<h1>Enemy</h1>{% endblock title %}
 
     {% block header %}
-        <h2><input type="text" value={{ name }}></h2>
-        <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
-        </p>
-        <table class="bodyTable">
-            <tr>
-                <th class="bodyRow"><input type="text" value= {{ img }}></th>
-            </tr>
-            <tr>
-                <th class="bodyRow"><input type="text" value= {{ name }}></th>
-            </tr>
-            <tr>
-                <th class="bodyRow"><input type="text" value={{ act }}></th>
-            </tr>
-        </table>
-    {% endblock header %}
+        <form action="{{ url_for( "enemyEdit", name=name ) }}"  method="post">
+            <h2><input name="enemyName" type="text" value={{ name }}></h2>
+            <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
+            </p>
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow"><input name="imgString" type="text" value= {{ img }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="name" type="text" value= {{ name }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="act" type="text" value={{ act }}></th>
+                </tr>
+            </table>
+        {% endblock header %}
 
-    {% block content %}
-        <div class="individOverview">
-            <h2 class="sectionTitle">Overview:</h2>
-            <br>
-            <p><input type="text" value={{ description }}></p>
-            <br>
-        </div>
-            <div>
-                <h3 class="minorTitle">Stats:</h3>
-                <table class="table table-bordered">
-                   <tr>
-                       <th class="bodyRow">MHP:</th>
-                       <td class="bodyRow"><input type="text" value={{ MHP }}></td>
-                   </tr>
-                    <tr>
-                        <th class="bodyRow">MMP:</th>
-                        <td class="bodyRow"><input type="text" value={{ mMMP }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">ATK:</th>
-                        <td class="bodyRow"><input type="text" value={{ ATK }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">DEF:</th>
-                        <td class="bodyRow"><input type="text" value={{ DEF }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">MAT:</th>
-                        <td class="bodyRow"><input type="text" value={{ MAT }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">MDF:</th>
-                        <td class="bodyRow"><input type="text" value={{ MDF }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">AGI:</th>
-                        <td class="bodyRow"><input type="text" value={{ AGI }}></td>
-                    </tr>
-                    <tr>
-                        <th class="bodyRow">LUK:</th>
-                        <td class="bodyRow"><input type="text" value={{ LUK }}></td>
-                    </tr>
-                </table>
+        {% block content %}
+            <div class="individOverview">
+                <h2 class="sectionTitle">Overview:</h2>
+                <br>
+                <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea></p>
+                <br>
             </div>
-            <div>
-                <h3 class="minorTitle">Skills:</h3>
-                <table class="table table-bordered">
-                    <tr>
-                        <td class="bodyRow"><input type="text" value="Skill Name"></td>
-                        <td class="bodyRow"><input type="text" value="Level"></td>
-                    </tr>
-                </table>
-            </div>
-    {% endblock content %}
+                <div>
+                    <h3 class="minorTitle">Stats:</h3>
+                    <table class="table table-bordered">
+                       <tr>
+                           <th class="bodyRow">MHP:</th>
+                           <td class="bodyRow"><input name="MHP" type="text" value={{ MHP }}></td>
+                       </tr>
+                        <tr>
+                            <th class="bodyRow">MMP:</th>
+                            <td class="bodyRow"><input name="MMP" type="text" value={{ mMMP }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">ATK:</th>
+                            <td class="bodyRow"><input name="ATK" type="text" value={{ ATK }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">DEF:</th>
+                            <td class="bodyRow"><input name="DEF" type="text" value={{ DEF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MAT:</th>
+                            <td class="bodyRow"><input name="MAT" type="text" value={{ MAT }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MDF:</th>
+                            <td class="bodyRow"><input name="MDF" type="text" value={{ MDF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">AGI:</th>
+                            <td class="bodyRow"><input name="AGI" type="text" value={{ AGI }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">LUK:</th>
+                            <td class="bodyRow"><input name="LUK" type="text" value={{ LUK }}></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="minorTitle">Skills:</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="bodyRow">Skill Names</td>
+                            <td class="bodyRow">Levels</td>
+                        </tr>
+                    </table>
+                </div>
+        {% endblock content %}
+</form>

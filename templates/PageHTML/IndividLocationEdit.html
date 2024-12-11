@@ -3,31 +3,32 @@
 {% block title %}<h1>Location</h1>{% endblock title %}
 
     {% block header %}
-            <h2><input type="text" value={{ name }}></h2>
-        <p><textarea rows="3" cols="80">{{ overview }}</textarea>>
+        <form action="{{ url_for( "locationEdit", name=name ) }}"  method="post">
+            <h2><input name="locName" type="text" value={{ name }}></h2>
+        <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>>
         </p>
         <table class="table table-bordered">
             <tr>
-                <td class="bodyRow"><input type="text" value={{ img }}></td>
+                <td class="bodyRow"><input name="imgString" type="text" value={{ img }}></td>
             </tr>
             <tr>
-                <td class="bodyRow"><input type="text" value={{ name }}></td>
+                <td class="bodyRow"><input name="name" type="text" value={{ name }}></td>
             </tr>
             <tr>
-                <td class="bodyRow"><input type="text" value={{ act }}></td>
+                <td class="bodyRow"><input name="act" type="text" value={{ act }}></td>
             </tr>
             <tr>
-                <th class="bodyRow"><input type="text" value={{ type }}></th>
+                <th class="bodyRow"><input name="locType" type="text" value={{ type }}></th>
             </tr>
             <tr>
-                <td class="bodyRow"><input type="text" value={{ connect }}></td>
+                <td class="bodyRow"><input name="locConnect" type="text" value={{ connect }}></td>
             </tr>
         </table>
     {% endblock header %}
 
     {% block content %}
         <div class="individOverview">
-            <p><input type="text" value={{ desc }}>
-            </p>
+            <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea>
         </div>
     {% endblock content %}
+</form>

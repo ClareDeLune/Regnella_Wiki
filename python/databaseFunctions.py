@@ -150,13 +150,13 @@ def accessMember(name, address):
         return accessPageNotFound()
     else:
         skillList = getSkillsList(name, "Player")
-        member = {"name": data[1] + " " + data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
+        member = {"firstName": data[1], lastName: data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
         print(member)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individPartyEdit.html', name=member["name"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], skillList=member["skillList"], address=address)
+            return render_template('PageHTML/individPartyEdit.html', firstName=member["firstName"], lastName=member["lastName"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], skillList=member["skillList"], address=address)
         else:
-            return render_template('PageHTML/individPartyPage.html', name = member["name"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"], address=address)
+            return render_template('PageHTML/individPartyPage.html', firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"], address=address)
 
 
 def accessLocation(name, address):
@@ -585,6 +585,92 @@ def submitCharacter(charName, overview, imgString, firstName, lastName, age, rac
     else:
         sql = "UPDATE characters SET firstName = ?, surname = ?, age = ?, race = ?, family = ?, type = ?, location = ?, overview = ?, description = ?, img = ? WHERE firstName = ?"
         args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString, nameCheck[0]]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Character Updated!")
+    return "Character Added/Updated Successfully"
+
+def submitMember(memberName, overview, imgString, firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM partymembers WHERE partymembers.name = ?"
+    nameCheck = [memberName]
+    print(nameCheck[0])
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    ###
+    mClassID = 1
+    if isNull:
+        sql = "INSERT INTO partymembers (firstName, surname, classID, startingLevel, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1, support1Lv, support2, support2Lv, support3, support3Lv, support4, support4Lv, support5, support5Lv, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        args = [firstName, lastName, mClassID, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description, overview, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Party Member Added!")
+    else:
+        sql = "UPDATE enemies SET firstName = ?, surname = ?, classID = ?, startingLevel = ?, MHP = ?, MMP = ?, ATK = ?, DEF = ?, MAT = ?, MDF = ?, AGI = ?, LUK = ?, support1 = ?, support1Lv = ?, support2 = ?, support2Lv = ?, support3 = ?, support3Lv = ?, support4 = ?, support4Lv = ?, support5 = ?, support5Lv = ?, overview = ?, description = ?, img = ? WHERE name = ?"
+        args = [firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description, overview, imgString, nameCheck[0]]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Party Member Updated!")
+    return "Party Member Added/Updated Successfully"
+
+def submitEnemy(enemyName, overview, imgString, name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM enemies WHERE enemies.name = ?"
+    nameCheck = [enemyName]
+    print(nameCheck[0])
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    if isNull:
+        sql = "INSERT INTO enemies (name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        args = [name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, overview, description, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Enemy Added!")
+    else:
+        sql = "UPDATE enemies SET name = ?, act = ?, MHP = ?, MMP = ?, ATK = ?, DEF = ?, MAT = ?, MDF = ?, AGI = ?, LUK = ?, overview, description, img WHERE name = ?"
+        args = [name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, overview, description, imgString, nameCheck[0]]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Enemy Updated!")
+    return "Enemy Added/Updated Successfully"
+
+def submitLocation(locName, overview, imgString, name, act, locType, locConnect, description):
+    db = openDatabase()
+    dbc = db.cursor()
+    check = ""
+    sql = "SELECT * FROM locations WHERE locations.name = ?"
+    nameCheck = [locName]
+    print(nameCheck[0])
+    for row in db.cursor().execute(sql, nameCheck):
+        check = row
+    isNull = (check == "")
+    print(isNull)
+    print("\n")
+    if isNull:
+        sql = "INSERT INTO locations (name, act, type, connect, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?)"
+        args = [name, act, locType, locConnect, overview, description, imgString]
+        print(args)
+        db.cursor().execute(sql, args)
+        db.commit()
+        print("Character Added!")
+    else:
+        sql = "UPDATE locations SET name = ?, act = ?, type = ?, connect = ?, overview = ?, description = ?, img WHERE name = ?"
+        args = [name, act, locType, locConnect, overview, description, imgString, nameCheck[0]]
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
