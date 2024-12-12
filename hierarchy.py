@@ -1,6 +1,7 @@
-###Set-Up
+###Set-Up and import all libraries from globalFunctions
 from python.globalFunctions import *
 
+###Sets up Flask and the app secret for Regnella Wiki; the latter of which should absolutely NOT be in the main file for security!
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -13,6 +14,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 def home():
     return render_template('TemplateHTML/Homepage.html')
 
+##Stub function used during development to test 'POST' HTTP verb.
 '''@app.route('/home/submit', methods=['GET', 'POST'])
 def submit(address='None'):
     return submitPage()'''
@@ -164,9 +166,11 @@ def locationFunc(name=None):
 @app.route('/home/Skills/Edit/<name>', methods=['GET', 'POST'])
 @app.route('/home/skills/edit/<name>', methods=['GET', 'POST'])
 def skillEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
     if request.method == 'POST':
         print("correct branch")
         print("\n")
+        #Gets required information from the related HTML form.
         skillName = request.form.get('skillName')
         overview = request.form.get('overview')
         imgString = request.form.get('imgString')
@@ -182,19 +186,21 @@ def skillEdit(name=None):
         print(overview)
         print("\n")
         print("\n")
+        #Retrieves the information needed for the related editMessage as well.
         editMessage = request.form.get('editMessage')
         page = '/home/skills/edit/' + skillName
         print(editMessage)
         print(page)
         print("\n")
         editSuccess = generateEdit(editMessage, page)
+        #Ensures that the edit generation was successful before writing information to the database;
+        #otherwise returns the user to the edit page with an error message.
         print(editSuccess)
         if editSuccess:
             submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description)
             return loadList("Skills")
         else:
-            flash(
-                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            flash("You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
             sName = name
             address = 'Edit'
             return accessSkill(name, address)
@@ -207,6 +213,8 @@ def skillEdit(name=None):
 @app.route('/home/Enemies/Edit/<name>')
 @app.route('/home/enemies/edit/<name>')
 def enemyEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -257,6 +265,8 @@ def enemyEdit(name=None):
 @app.route('/home/Characters/Edit/<name>', methods = ['GET', 'POST'])
 @app.route('/home/characters/edit/<name>', methods=['GET', 'POST'])
 def charEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -304,6 +314,8 @@ def charEdit(name=None):
 @app.route('/home/PartyMembers/Edit/<name>', methods=['GET', 'POST'])
 @app.route('/home/partymembers/edit/<name>', methods=['GET', 'POST'])
 def partyMemberEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -368,6 +380,8 @@ def partyMemberEdit(name=None):
 @app.route('/home/Classes/Edit/<name>', methods = ['GET', 'POST'])
 @app.route('/home/classes/edit/<name>', methods = ['GET', 'POST'])
 def classEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -426,6 +440,8 @@ def classEdit(name=None):
 @app.route('/home/Locations/Edit/<name>', methods=['GET', 'POST'])
 @app.route('/home/locations/edit/<name>', methods=['GET', 'POST'])
 def locationEdit(name=None):
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -470,6 +486,8 @@ def locationEdit(name=None):
 @app.route('/home/plot-overview/edit', methods = ['GET', 'POST'])
 @app.route('/home/plotoverview/edit', methods = ['GET', 'POST'])
 def plotEdit():
+    ##Handles both GET and POST; either exporting data from the database or adding it, depending on user needs.
+    #Very similar to other xEdit pages; for more information on these, read the comments on skillEdit (starts line166)
     if request.method == 'POST':
         print("correct branch")
         print("\n")
@@ -514,9 +532,8 @@ def plotEdit():
         address = 'Edit'
         return accessPlot(address)
 
-'''
-'''
 
 ###Happy Ending :)
+#Set-up for testing and debugging; commented out for deployment due to security issues.
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

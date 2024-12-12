@@ -1,11 +1,10 @@
-###Set-Up
-from contextlib import nullcontext
-
+###Set-Up: get all libraries and functions from globalFunctions.
 from python.globalFunctions import *
 
+##Sets up the application in Flask.
 app = Flask(__name__)
 
-
+##Defines the path and connection between the python application and the SQLite database, using sqlite3 package.
 def openDatabase():
     base = os.path.abspath(os.path.dirname(__name__))
     db_location = base + "\database\RegnellaDB.db"
@@ -15,16 +14,20 @@ def openDatabase():
         g.database = database
     return database
 
+##In case the database needs closed.
 def closeDatabase(exception):
     database = getattr(g, 'database' , None )
     if database is not None:
         database.close()
 
 
+##A function used to retrieve a specific character's details from the database and display them using the IndividChar page template.
 def accessChar(name, address):
+    #Opens the database and retrieves the cursor, which will be used for querying later.
     db = openDatabase()
     dbc = db.cursor()
 
+    #Defines character by first name, which might later on create conflicts.
     data = []
     sql = "SELECT * FROM characters  WHERE characters.FirstName = ?"
     args = [name]
@@ -42,13 +45,16 @@ def accessChar(name, address):
         character = {"name": data[1], "charName": data[1] + " " + data[2], "firstName": data[1], "lastName": data[2], "age": data[3], "race": data[4], "family": data[5], "type": data[6], "location": data[7], "overview": data[8], "description": data[9], "img": data[10]}
         print(character)
         db.close()
+        #Either returns the read-only version or the editing version of individChar, depending on user choice.
         if address == 'Edit':
             return render_template('PageHTML/individCharEdit.html', name=character["name"], firstName = character["firstName"], lastName = character["lastName"], age = character["age"], race = character["race"], family = character["family"], type = character["type"], location = character["location"], overview = character["overview"], description = character["description"], img = character["img"], address=address)
         else:
             return render_template('PageHTML/individCharPage.html', name=character["name"], firstName=character["firstName"], lastName=character["lastName"], age=character["age"], race=character["race"], family=character["family"], type=character["type"], location=character["location"], overview=character["overview"], description=character["description"], img=character["img"], address=address)
 
-
+##A function used to retrieve a specific skill's details from the database and display them using the IndividSkill page template.
 def accessSkill(name, address):
+    #All these accessX functions are very similar, but due to database columns, numbers of arguments, and the template at the end,
+    #they couldn't all be handled by the same function.
     db = openDatabase()
     dbc = db.cursor()
 
@@ -75,7 +81,7 @@ def accessSkill(name, address):
         else:
             return render_template('PageHTML/individSkillPage.html', name = skill["name"], type = skill["type"], usage = skill["usage"], element = skill["element"], overview = skill["overview"], description = skill["description"], img = skill["img"], address=address)
 
-
+##A function used to retrieve a specific enemy's details from the database and display them using the IndividEnemy page template.
 def accessEnemy(name, address):
     db = openDatabase()
     dbc = db.cursor()
@@ -94,6 +100,8 @@ def accessEnemy(name, address):
     if isNull:
         return accessPageNotFound()
     else:
+        #A little different to the two functions above, as a list of skills needs to exported from the Skills table using the enemyID.
+        #This demonstrates the need for a relational database for this application.
         skillList = getSkillsList(name, "Enemy")
         enemy = {"name": data[1], "act": data[2], "MHP": data[3], "MMP": data[4], "ATK": data[5], "DEF": data[6], "MAT": data[7], "MDF": data[8], "AGI": data[9], "LUK": data[10], "overview": data[11], "description": data[12], "img": data[14], "skillList": skillList}
         print(enemy)
@@ -103,6 +111,7 @@ def accessEnemy(name, address):
         else:
             return render_template('PageHTML/individEnemyPage.html', name=enemy["name"], act=enemy["act"], MHP=enemy["MHP"], MMP=enemy["MMP"], ATK=enemy["ATK"], DEF=enemy["DEF"], MAT=enemy["MAT"], MDF=enemy["MDF"], AGI=enemy["AGI"], LUK=enemy["LUK"], overview=enemy["overview"], description=enemy["description"], img = enemy["img"], address=address)
 
+##A function used to retrieve a specific class's details from the database and display them using the IndividClass page template.
 def accessClass(name, address):
     db = openDatabase()
     dbc = db.cursor()
@@ -121,6 +130,7 @@ def accessClass(name, address):
     if isNull:
         return accessPageNotFound()
     else:
+        #Needs a skill list like AccessEnemy().
         skillList = getSkillsList(name, "Class")
         classD = {"name": data[1], "sMHP": data[2], "sMMP": data[3], "sATK": data[4], "sDEF": data[5], "sMAT": data[6], "sMDF": data[7], "sAGI": data[8], "sLUK": data[9], "fMHP": data[10], "fMMP": data[11], "fATK": data[12], "fDEF": data[13], "fMAT": data[14], "fMDF": data[15], "fAGI": data[16], "fLUK": data[17], "overview": data[18], "description": data[19], "img": data[20], "skillList": skillList}
         print(classD)
@@ -130,7 +140,7 @@ def accessClass(name, address):
         else:
             return render_template('PageHTML/individClassPage.html', name = classD["name"], baseMHP = classD["sMHP"], baseMMP = classD["sMMP"], baseATK = classD["sATK"], baseDEF = classD["sDEF"], baseMAT = classD["sMAT"], baseMDF = classD["sMDF"], baseAGI = classD["sAGI"], baseLUK = classD["sLUK"], maxMHP = classD["fMHP"], maxMMP = classD["fMMP"], maxATK = classD["fATK"], maxDEF = classD["fDEF"], maxMAT = classD["fMAT"], maxMDF = classD["fMDF"], maxAGI = classD["fAGI"], maxLUK = classD["fLUK"], overview = classD["overview"], description = classD["description"], img = classD["img"], address=address)
 
-
+##A function used to retrieve a specific party member's details from the database and display them using the IndividParty page template.
 def accessMember(name, address):
     db = openDatabase()
     dbc = db.cursor()
@@ -158,7 +168,7 @@ def accessMember(name, address):
         else:
             return render_template('PageHTML/individPartyPage.html', firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"], address=address)
 
-
+##A function used to retrieve a specific location's details from the database and display them using the IndividLocation page template.
 def accessLocation(name, address):
     db = openDatabase()
     dbc = db.cursor()
@@ -185,7 +195,8 @@ def accessLocation(name, address):
         else:
             return render_template('PageHTML/individLocationPage.html', name = location["name"], act = location["act"], connect = location["connect"], overview = location["overview"], description = location["description"], img = location["img"], address=address)
 
-
+##A function used to retrieve the data on the plot and display it on the PlotOverview page.
+##Necessary to allow users to edit the plot.
 def accessPlot(address):
     db = openDatabase()
     dbc = db.cursor()
@@ -211,6 +222,8 @@ def accessPlot(address):
         else:
             return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
 
+##A function that retrieves and displays information on credits and contributions to the wiki; not really necessary as users cannot edit these,
+##but it simply keeps all the information in one place, which seems more professional and tidy.
 def accessCredits():
     db = openDatabase()
     dbc = db.cursor()
@@ -238,6 +251,7 @@ def accessCredits():
         db.close()
         return render_template('PageHTML/creditAndContributions.html', items=dataName, items2=dataContributor)
 
+##A function used to retrieve all information stored on edits, which is generated (mainly) automatically when a user edits a page.
 def accessEdits():
     db = openDatabase()
     dbc = db.cursor()
@@ -272,10 +286,14 @@ def accessEdits():
         return render_template('PageHTML/editLog.html', items=dataPage, items2=dataDT, items3=dataChange)
 
 
+#A giant function that handles retrieving and displaying information for all 'ListPages' on the website,
+##i.e. those that display all the characters/skills/enemies/etc.
 def loadList(tableName):
     db = openDatabase()
     dbc = db.cursor()
     data = []
+    ###Characters Section:
+    #Divided into three sections using character type.
     if tableName == "Characters":
         sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'Enemy'"
         foeData = []
@@ -317,6 +335,7 @@ def loadList(tableName):
         print(npcTData)
         return render_template('PageHTML/charList.html', playableTable = playData, enemyTable = foeData, npcTable = npcData)
 
+    ###Classes Section:
     elif tableName == "Classes":
         sql = "SELECT Classes.name FROM Classes"
         print(sql)
@@ -331,6 +350,7 @@ def loadList(tableName):
         print(tableData)
         return render_template('PageHTML/classList.html', tableData = data)
 
+    ###Enemies Section:
     elif tableName == "Enemies":
         sql = "SELECT Enemies.name FROM Enemies"
         print(sql)
@@ -345,6 +365,8 @@ def loadList(tableName):
         print(tableData)
         return render_template('PageHTML/enemyList.html', tableData = data)
 
+    ###Equipment Section:
+    #Probably the most complicated of the list types.
     elif tableName == "Equipment":
         sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Weapon'"
         weaponData = []
@@ -399,6 +421,8 @@ def loadList(tableName):
         print(spiritTData)
         return render_template('PageHTML/equipList.html', weaponTable = weaponData, armourTable = armourData, accTable = accData, spiritTable = spiritData)
 
+    ###Locations Section:
+    #These are divided by act of the story where they first appear.
     elif tableName == "Locations":
         sql = "SELECT Locations.name FROM Locations WHERE Locations.act = '1'"
         actIData = []
@@ -453,7 +477,7 @@ def loadList(tableName):
         print(actIVTData)
         return render_template('PageHTML/locationList.html', act1Table = actIData, act2Table = actIIData, act3Table = actIIIData, act4Table = actIVData)
 
-
+    ###Party Members Section:
     elif tableName == "PartyMembers":
         sql = "SELECT PartyMembers.firstName, PartyMembers.surname FROM PartyMembers"
         print(sql)
@@ -468,7 +492,7 @@ def loadList(tableName):
         print(tableData)
         return render_template('PageHTML/partyList.html', tableData=data)
 
-
+    ###Skills Section:
     elif tableName == "Skills":
         sql = "SELECT Skills.name FROM Skills"
         print(sql)
@@ -485,6 +509,7 @@ def loadList(tableName):
         return render_template('PageHTML/skillList.html', tableData=data)
     return accessPageNotFound()
 
+###A function used as part of AccessMember and AccessEnemy to create a unique list of skills for that character.
 def getSkillsList(name, type):
     db = openDatabase()
     dbc = db.cursor()
@@ -493,6 +518,8 @@ def getSkillsList(name, type):
     id = 0
     memberID = 0
     sql = ""
+    #-Also used in AccessClass, this decision statement determines which type of page is accessing the functions,
+    #then executes the correct query.
     if type == "Player":
         sql = "SELECT MemberID FROM PartyMembers WHERE PartyMembers.FirstName = ?"
         args = [name]
@@ -540,6 +567,7 @@ def getSkillsList(name, type):
     return skillList
 
 
+###This function exports data from the Edit version of the unique class page to the database.
 def submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, description):
     db = openDatabase()
     dbc = db.cursor()
@@ -568,6 +596,7 @@ def submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, B
         print("Class Updated!")
     return "Class Added/Updated Successfully"
 
+###This function exports data from the Edit version of the unique skill page to the database.
 def submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description):
     db = openDatabase()
     dbc = db.cursor()
@@ -580,6 +609,8 @@ def submitSkill(skillName, overview, imgString, name, skillType, usage, skillEle
     isNull = (check == "")
     print(isNull)
     print("\n")
+    #Similar to the decision in submitChar, except like with most pages, this one uses the title to determine whether it is an update
+    #or a new page; allowing for users to change skill names.
     if isNull:
         sql = "INSERT INTO skills (name, type, usage, element, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?)"
         args = [name, skillType, usage, skillElement, overview, description, imgString]
@@ -596,6 +627,7 @@ def submitSkill(skillName, overview, imgString, name, skillType, usage, skillEle
         print("Skill Updated!")
     return "Skill Added/Updated Successfully"
 
+###This function exports data from the Edit version of the unique character page to the database.
 def submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description):
     db = openDatabase()
     dbc = db.cursor()
@@ -608,6 +640,7 @@ def submitCharacter(charName, overview, imgString, firstName, lastName, age, rac
     isNull = (check == "")
     print(isNull)
     print("\n")
+    #Either adds the data as a new character or updates an existing one, depending on the first name again.
     if isNull:
         sql = "INSERT INTO characters (firstName, surname, age, race, family, type, location, overview, description, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         args = [firstName, lastName, age, race, familyMembers, charType, location, overview, description, imgString]
@@ -682,6 +715,7 @@ def submitEnemy(enemyName, overview, imgString, name, act, MHP, MMP, ATK, DEF, M
         print("Enemy Updated!")
     return "Enemy Added/Updated Successfully"
 
+###This function exports data from the Edit version of the unique location page to the database.
 def submitLocation(locName, overview, imgString, name, act, locType, locConnect, description):
     db = openDatabase()
     dbc = db.cursor()
@@ -710,6 +744,7 @@ def submitLocation(locName, overview, imgString, name, act, locType, locConnect,
         print("Character Updated!")
     return "Character Added/Updated Successfully"
 
+###This function exports data from the Edit version of the Plot page; always updating, since there is only one plot of Boundary of Shade and Future!
 def submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa):
     db = openDatabase()
     dbc = db.cursor()
@@ -721,7 +756,8 @@ def submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl,
     return "Plot Added/Updated Successfully"
 
 
-
+###This function retrieves the information needed for a wiki-edit's metadata, and exports this to the database.
+###Also handles users forgetting to enter an 'editMessage' detailing the change made.
 def generateEdit(editMessage, page):
     editTime = datetime.datetime.now()
     db = openDatabase()
@@ -732,9 +768,9 @@ def generateEdit(editMessage, page):
     print(messageNull)
     print(pageNull)
     print("\n")
+    #Probably not the best way of managing this, but it was sufficient during testing, which is enough for now.
     if messageNull == True or pageNull == True:
-        ###Prevents edit to website...somehow.
-        ###Run this function before adding data, then abort outer process if no message exists, show error message asking for message, then return user to the page they were on (or rather, give them control back, since they're already on the page).
+        #Run this function before adding data, then abort outer process if no message exists, show error message asking for message, then return user to the page they were on (or rather, give them control back, since they're already on the page).
         return False
     else:
         sql = "INSERT INTO Edits (page, datentime, change) VALUES (?, ?, ?)"
@@ -745,11 +781,11 @@ def generateEdit(editMessage, page):
         print("Edit Added!")
         return True
 
-
+###Never used; just a stub function during development.
 def submitPage():
     return render_template('TemplateHTML/Homepage.html')
 
-
+###A function used when displaying data exported from the database, since the formatting is weird.
 def stringFormat(stringy):
     stringy = stringy.replace("(", "")
     stringy = stringy.replace(")", "")
@@ -757,6 +793,7 @@ def stringFormat(stringy):
     stringy = stringy.replace(",", "")
     return stringy
 
+###This function renders the Error 404 page for Regnella Wiki; created to prevent code duplication.
 def accessPageNotFound():
     print("Page not found!\nSome sort of error page should appear here.")
     return render_template('TemplateHTML/Homepage.html')

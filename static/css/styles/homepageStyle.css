@@ -1,3 +1,6 @@
+/*The only 'unique' style page left; originally all pageTemplates had their own, but this made no sense due to the simplicity*/
+/*of the final design, and so was scrapped.*/
+
 .rightTile
 {
     width: 45% !important;

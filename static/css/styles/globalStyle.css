@@ -1,3 +1,5 @@
+/*Main design sheet for Regnella Wiki; it uses !important a lot to override Bootstrap, since some elements needed custom design parameters.*/
+
 body
 {
     background-color: #EDD9A3 !important;

@@ -1,6 +1,8 @@
+<!--The main HTML file from which all others descend, it contains all the global elements of the website-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!--References all the Style (both custom and Bootstrap) and JavaScript files used across the website-->
         <meta charset="utf-8">
         <title>Regnella Wiki</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +11,7 @@
         <link href="{{ url_for('static', filename='css/styles/globalStyle.css') }}" rel="stylesheet">
         <script src="{{ url_for('static', filename='js/scripts/globalJS.js') }}"></script>
 
+        <!--Navigation bar: copied from Bootstrap.com and lightly edited to suit Regnella Wiki; has an odd glitch when using small window sizes-->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +56,7 @@
             </div>
           </div>
         </nav>
+        <!--Section where error messages are displayed on Regnella Wiki pages; located just below the navigation bar for visibility.-->
         {% for message in get_flashed_messages() %}
             <div class="alert alert-warning">
                 {{ message }}
@@ -69,6 +73,7 @@
               </main>
         </div>
     </body>
+    <!--Footer used across all Regnella Wiki pages-->
     <footer class="pageFooter">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             {% block footer %}Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000{% endblock footer %}
