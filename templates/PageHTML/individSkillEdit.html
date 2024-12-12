@@ -32,4 +32,12 @@
             </p>
         </div>
     {% endblock content %}
+{% if address == 'Edit' %}
+    {% block editDesc %}
+        <br>
+        <br>
+        <h3 class="minorTitle">Edit Description:</h3>
+        <textarea name="editMessage" rows="5" cols="80"></textarea>
+    {% endblock editDesc %}
+{% endif %}
 </form>

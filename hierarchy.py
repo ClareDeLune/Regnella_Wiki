@@ -1,9 +1,9 @@
 ###Set-Up
-from crypt import methods
-
 from python.globalFunctions import *
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
 
 
 ###LEVEL NO. 1
@@ -94,7 +94,7 @@ def locPage():
 @app.route('/home/editslog')
 @app.route('/home/EditsLog')
 def editLog():
-    return render_template('PageHTML/editLog.html')
+    return accessEdits()
 
 
 #Credit&Contribution Nav.
@@ -181,8 +181,23 @@ def skillEdit(name=None):
         print(usage)
         print(overview)
         print("\n")
-        submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description)
-        return loadList("Skills")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/skills/edit/' + skillName
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitSkill(skillName, overview, imgString, name, skillType, usage, skillElement, description)
+            return loadList("Skills")
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessSkill(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -215,8 +230,23 @@ def enemyEdit(name=None):
         print(act)
         print(overview)
         print("\n")
-        submitEnemy(enemyName, overview, imgString, name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, description)
-        return loadList("Enemies")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/enemies/edit/' + enemyName
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitEnemy(enemyName, overview, imgString, name, act, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, description)
+            return loadList("Enemies")
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessEnemy(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -247,8 +277,22 @@ def charEdit(name=None):
         print(age)
         print(overview)
         print("\n")
-        submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description)
-        return loadList("Characters")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/characters/edit/' + charName
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitCharacter(charName, overview, imgString, firstName, lastName, age, race, familyMembers, charType, location, description)
+            return loadList("Characters")
+        else:
+            flash("You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessChar(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -297,8 +341,23 @@ def partyMemberEdit(name=None):
         print(support2Name)
         print(overview)
         print("\n")
-        submitMember(memberName, overview, imgString, firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description)
-        return loadList("Members")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/partymembers/edit/' + memberName
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitMember(memberName, overview, imgString, firstName, lastName, memberClass, level, MHP, MMP, ATK, DEF, MAT, MDF, AGI, LUK, support1Name, support1Lv, support2Name, support2Lv, support3Name, support3Lv, support4Name, support4Lv, support5Name, support5Lv, description)
+            return loadList("Members")
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessMember(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -340,8 +399,23 @@ def classEdit(name=None):
         print(MaxMHP)
         print(overview)
         print("\n")
-        submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, description)
-        return loadList("Classes")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/classes/edit/' + className
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitClass(className, overview, imgString, name, owner, BaseMHP, BaseMMP, BaseATK, BaseDEF, BaseMAT, BaseMDF, BaseAGI, BaseLUK, MaxMHP, MaxMMP, MaxATK, MaxDEF, MaxMAT, MaxMDF, MaxAGI, MaxLUK, description)
+            return loadList("Classes")
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessClass(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -369,8 +443,23 @@ def locationEdit(name=None):
         print(locType)
         print(overview)
         print("\n")
-        submitLocation(locName, overview, imgString, name, act, locType, locConnect, description)
-        return loadList("Locations")
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/locations/edit/' + locName
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitLocation(locName, overview, imgString, name, act, locType, locConnect, description)
+            return loadList("Locations")
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            sName = name
+            address = 'Edit'
+            return accessLocation(name, address)
     else:
         sName = name
         address = 'Edit'
@@ -405,8 +494,22 @@ def plotEdit():
         print(LuBr)
         print(overview)
         print("\n")
-        submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa)
-        return render_template('TemplateHTML/Homepage.html')
+        print("\n")
+        editMessage = request.form.get('editMessage')
+        page = '/home/PlotOverview/Edit'
+        print(editMessage)
+        print(page)
+        print("\n")
+        editSuccess = generateEdit(editMessage, page)
+        print(editSuccess)
+        if editSuccess:
+            submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl, LuBr, LuYl, BrMa, BrTa, MaTa, ClTa)
+            return render_template('TemplateHTML/Homepage.html')
+        else:
+            flash(
+                "You forgot to add an edit description!\nPlease fill out the edit description and then try again.\nIf this error persists or you have entered a valid error description, please report the issue to our customer support team.")
+            address = 'Edit'
+            return accessPlot(address)
     else:
         address = 'Edit'
         return accessPlot(address)

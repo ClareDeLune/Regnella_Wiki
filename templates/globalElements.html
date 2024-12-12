@@ -20,9 +20,6 @@
                   <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="{{ url_for('forumPage') }}">Forum</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link active" href="{{ url_for('plotOverview') }}">Plot</a>
                 </li>
                 <li class="nav-item">
@@ -56,7 +53,11 @@
             </div>
           </div>
         </nav>
-
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                {{ message }}
+            </div>
+        {% endfor %}
     </head>
     <body>
         <div class="container-fluid">

@@ -245,15 +245,15 @@ def accessEdits():
     dataPage = []
     dataDT = []
     dataChange = []
-    sql = "SELECT * FROM contributors"
+    sql = "SELECT * FROM edits"
     for row in db.cursor().execute(sql):
-        stringy = str(row[0])
-        stringy = stringFormat(stringy)
-        dataPage.append(stringy)
         stringy = str(row[1])
         stringy = stringFormat(stringy)
-        dataDT.append(stringy)
+        dataPage.append(stringy)
         stringy = str(row[2])
+        stringy = stringFormat(stringy)
+        dataDT.append(stringy)
+        stringy = str(row[3])
         stringy = stringFormat(stringy)
         dataChange.append(stringy)
     print(dataPage)
@@ -269,7 +269,7 @@ def accessEdits():
         return accessPageNotFound()
     else:
         db.close()
-        return render_template('PageHTML/creditAndContributions.html', items=dataPage, items2=dataDT, items3=dataChange)
+        return render_template('PageHTML/editLog.html', items=dataPage, items2=dataDT, items3=dataChange)
 
 
 def loadList(tableName):
@@ -728,17 +728,22 @@ def generateEdit(editMessage, page):
     dbc = db.cursor()
     messageNull = (editMessage == "")
     pageNull = (page == "")
-    if messageNull or pageNull:
+    print("\n")
+    print(messageNull)
+    print(pageNull)
+    print("\n")
+    if messageNull == True or pageNull == True:
         ###Prevents edit to website...somehow.
-        return render_template('PageHTML/editLog.html')
+        ###Run this function before adding data, then abort outer process if no message exists, show error message asking for message, then return user to the page they were on (or rather, give them control back, since they're already on the page).
+        return False
     else:
-        sql = "INSERT INTO Edits (page, date-time, change) VALUES (?, ?, ?)"
+        sql = "INSERT INTO Edits (page, datentime, change) VALUES (?, ?, ?)"
         args = [page, editTime, editMessage]
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
         print("Edit Added!")
-    return "Edit Generator Function Complete!"
+        return True
 
 
 def submitPage():

@@ -1,5 +1,5 @@
 ###Set-Up
-from flask import Flask, render_template, g, request
+from flask import Flask, flash, render_template, g, request
 import sqlite3, os, datetime
 from python.databaseFunctions import *
 

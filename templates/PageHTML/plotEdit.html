@@ -120,6 +120,14 @@
                 <br>
             </div>
         {% endblock extraEndings %}
+        {% if address == 'Edit' %}
+            {% block editDesc %}
+                <br>
+                <br>
+                <h3 class="minorTitle">Edit Description:</h3>
+                <textarea name="editMessage" rows="5" cols="80"></textarea>
+            {% endblock editDesc %}
+        {% endif %}
     {% endblock content %}
     <footer class="pageFooter">
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
