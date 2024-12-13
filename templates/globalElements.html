@@ -9,6 +9,7 @@
 	    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 	    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <link href="{{ url_for('static', filename='css/styles/globalStyle.css') }}" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3"></script>
         <script src="{{ url_for('static', filename='js/scripts/globalJS.js') }}"></script>
 
         <!--Navigation bar: copied from Bootstrap.com and lightly edited to suit Regnella Wiki; has an odd glitch when using small window sizes-->
@@ -51,6 +52,11 @@
                 </li>
                   <li class="nav-item">
                   <a class="nav-link active" href="{{ url_for('editLog') }}">Edits</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
                 </li>
               </ul>
             </div>

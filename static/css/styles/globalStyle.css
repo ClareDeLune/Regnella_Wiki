@@ -12,6 +12,7 @@ body
     background-color: #550527 !important;
     color: #EDD9A3 !important;
     align-content: center !important;
+    width: 100% !important;
 }
 
 .nav-link

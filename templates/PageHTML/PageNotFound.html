@@ -1,0 +1,21 @@
+<!--Inherit design from ErrorPage-->
+<!--Used in the case of a 404 or similar errors.-->
+{% extends '/TemplateHTML/ErrorPage.html' %}
+
+{% block title %}<h1 class="pageTitle">PAGE NOT FOUND!</h1>{% endblock title %}
+
+{% block header %}
+    <h1 class="centerAlign fw-bold">Page Not Found:</h1>
+    <br>
+    <h2 class="centerAlign">Error 404</h2>
+{%  endblock header %}
+{% block content %}
+    <p class="centerAlign fst-italic">Time Claims All...</p>
+    <br>
+    <br>
+    <p class="centerAlign">It appears the page you requested appears to have been lost to Time and Void...</p>
+    <p class="centerAlign">Is it possible you misspelled the title? If so, please try again.</p>
+    <br>
+    <br>
+    <a class="nav-link active" href="{{ url_for('home') }}">Return to Homepage</a>
+{% endblock content %}

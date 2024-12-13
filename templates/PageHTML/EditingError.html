@@ -1,0 +1,18 @@
+<!--Inherit design from ErrorPage-->
+<!--Used in the case of a 50X or similar errors.-->
+{% extends '/TemplateHTML/ErrorPage.html' %}
+
+{% block title %}<h1 class="pageTitle">TRANSFER ERROR!</h1>{% endblock title %}
+
+{% block header %}
+    <h1 class="centerAlign fw-bold">Internal Error</h1>
+    <br>
+    <h2 class="centerAlign">Error 50X</h2>
+{%  endblock header %}
+{% block content %}
+    <p class="centerAlign">There appears to be an issue with this function at present...maybe the Queen of Time cursed it?</p>
+    <p class="centerAlign">If this error persists, please contact our customer support team (wherever they are!)</p>
+    <br>
+    <br>
+    <a class="nav-link active" href="{{ url_for('home') }}">Return to Homepage</a>
+{% endblock content %}

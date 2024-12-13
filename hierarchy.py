@@ -533,6 +533,24 @@ def plotEdit():
         return accessPlot(address)
 
 
+###This set of functions handles several HTTP error states:
+#These pages can also be directly navigated to, for the sake of testing.
+@app.route('/404')
+@app.route('/home/404')
+@app.errorhandler(404)
+def PageNotFound(error):
+    return render_template('PageHTML/PageNotFound.html')
+
+@app.route('/50X')
+@app.route('/home/50X')
+@app.errorhandler(500)
+@app.errorhandler(501)
+@app.errorhandler(503)
+def EditError(error):
+    return render_template('PageHTML/EditingError.html')
+
+
+
 ###Happy Ending :)
 #Set-up for testing and debugging; commented out for deployment due to security issues.
 if __name__ == "__main__":

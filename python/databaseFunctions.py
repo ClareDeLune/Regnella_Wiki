@@ -33,7 +33,9 @@ def accessChar(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -63,7 +65,9 @@ def accessSkill(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -91,7 +95,9 @@ def accessEnemy(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -121,7 +127,9 @@ def accessClass(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -150,7 +158,9 @@ def accessMember(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -178,7 +188,9 @@ def accessLocation(name, address):
     args = [name]
     for row in db.cursor().execute(sql, args):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -205,7 +217,9 @@ def accessPlot(address):
     sql = "SELECT * FROM plot WHERE plot.plotID = 1"
     for row in db.cursor().execute(sql):
         for item in row:
-            data.append(str(item))
+            stringy = str(item)
+            stringy = stringFormat(stringy)
+            data.append(stringy)
     print(data)
     print("\n")
     isNull = (data == [])
@@ -787,13 +801,25 @@ def submitPage():
 
 ###A function used when displaying data exported from the database, since the formatting is weird.
 def stringFormat(stringy):
+    #Remove strange symbols added by SQLite during transfer (possibly due to the use of dictionaries?)
     stringy = stringy.replace("(", "")
     stringy = stringy.replace(")", "")
     stringy = stringy.replace("'", "")
     stringy = stringy.replace(",", "")
+    #Create line breaks where <br> is found.
+    print(stringy)
+    stringy = stringy.replace("<br>", "\n")
+    print(stringy)
+    #Successfully removes '<br>', but the line breaks don't work.
     return stringy
 
+
 ###This function renders the Error 404 page for Regnella Wiki; created to prevent code duplication.
-def accessPageNotFound():
-    print("Page not found!\nSome sort of error page should appear here.")
-    return render_template('TemplateHTML/Homepage.html')
+def accessPageNotFound(error):
+    print("Page not found!")
+    return render_template('PageHTML/PageNotFound.html')
+
+###This function renders the Error 50X page for Regnella Wiki; created to prevent code duplication.
+def accessEditingError(error):
+    print("Could not add data to database!")
+    return render_template('PageHTML/EditingError.html')
