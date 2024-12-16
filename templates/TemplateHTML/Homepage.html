@@ -1,0 +1,67 @@
+<!--Inherit design from globalElements, passes on to homePage-->
+<!--The most heavily-designed file in TemplateHTML; it contains all the functionality since more homepages will not need to be created-->
+{% extends '/globalElements.html' %}
+<link href="{{ url_for('static', filename='css/styles/homepageStyle.css') }}" rel="stylesheet">
+
+{% block title %}<h1>Homepage</h1>{% endblock title %}
+
+{% block header %}
+    <img src="/static/img/WelcomeImg.png" alt="Regnella Wiki Title Image" width=75% height=auto>
+    <br>
+    <h2 class="pageTitle">Welcome to Regnella Wiki!</h2>
+    <br>
+    <p>This is the official wiki for Boundary of Shade and Future, launched on the 18/11/2024 to provide long-time fans and newcomers alike with interesting facts and information on the game.
+        <br>Boundary of Shade and Future was released on PCs in 20/01/2021 and chronicles the journey of Selene von Anima and Takeo Akashiro in their quest to defeat the nefarious Queen of Time and break the curse on Regnella; their beloved homeland.
+        <br>Whether you require the stats for a particularly annoying boss, the romance options for one of the party members, or simply want to chat about the game, you have come to the right place.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <a href="{{ url_for('charactersPage') }}">
+        <img src="/static/img/CharPage.png" alt="Link to Characters List" class="leftTile">
+    </a>
+    <a href="{{ url_for('enemiesPage') }}">
+        <img src="/static/img/EnemyPage.png" alt="Link to Enemies List" class="rightTile">
+    </a>
+    <br>
+    <a href="{{ url_for('partyMembers') }}">
+        <img src="/static/img/PartyPage.png" alt="Link to Party Members List" class="leftTile">
+    </a>
+    <a href="{{ url_for('skillsPage') }}">
+        <img src="/static/img/SkillPage.png" alt="Link to Skills List" class="rightTile">
+    </a>
+    <br>
+    <a href="{{ url_for('classesPage') }}">
+        <img src="/static/img/ClassPage.png" alt="Link to Classes List" class="leftTile">
+    </a>
+    <a href="{{ url_for('locPage') }}">
+        <img src="/static/img/LocPage.png" alt="Link to Locations List" class="rightTile">
+    </a>
+    <br>
+    <a href="{{ url_for('equipmentPage') }}">
+        <img src="/static/img/EquipPage.png" alt="Link to Equipment List" class="leftTile">
+    </a>
+    <a href="{{ url_for('plotOverview') }}">
+        <img src="/static/img/PlotPage.png" alt="Link to Plot Overview" class="rightTile">
+    </a>
+    <br>
+    <a href="{{ url_for('forumPage') }}">
+        <img src="/static/img/ForumPage.png" alt="Link to Wiki Forum" class="leftTile">
+    </a>
+    <a href="{{ url_for('credits') }}">
+        <img src="/static/img/CreditPage.png" alt="Link to Credits and Contributions Page" class="rightTile">
+    </a>
+    <br>
+    <a href="{{ url_for('editLog') }}">
+        <img src="/static/img/ELogPage.png" alt="Link to Edits Log" class="centerTile">
+    </a>
+    <br>
+    <br>
+    <h2 id="sectionTitle">Synopsis</h2>
+    <br>
+    <p>In the kingdom of Regnella, those with magic are granted the greatest honour and privileges in return for their service to the Crown and kingdom all their lives...<br>
+    One such Mage; Selene von Anima is tasked with investigating the cause of a curse placed over her homeland; one that corrupts all who it touches, turning them into nigh-immortal monsters.<br>
+    -However, upon coming face-to-face with the perpetrator; a powerful and ancient Witch who calls herself the 'Queen of Time', Selene loses everything; friends, magic, and nearly her own mind.<br>
+    Cursed by the monster she was sent to kill, Selene and her mysterious new ally Takeo Akashiro; a defected knight serving the witch-queen, must race against the clock to break the curse and defeat the sorceress before Selene losses her humanity entirety; and with it, the last hope of Regnella...
+    </p>
+{% endblock content %}

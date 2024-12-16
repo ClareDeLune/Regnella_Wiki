@@ -1,0 +1,78 @@
+{% extends '/TemplateHTML/ListPages.html' %}
+
+{% block title %}<h1>Equipment</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Equipment List:</h2>
+    <br>
+    <p>A listing of all weapons, armour, accessories, and spirits found in Boundary of Shade and Future.<br>
+    Click on the name of any piece of equipment for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    {% block collapsable %}
+        <h4 class="dropdownHeader">Weapons:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Weapon Data</th>
+                </tr>
+                 {% for item in weaponTable %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable %}
+    {% block collapsable2 %}
+        <h4 class="dropdownHeader">Armour:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Armour</th>
+                </tr>
+                 {% for item in armourTable %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable2 %}
+    {% block collapsable3 %}
+        <h4 class="dropdownHeader">Accessory:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Acc. Data</th>
+                </tr>
+                 {% for item in accTable %}
+                    <tr>
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable3 %}
+    {% block collapsable4 %}
+        <h4 class="dropdownHeader">Spirit:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Spirit Data</th>
+                </tr>
+                 {% for item in spiritTable %}
+                    <tr class="bodyRow">
+                        <td>{{ item }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable4 %}
+{% endblock content %}

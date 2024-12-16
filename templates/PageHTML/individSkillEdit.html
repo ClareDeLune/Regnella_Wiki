@@ -1,0 +1,43 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Skill</h1>{% endblock title %}
+
+{% block header %}
+    <form action="{{ url_for( "skillEdit", name=name ) }}"  method="post">
+        <h2><input name="skillName" type="text" value={{ name }}></h2>
+        <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>>
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <th class="bodyRow"><input name="imgString" type="text" value={{ img }}></th>
+            </tr>
+            <tr>
+                <th class="bodyRow"><input name="name" type="text" value={{ name }}></th>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input name="skillType" type="text" value={{ type }}></td>
+                </tr>
+            <tr>
+                <td class="bodyRow"><input name="usage" type="text" value={{ usage }}></td>
+            </tr>
+            <tr>
+                <td class="bodyRow"><input name="skillElement" type="text" value={{ element }}></td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea>
+            </p>
+        </div>
+    {% endblock content %}
+{% if address == 'Edit' %}
+    {% block editDesc %}
+        <br>
+        <br>
+        <h3 class="minorTitle">Edit Description:</h3>
+        <textarea name="editMessage" rows="5" cols="80"></textarea>
+    {% endblock editDesc %}
+{% endif %}
+</form>

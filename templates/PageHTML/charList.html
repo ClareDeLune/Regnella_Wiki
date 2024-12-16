@@ -1,0 +1,74 @@
+{% extends '/TemplateHTML/ListPages.html' %}
+
+{% block title %}<h1>Characters</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Characters List:</h2>
+    <br>
+    <p>A listing of all characters, both ally and foe, found in Boundary of Shade and Future.<br>
+    Click on the name of any character for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    {% block collapsable %}
+        <h4 class="dropdownHeader">Playable:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content centerAlign">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">First Name</th>
+                    <th class="bodyRow">Surname</th>
+                </tr>
+                {% for i in playableFNTable %}
+                    {% set player1 = playableFNTable[loop.index-1] %}
+                    {% set player2 = playableLNTable[loop.index-1] %}
+                    <tr>
+                        <td class="bodyRow"><a href="{{ url_for ('character', name=player1) }}">{{ player1 }}</a></td>
+                        <td class="bodyRow">  {{ player2 }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable %}
+    {% block collapsable2 %}
+        <h4 class="dropdownHeader">Enemy:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content centerAlign">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">First Name</th>
+                    <th class="bodyRow">Surname</th>
+                </tr>
+                {% for i in enemyFNTable %}
+                    {% set enemy1 = enemyFNTable[loop.index-1] %}
+                    {% set enemy2 = enemyLNTable[loop.index-1] %}
+                    <tr>
+                        <td class="bodyRow"><a href="{{ url_for ('character', name=enemy1) }}">{{ enemy1 }}</a></td>
+                        <td class="bodyRow">  {{ enemy2 }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable2 %}
+    {% block collapsable3 %}
+        <h4 class="dropdownHeader">NPC:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content centerAlign">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">First Name</th>
+                    <th class="bodyRow">Surname</th>
+                </tr>
+                {% for i in npcFNTable %}
+                    {% set npc1 = npcFNTable[loop.index-1] %}
+                    {% set npc2 = npcLNTable[loop.index-1] %}
+                    <tr>
+                        <td class="bodyRow"><a href="{{ url_for ('character', name=npc1) }}">{{ npc1 }}</a></td>
+                        <td class="bodyRow">  {{ npc2 }} </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable3 %}
+{% endblock content %}

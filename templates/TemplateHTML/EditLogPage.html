@@ -1,0 +1,32 @@
+<!--Inherit design from globalElements, passes design on to editLog-->
+<!--No idea why it hates loop.index in the editor, but it works on the website, so I ignore it.-->
+{% extends '/globalElements.html' %}
+
+{% block title %}<h1 class="pageTitle">Edit Log</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Edits Log: Last Edit:</h2>
+    <p>
+    Some text about the edits log and its purpose.
+    </p>
+{% endblock header %}
+<br>
+{% block content %}
+    <table class="bodyTable">
+        <tr>
+            <th class="bodyRow">Page</th>
+            <th class="bodyRow">Date-Time</th>
+            <th class="bodyRow">Change Made</th>
+        </tr>
+        {% for i in items %}
+            {% set item1 = items[loop.index-1] %}
+            {% set item2 = items2[loop.index-1] %}
+            {% set item3 = items3[loop.index-1] %}
+            <tr>
+                <td class="bodyRow"><a href="{{ item1 }}">{{ item1 }}</a></td>
+                <td class="bodyRow">  {{ item2 }} </td>
+                <td class="bodyRow">  {{ item3 }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

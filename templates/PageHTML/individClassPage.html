@@ -1,0 +1,136 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Class</h1>{% endblock title %}
+
+    {% block header %}
+        <h2 class="pageTitle">{{ name }}</h2>
+        <h3 id="sectionTitle">Overview:</h3>
+        <p>
+        {{ overview }}
+        </p>
+        <table class="table table-bordered">
+            <tr>
+                <th class="bodyRow" colspan="2"><img src="{{ img }}" alt="Class Img" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th class="bodyRow">Name:</th>
+                <th class="bodyRow">{{ name }}</th>
+            </tr>
+            <tr>
+                <th class="bodyRow">Users:</th>
+                <th class="bodyRow">{{ owner}}</th>
+            </tr>
+            <tr>
+                <th class="bodyRow" colspan="2">Initial Stats:</th>
+            </tr>
+            <tr>
+                <td class="bodyRow">{{ baseMHP }}</td>
+                <td class="bodyRow">{{ baseMMP }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">{{ baseATK }}</td>
+                <td class="bodyRow">{{ baseDEF }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">{{ baseMAT }}</td>
+                <td class="bodyRow">{{ baseMDF }}</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">{{ baseAGI }}</td>
+                <td class="bodyRow">{{ baseLUK }}</td>
+            </tr>
+        </table>
+    {% endblock header %}
+
+    {% block content %}
+        <div class="individOverview">
+            <h2 class="sectionTitle">Description:</h2>
+            <br>
+            <p>{{ description }}</p>
+            <br>
+        </div>
+            <div>
+                <h3 class="minorTitle">Base Stats:</h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="bodyRow">MHP:</th>
+                        <td class="bodyRow"> {{ baseMHP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MMP:</th>
+                        <td class="bodyRow"> {{ baseMMP }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">ATK:</th>
+                        <td class="bodyRow"> {{ baseATK }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">DEF:</th>
+                        <td class="bodyRow"> {{ baseDEF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MAT:</th>
+                        <td class="bodyRow"> {{ baseMAT }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">MDF:</th>
+                        <td class="bodyRow"> {{ baseMDF }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">AGI:</th>
+                        <td class="bodyRow"> {{ baseAGI }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bodyRow">LUK:</th>
+                        <td class="bodyRow"> {{ baseLUK }}</td>
+                    </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h3 class="minorTitle">Max Stats:</h3>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="bodyRow">MHP:</th>
+                                <td class="bodyRow">{{ maxMHP }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">MMP:</th>
+                                <td class="bodyRow">{{ maxMMP }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">ATK:</th>
+                                <td class="bodyRow">{{ maxATK }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">DEF:</th>
+                                <td class="bodyRow">{{ maxDEF }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">MAT:</th>
+                                <td class="bodyRow">{{ maxMAT }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">MDF:</th>
+                                <td class="bodyRow">{{ maxMDF }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">AGI:</th>
+                                <td class="bodyRow">{{ maxAGI }}</td>
+                            </tr>
+                            <tr>
+                                <th class="bodyRow">LUK:</th>
+                                <td class="bodyRow">{{ maxLUK }}</td>
+                            </tr>
+                </table>
+            </div>
+            <div>
+                <h3 class="minorTitle">Skills:</h3>
+                <table class="table table-bordered">
+                    {% for item in skillList %}
+                        <tr>
+                            <td>{{ item }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    {% endblock content %}

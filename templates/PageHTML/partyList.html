@@ -1,0 +1,28 @@
+{% extends '/TemplateHTML/ListPages.html' %}
+
+{% block title %}<h1>Party Members</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Party Members List:</h2>
+    <br>
+    <p>A listing of all playable characters found in Boundary of Shade and Future.<br>
+    Click on the name of any character for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <table class="bodyTable">
+        <tr>
+            <th class="bodyRow">First Name</th>
+            <th class="bodyRow">Surname</th>
+        </tr>
+        {% for i in tableFNData %}
+            {% set member1 = tableFNData[loop.index-1] %}
+            {% set member2 = tableLNData[loop.index-1] %}
+            <tr>
+                <td class="bodyRow"><a href="{{ url_for ('partyMember', name=member1) }}">{{ member1 }}</a></td>
+                <td class="bodyRow">  {{ member2 }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

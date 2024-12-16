@@ -1,0 +1,31 @@
+<!--Inherit design from globalElements, passes on to various List pages-->
+<!--One of the two main 'general format' templates, along with IndividualPages, which are extensively used across the wiki-->
+{% extends '/globalElements.html' %}
+
+{% block title %}<h1 class="pageTitle">PLACEHOLDER List</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">PLACEHOLDER List</h2>
+    <p>
+    An overview of the page and its purpose.
+    </p>
+{% endblock header %}
+
+{% block content %}
+    {% block collapsable %}
+        <p>A Collapsible:</p>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Column1</th>
+                    <th class="bodyRow">Column2</th>
+                </tr>
+                <tr>
+                    <td class="bodyRow">Value1</td>
+                    <td class="bodyRow">Value2</td>
+                </tr>
+            </table>
+        </div>
+    {% endblock collapsable %}
+{% endblock content %}

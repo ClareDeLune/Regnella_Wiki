@@ -1,0 +1,128 @@
+<!--Inherit design from globalElements, passes on to plotOverview-->
+<!--Contains all the design for the plot page, but this may be transferred down a level in future for the sake of clarity-->
+<!--and to allow future pages modelled on the general concept-->
+{% extends '/globalElements.html' %}
+
+{% block title %}<h1>Plot Overview</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Summary</h2>
+    <p>Boundary of Shade and Future follows Selene von Anima; a young Mage from Regnella who, according to her people's customs, devotes her life to fighting monsters and fixing magical anomalies across the land in return for honour and wealth.
+    After a strange force starts corrupting Regnella and her people however, Selene ends up cursed by the perpetrator; losing her mind and will to the very monster she is fighting, and the only way to break this curse is to kill its origin: the ancient and wicked Queen of Time.
+    -However, the witch-queen cannot be slain by ordinary means, leaving the young Mage's only hope to be the mystic Gifts of Arushi...
+    -But even the Gifts of Light are said to contain a dark power, and what of the legendary blade Dainsleif?</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <button type="button" class="collapsible" onclick="globalCollapsability()">Act I:</button>
+    <div class="content">
+        {% block actOne %}
+             <p>Act One's plot.</p>
+        {% endblock actOne %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="collapsible" onclick="globalCollapsability()">Act II:</button>
+    <div class="content">
+        {% block actTwo %}
+             <p>Act Two's plot.</p>
+        {% endblock actTwo %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="collapsible" onclick="globalCollapsability()">Act III:</button>
+    <div class="content">
+        {% block actThree %}
+             <p>Act Three's plot.</p>
+        {% endblock actThree %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="collapsible" onclick="globalCollapsability()">Ending:</button>
+    <div class="content">
+    {% block extraEndings %}
+      <p>Endings</p>
+        <!---Selene X Takeo-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Takeo</button>
+        <div class="content">
+            <p>ST Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Selene X Lucas-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&Lucas</button>
+        <div class="content">
+            <p>SL Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Selene X MARA-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Selene&MARA</button>
+        <div class="content">
+            <p>SM Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Takeo X Yliyaminya-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Ylyiaminya</button>
+        <div class="content">
+            <p>TY Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Takeo X Clarice-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Takeo&Clarice</button>
+        <div class="content">
+            <p>TC Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Lucas X Brenda-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Brenda</button>
+        <div class="content">
+            <p>LB Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Lucas X Yliyaminya-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Lucas&Yliyaminya</button>
+        <div class="content">
+            <p>LY Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Brenda X MARA-->
+        <button type="button" class="collapsible"onclick="globalCollapsability()">Brenda&MARA</button>
+        <div class="content">
+            <p>BM Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Brenda X Takeshi-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Brenda&Takeshi</button>
+        <div class="content">
+            <p>BT Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---MARA X Takeshi-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">MARA&Takeshi</button>
+        <div class="content">
+            <p>MT Ending</p>
+        </div>
+        <br>
+        <br>
+        <!---Clarice X Takeshi-->
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Clarice&Takeshi</button>
+        <div class="content">
+            <p>CT Ending</p>
+        </div>
+        <br>
+        <br>
+    </div>
+    {% endblock extraEndings %}
+{% endblock content %}

@@ -1,0 +1,218 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Party Member</h1>{% endblock title %}
+
+   {% block header %}
+       <h2><input type="text" value={{ name }}></h2>
+       <form action="{{ url_for( "partyEdit", name=memberName ) }}"  method="post">
+            <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>>
+            </p>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="bodyRow"><input name="imgString" type="text" value= {{ img }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="firstName" type="text" value= {{ firstName }}></th>
+                    <th class="bodyRow"><input name="lastName" type="text" value= {{ lastName }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="memberClass" type="text" value={{ class }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="level" type="text" value={{ level }}></th>
+                </tr>
+                <tr>
+                    <td class="bodyRow">MHP: <input name="MHP" type="text" value={{ MHP }}></td>
+                    <td class="bodyRow">MMP: <input name="MMP" type="text" value={{ MMP }}></td>
+                </tr>
+                <tr>
+                    <td class="bodyRow">ATK: <input name="ATK" type="text" value={{ ATK }}></td>
+                    <td class="bodyRow">DEF: <input name="DEF" type="text" value={{ DEF }}></td>
+                </tr>
+                <tr>
+                    <td class="bodyRow">MAT: <input name="MAT" type="text" value={{ MAT }}></td>
+                    <td class="bodyRow">MDF: <input name="MDF" type="text" value={{ MDF }}></td>
+                </tr>
+                <tr>
+                    <td class="bodyRow">AGI: <input name="AGI" type="text" value={{ AGI }}></td>
+                    <td class="bodyRow">LUK: <input name="LUK" type="text" value={{ LUK }}></td>
+                </tr>
+            </table>
+        {% endblock header %}
+
+        {% block content %}
+            <div class="individOverview">
+                <h2 class="sectionTitle">Overview:</h2>
+                <br>
+                <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea></p>
+                <br>
+            </div>
+                <div>
+                    <h3 class="minorTitle">Base Stats:</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bodyRow">MHP:</th>
+                            <td class="bodyRow"><input name="MHP" type="text" value={{ MHP }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MMP:</th>
+                            <td class="bodyRow"><input name="MMP" type="text" value={{ MMP }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">ATK:</th>
+                            <td class="bodyRow"><input name="ATK" type="text" value={{ ATK }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">DEF:</th>
+                            <td class="bodyRow"><input name="DEF" type="text" value={{ DEF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MAT:</th>
+                            <td class="bodyRow"><input name="MAT" type="text" value={{ MAT }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MDF:</th>
+                            <td class="bodyRow"><input name="MDF" type="text" value={{ MDF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">AGI:</th>
+                            <td class="bodyRow"><input name="AGI" type="text" value={{ AGI }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">LUK:</th>
+                            <td class="bodyRow"><input name="LUK" type="text" value={{ LUK }}></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="minorTitle">Max Stats:</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bodyRow">MHP:</th>
+                            <td class="bodyRow"><input name="finalMHP" type="text" value={{ MaxMHP }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MMP:</th>
+                            <td class="bodyRow"><input name="finalMMP" type="text" value={{ MaxMMP }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">ATK:</th>
+                            <td class="bodyRow"><input name="finalATK" type="text" value={{ MaxATK }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">DEF:</th>
+                            <td class="bodyRow"><input name="finalDEF" type="text" value={{ MaxDEF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MAT:</th>
+                            <td class="bodyRow"><input name="finalMAT" type="text" value={{ MaxMAT }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">MDF:</th>
+                            <td class="bodyRow"><input name="finalMDF" type="text" value={{ MaxMDF }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">AGI:</th>
+                            <td class="bodyRow"><input name="finalAGI" type="text" value={{ MaxAGI }}></td>
+                        </tr>
+                        <tr>
+                            <th class="bodyRow">LUK:</th>
+                            <td class="bodyRow"><input name="finalLUK" type="text" value={{ MaxLUK }}></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="minorTitle">Skills:</h3>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="bodyRow">Skill Names</td>
+                            <td class="bodyRow">Levels</td>
+                        </tr>
+                    </table>
+                </div>
+            <br>
+            <div class="individSupport">
+                <h2 class="sectionTitle">Supports:</h2>
+                <br>
+                <div>
+                    <h3 class="minorTitle">Ranks:</h3>
+                    <div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th class="bodyRow">Stat</th>
+                                <th class="bodyRow">Values</th>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">MHP</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">MMP</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">ATK</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">DEF</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">MAT</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">MDF</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">AGI</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                            <tr>
+                                <td class="bodyRow">LUK</td>
+                                <td class="bodyRow">10(C), 20(B), 30(A), 50(S)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="bodyRow">Options:</th>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow"><input name="support1Name" type="text" value={{ support1N }}></td>
+                            <td class="bodyRow"><input name="support1Lv" type="text" value={{ support1L }}></td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow"><input name="support2Name" type="text" value={{ support2N }}></td>
+                            <td class="bodyRow"><input name="support2Lv" type="text" value={{ support2L }}></td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow"><input name="support3Name" type="text" value={{ support3N }}></td>
+                            <td class="bodyRow"><input name="support3Lv" type="text" value={{ support3L }}></td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow"><input name="support4Name" type="text" value={{ support4N }}></td>
+                            <td class="bodyRow"><input name="support4Lv" type="text" value={{ support4L }}></td>
+                        </tr>
+                        <tr>
+                            <td class="bodyRow"><input name="support5Name" type="text" value={{ support5N }}></td>
+                            <td class="bodyRow"><input name="support5Lv" type="text" value={{ support5L }}></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        {% endblock content %}
+{% if address == 'Edit' %}
+    {% block editDesc %}
+        <br>
+        <br>
+        <h3 class="minorTitle">Edit Description:</h3>
+        <textarea name="editMessage" rows="5" cols="80"></textarea>
+    {% endblock editDesc %}
+{% endif %}
+</form>
+

@@ -1,0 +1,78 @@
+{% extends '/TemplateHTML/ListPages.html' %}
+
+{% block title %}<h1>Locations</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Locations List:</h2>
+    <br>
+    <p>A listing of all locations found in Boundary of Shade and Future for exploration across the game.<br>
+    Click on the name of any place for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    {% block collapsable %}
+        <h4 class="dropdownHeader">Act I:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Name</th>
+                </tr>
+                 {% for item in act1Table %}
+                    <tr class="bodyRow">
+                        <td><a href="{{ url_for ('locationFunc', name=item) }}">{{ item }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable %}
+    {% block collapsable2 %}
+        <h4 class="dropdownHeader">Act II:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Name</th>
+                </tr>
+                 {% for item in act2Table %}
+                    <tr class="bodyRow">
+                        <td><a href="{{ url_for ('locationFunc', name=item) }}">{{ item }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable2 %}
+    {% block collapsable3 %}
+        <h4 class="dropdownHeader">Act III:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Name</th>
+                </tr>
+                 {% for item in act3Table %}
+                    <tr class="bodyRow">
+                        <td><a href="{{ url_for ('locationFunc', name=item) }}">{{ item }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable3 %}
+    {% block collapsable4 %}
+        <h4 class="dropdownHeader">Other:</h4>
+        <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
+        <div class="content">
+            <table class="bodyTable">
+                <tr>
+                    <th class="bodyRow">Name</th>
+                </tr>
+                 {% for item in act4Table %}
+                    <tr class="bodyRow">
+                        <td><a href="{{ url_for ('locationFunc', name=item) }}">{{ item }}</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endblock collapsable4 %}
+{% endblock content %}

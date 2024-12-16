@@ -1,0 +1,52 @@
+{% extends '/TemplateHTML/IndividualPages.html' %}
+
+{% block title %}<h1>Character</h1>{% endblock title %}
+
+    {% block header %}
+        <form action="{{ url_for( "charEdit", name=name ) }}"  method="post">
+            <h2><input name="charName" type="text" value={{ name }}></h2>
+            <p><textarea name="overview" rows="3" cols="80">{{ overview }}</textarea>
+            </p>
+            <table class="headerTable">
+                <tr>
+                    <th class="bodyRow"><input name="imgString" type="text" value={{ img }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="firstName" type="text" value={{ firstName }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="lastName" type="text" value={{ lastName }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="age" type="text" value={{ age }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="race" type="text" value={{ race }}></th>
+                </tr>
+                <tr>
+                    <th class="bodyRow"><input name="familyMembers" type="text" value={{ family }}></th>
+                </tr>
+                <tr>
+                    <td class="bodyRow"><input name="charType" type="text" value={{ type }}></td>
+                </tr>
+                <tr>
+                    <td class="bodyRow"><input name="location" type="text" value={{ location }}></td>
+                </tr>
+            </table>
+        {% endblock header %}
+
+        {% block content %}
+            <div class="individOverview">
+                <p><textarea name="description" rows="12" cols="80">{{ description }}</textarea>
+                </p>
+            </div>
+            {% if address == 'Edit' %}
+                {% block editDesc %}
+                    <br>
+                    <br>
+                    <h3 class="minorTitle">Edit Description:</h3>
+                    <textarea name="editMessage" rows="5" cols="80"></textarea>
+                {% endblock editDesc %}
+            {% endif %}
+    {% endblock content %}
+</form>

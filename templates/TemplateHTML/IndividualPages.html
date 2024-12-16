@@ -1,0 +1,56 @@
+<!--Inherit design from globalElements, passes on to various Individ pages-->
+<!--One of the two main 'general format' templates, along with ListPages, which are extensively used across the wiki-->
+{% extends '/globalElements.html' %}
+
+{% block title %}<h1 class="pageTitle">PLACEHOLDER</h1>{% endblock title %}
+
+{% block header %}
+            <p>A quick description of the individual item being discussed.</p>
+    {% block indivTable %}
+        <table class="bodyTable">
+            <tr>
+                <td class="bodyRow"><img src="/static/img/sample.png" alt="Sample Image"></td>
+            </tr>
+            <tr>
+                <td class="bodyRow">Value1</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">Value2</td>
+            </tr>
+            <tr>
+                <td class="bodyRow">Value3</td>
+                <td class="bodyRow">Value4</td>
+            </tr>
+        </table>
+    {% endblock indivTable %}
+{% endblock header %}
+        <br>
+        {% block content %}
+            <h2>Overview:</h2>
+            <p>More in-depth description and explanation.</p>
+        {% endblock content %}
+        {% if address == 'Edit' %}
+            {% block editDesc %}
+                <br>
+                <br>
+                <h3 class="minorTitle">Edit Description:</h3>
+                <textarea name="editMessage" rows="5" cols="80"></textarea>
+            {% endblock editDesc %}
+        {% endif %}
+        <footer class="pageFooter">
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    {% block footer %}
+                        {% if address != 'Edit' %}
+                            Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                            <form action="{{ url_for( address, name=name ) }}">
+                                <input id="editButton" type="submit" value="Edit">
+                            </form>
+                        {% else %}
+                            Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                            <form action="{{ url_for( "home" ) }}"  method="post">
+                                <input id="editButton" type="submit" value="Submit">
+                            </form>
+                        {% endif %}
+                    {% endblock footer %}
+                </div>
+        </footer>

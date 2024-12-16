@@ -1,0 +1,17 @@
+<!--Inherit design from globalElements-->
+<!--General template from which other error pages inherit-->
+{% extends '/globalElements.html' %}
+
+{% block title %}<h1 class="pageTitle">ERROR</h1>{% endblock title %}
+
+{% block header %}
+    <h1 class="fw-bold">Error Title</h1>
+    <br>
+    <h2>Error Type</h2>
+{%  endblock header %}
+{% block content %}
+    <p class="fst-italic">Short game quote associated with error.</p>
+    <br>
+    <br>
+    <p>Description of error.</p>
+{% endblock content %}

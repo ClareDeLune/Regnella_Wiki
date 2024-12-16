@@ -1,0 +1,27 @@
+{% extends '/TemplateHTML/CreditContributionPage.html' %}
+
+{% block title %}<h1 class="pageTitle">Credits and Contributions</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Credit and Contributions Log</h2>
+    <p>
+    Some text about the page's purpose and how grateful we are to ourselves.
+    </p>
+{% endblock header %}
+<br>
+{% block content %}
+    <table class="bodyTable">
+        <tr>
+            <th class="bodyRow">Name</th>
+            <th class="bodyRow">Contribution</th>
+        </tr>
+        {% for i in items %}
+            {% set item1 = items[loop.index-1] %}
+            {% set item2 = items2[loop.index-1] %}
+            <tr>
+                <td class="bodyRow"> {{ item1 }} </td>
+                <td class="bodyRow">  {{ item2 }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

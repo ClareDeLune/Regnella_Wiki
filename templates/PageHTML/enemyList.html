@@ -1,0 +1,24 @@
+{% extends '/TemplateHTML/ListPages.html' %}
+
+{% block title %}<h1>Enemies</h1>{% endblock title %}
+
+{% block header %}
+    <h2 class="pageTitle">Enemies List:</h2>
+    <br>
+    <p>A listing of all enemies fought in Boundary of Shade and Future.<br>
+    Click on the name of any enemy for more information.</p>
+{% endblock header %}
+<br>
+<br>
+{% block content %}
+    <table class="bodyTable">
+        <tr>
+            <th class="bodyRow">Name</th>
+        </tr>
+        {% for item in tableData %}
+            <tr class="bodyRow">
+                <td><a href="{{ url_for ('enemy', name=item) }}">{{ item }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
