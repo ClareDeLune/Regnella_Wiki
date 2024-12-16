@@ -4,18 +4,24 @@
 
     {% block header %}
         <h2 class="pageTitle">{{ name }}</h2>
+        <h3 id="sectionTitle">Overview:</h3>
         <p>
         {{ overview }}
         </p>
         <table class="table table-bordered">
             <tr>
-                <th class="bodyRow"><img src="{{ img }}" alt="Class Img" width="100" height="100"></th>
+                <th class="bodyRow" colspan="2"><img src="{{ img }}" alt="Class Img" width="100" height="100"></th>
             </tr>
             <tr>
+                <th class="bodyRow">Name:</th>
                 <th class="bodyRow">{{ name }}</th>
             </tr>
             <tr>
+                <th class="bodyRow">Users:</th>
                 <th class="bodyRow">{{ owner}}</th>
+            </tr>
+            <tr>
+                <th class="bodyRow" colspan="2">Initial Stats:</th>
             </tr>
             <tr>
                 <td class="bodyRow">{{ baseMHP }}</td>
@@ -38,7 +44,7 @@
 
     {% block content %}
         <div class="individOverview">
-            <h2 class="sectionTitle">Overview:</h2>
+            <h2 class="sectionTitle">Description:</h2>
             <br>
             <p>{{ description }}</p>
             <br>
@@ -122,7 +128,6 @@
                 <table class="table table-bordered">
                     {% for item in skillList %}
                         <tr>
-                            <td>{{ item }}</td>
                             <td>{{ item }}</td>
                         </tr>
                     {% endfor %}

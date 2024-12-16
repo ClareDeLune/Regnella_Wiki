@@ -4,32 +4,40 @@
 
     {% block header %}
         <h2 class="pageTitle">{{ name }}</h2>
+        <h3 id="sectionTitle">Overview:</h3>
         <p>
         {{ overview }}
         </p>
         <table class="headerTable">
             <tr>
-                <th class="bodyRow"><img src="/static/img/{{ img }}.png" alt="Character Img" width="100" height="100"></th>
+                <th class="bodyRow" colspan="2"><img src="/static/img/{{ img }}.png" alt="Character Img" width="100" height="100"></th>
             </tr>
             <tr>
+                <th class="bodyRow">First Name:</th>
                 <th class="bodyRow">{{ firstName }}</th>
             </tr>
             <tr>
+                <th class="bodyRow">Last Name:</th>
                 <td class="bodyRow">{{ lastName }}</td>
             </tr>
             <tr>
+                <th class="bodyRow">Age:</th>
                 <td class="bodyRow">{{ age }}</td>
             </tr>
             <tr>
+                <th class="bodyRow">Race:</th>
                 <td class="bodyRow">{{ race }}</td>
             </tr>
             <tr>
+                <th class="bodyRow">Relations:</th>
                 <td class="bodyRow">{{ family }}</td>
             </tr>
             <tr>
+                <th class="bodyRow">Type:</th>
                 <td class="bodyRow">{{ type }}</td>
             </tr>
             <tr>
+                <th class="bodyRow">Initial Location:</th>
                 <td class="bodyRow">{{ location }}</td>
             </tr>
         </table>
@@ -37,6 +45,7 @@
 
     {% block content %}
         <div class="individOverview">
+            <h2 id="sectionTitle">Description:</h2>
             <p>{{ description }}
             </p>
         </div>
