@@ -17,7 +17,7 @@
         </tr>
         {% for item in tableData %}
             <tr class="bodyRow">
-                <td>{{ item }}</td>
+                <td><a href="{{ url_for ('enemy', name=item) }}"></a>{{ item }}</td>
             </tr>
         {% endfor %}
     </table>

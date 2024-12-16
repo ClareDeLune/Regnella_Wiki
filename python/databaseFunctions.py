@@ -310,44 +310,59 @@ def loadList(tableName):
     #Divided into three sections using character type.
     if tableName == "Characters":
         sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'Enemy'"
-        foeData = []
+        foeFNData = []
+        foeLNData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            foeData.append(stringy)
-        print(foeData)
+            foeFNData.append(stringy)
+            stringy = " " + str(row[1])
+            stringy = stringFormat(stringy)
+            foeLNData.append(stringy)
+        print(foeFNData)
+        print(foeLNData)
         print("\n")
-        foeTData = ''.join(foeData)
+        foeTData = ''.join(foeFNData + foeLNData)
         print(foeTData)
 
         sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'Playable'"
-        playData = []
+        playFNData = []
+        playLNData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            playData.append(stringy)
-        print(playData)
+            playFNData.append(stringy)
+            stringy = " " + str(row[1])
+            stringy = stringFormat(stringy)
+            playLNData.append(stringy)
+        print(playFNData)
+        print(playLNData)
         print("\n")
-        playTData = ''.join(playData)
+        playTData = ''.join(playFNData + playLNData)
         print(playTData)
 
         sql = "SELECT Characters.firstName, Characters.surname FROM Characters WHERE Characters.type = 'NPC'"
-        npcData = []
+        npcFNData = []
+        npcLNData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            npcData.append(stringy)
-        print(npcData)
+            npcFNData.append(stringy)
+            stringy = " " + str(row[1])
+            stringy = stringFormat(stringy)
+            npcLNData.append(stringy)
+        print(npcFNData)
+        print(npcLNData)
         print("\n")
-        npcTData = ''.join(npcData)
+        npcTData = ''.join(npcFNData + npcLNData)
         print(npcTData)
-        return render_template('PageHTML/charList.html', playableTable = playData, enemyTable = foeData, npcTable = npcData)
+        return render_template('PageHTML/charList.html', playableFNTable = playFNData, playableLNTable = playLNData, enemyFNTable = foeFNData, enemyLNTable = foeLNData, npcFNTable = npcFNData, npcLNTable = npcLNData)
 
     ###Classes Section:
     elif tableName == "Classes":
@@ -382,7 +397,7 @@ def loadList(tableName):
     ###Equipment Section:
     #Probably the most complicated of the list types.
     elif tableName == "Equipment":
-        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Weapon'"
+        sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Weapon'"
         weaponData = []
         print(sql)
         print('\n')
@@ -395,7 +410,7 @@ def loadList(tableName):
         weaponTData = ''.join(weaponData)
         print(weaponTData)
 
-        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Armour'"
+        sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Armour'"
         armourData = []
         print(sql)
         print('\n')
@@ -408,7 +423,7 @@ def loadList(tableName):
         armourTData = ''.join(armourData)
         print(armourTData)
 
-        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Accessory'"
+        sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Accessory'"
         accData = []
         print(sql)
         print('\n')
@@ -421,7 +436,7 @@ def loadList(tableName):
         accTData = ''.join(accData)
         print(accTData)
 
-        sql = "SELECT Equipment.name FROM Equipment WHERE Equipment.type = 'Spirit'"
+        sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Spirit'"
         spiritData = []
         print(sql)
         print('\n')
@@ -494,17 +509,24 @@ def loadList(tableName):
     ###Party Members Section:
     elif tableName == "PartyMembers":
         sql = "SELECT PartyMembers.firstName, PartyMembers.surname FROM PartyMembers"
+        memberFNData = []
+        memberLNData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            data.append(stringy)
-        print(data)
+            memberFNData.append(stringy)
+            stringy = " " + str(row[1])
+            stringy = stringFormat(stringy)
+            memberLNData.append(stringy)
+        print(memberFNData)
         print("\n")
-        tableData = ''.join(data)
+        print(memberLNData)
+        print("\n")
+        tableData = ''.join(memberFNData + memberLNData)
         print(tableData)
-        return render_template('PageHTML/partyList.html', tableData=data)
+        return render_template('PageHTML/partyList.html', tableFNData=memberFNData, tableLNData=memberLNData)
 
     ###Skills Section:
     elif tableName == "Skills":
@@ -805,6 +827,7 @@ def stringFormat(stringy):
     stringy = stringy.replace("(", "")
     stringy = stringy.replace(")", "")
     stringy = stringy.replace("'", "")
+    stringy = stringy.replace('"', '')
     stringy = stringy.replace(",", "")
     #Create line breaks where <br> is found.
     print(stringy)

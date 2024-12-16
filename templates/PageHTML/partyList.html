@@ -13,11 +13,15 @@
 {% block content %}
     <table class="bodyTable">
         <tr>
-            <th class="bodyRow">Name</th>
+            <th class="bodyRow">First Name</th>
+            <th class="bodyRow">Surname</th>
         </tr>
-        {% for item in tableData %}
-            <tr class="bodyRow">
-                <td>{{ item }}</td>
+        {% for i in tableFNData %}
+            {% set member1 = tableFNData[loop.index-1] %}
+            {% set member2 = tableLNData[loop.index-1] %}
+            <tr>
+                <td class="bodyRow"><a href="{{ url_for ('partyMember', name=member1) }}">{{ member1 }}</a></td>
+                <td class="bodyRow">  {{ member2 }} </td>
             </tr>
         {% endfor %}
     </table>
