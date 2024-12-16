@@ -795,6 +795,7 @@ def submitPlot(overview, actOne, actTwo, actThree, SeTa, SeLu, SeMa, TaYl, TaCl,
 ###This function retrieves the information needed for a wiki-edit's metadata, and exports this to the database.
 ###Also handles users forgetting to enter an 'editMessage' detailing the change made.
 def generateEdit(editMessage, page):
+    pageLink = page.replace("/edit", "")
     editTime = datetime.datetime.now()
     db = openDatabase()
     dbc = db.cursor()

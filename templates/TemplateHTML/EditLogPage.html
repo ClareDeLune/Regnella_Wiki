@@ -5,7 +5,7 @@
 {% block title %}<h1 class="pageTitle">Edit Log</h1>{% endblock title %}
 
 {% block header %}
-    <h2 class="pageTitle">Edits Log: Last Edit {{ lastEdit }}</h2>
+    <h2 class="pageTitle">Edits Log: Last Edit:</h2>
     <p>
     Some text about the edits log and its purpose.
     </p>
@@ -23,7 +23,7 @@
             {% set item2 = items2[loop.index-1] %}
             {% set item3 = items3[loop.index-1] %}
             <tr>
-                <td class="bodyRow"> {{ item1 }} </td>
+                <td class="bodyRow"><a href="{{ item1 }}">{{ item1 }}</a></td>
                 <td class="bodyRow">  {{ item2 }} </td>
                 <td class="bodyRow">  {{ item3 }} </td>
             </tr>
