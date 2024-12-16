@@ -1,0 +1,1 @@
+###Exists to let python treat this folder as a package; allowing for external functions and library access from a single file (globalFunctions)
