@@ -554,4 +554,4 @@ def EditError(error):
 ###Happy Ending :)
 #Set-up for testing and debugging; commented out for deployment due to security issues.
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=False)
