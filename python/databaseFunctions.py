@@ -170,13 +170,13 @@ def accessMember(name, address):
         return accessPageNotFound()
     else:
         skillList = getSkillsList(name, "Player")
-        member = {"firstName": data[1], "lastName": data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
+        member = {"name": data[1] + " " + data[2], "firstName": data[1], "lastName": data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
         print(member)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individPartyEdit.html', firstName=member["firstName"], lastName=member["lastName"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], address=address)
+            return render_template('PageHTML/individPartyEdit.html', name=member["name"], firstName=member["firstName"], lastName=member["lastName"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], address=address)
         else:
-            return render_template('PageHTML/individPartyPage.html', firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"],  skillList = member["skillList"], address=address)
+            return render_template('PageHTML/individPartyPage.html', name=member["name"], firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"],  skillList = member["skillList"], address=address)
 
 ##A function used to retrieve a specific location's details from the database and display them using the IndividLocation page template.
 def accessLocation(name, address):
@@ -561,11 +561,11 @@ def getSkillsList(name, type):
         args = [name]
         for item in db.cursor().execute(sql, args):
             memberID = item
-            print(id)
+            print(item)
             print("\n")
-        sql = "SELECT ClassID FROM PartyMembers WHERE PartyMember.MemberID = ?"
+        sql = "SELECT ClassID FROM PartyMembers WHERE PartyMembers.MemberID = ?"
         args = [memberID]
-        for item in db.cursor().execute(sql, args):
+        for item in db.cursor().execute(sql, args[0]):
             if id == 0:
                 id = item
         sql = "SELECT SkillID, Level FROM SkillToUser WHERE SkillToUser.ClassID = ?"

@@ -1,8 +1,11 @@
 {
+  "env": {
+      "FLASK_ENV": "production"
+  },
     "version": 2,
     "builds": [
         {
-            "src": "./hierarchy.py",
+            "src": "./app.py",
             "use": "@vercel/python"
         }
     ],

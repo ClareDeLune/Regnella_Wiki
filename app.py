@@ -139,7 +139,7 @@ def character(name=None):
 @app.route('/home/partymembers/<name>')
 def partyMember(name=None):
     sName = name
-    address = 'memberEdit'
+    address = 'partyMemberEdit'
     return accessMember(name, address)
 
 
