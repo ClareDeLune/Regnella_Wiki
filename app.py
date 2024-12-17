@@ -1,6 +1,8 @@
 ###Set-Up and import all libraries from globalFunctions
 from python.globalFunctions import *
 
+##Upload Folder?
+
 ###Sets up Flask and the app secret for Regnella Wiki; the latter of which should absolutely NOT be in the main file for security!
 app = Flask(__name__)
 app.secret_key = 'super secret key'
