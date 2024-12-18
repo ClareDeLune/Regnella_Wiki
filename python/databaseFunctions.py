@@ -232,9 +232,9 @@ def accessPlot(address):
         print(plot)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/plotEdit.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
+            return render_template('PageHTML/plotEdit.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnd=plot["SeTa"], SeLuEnd=plot["SeLu"], SeMaEnd=plot["SeMa"], TaYlEnd=plot["TaYl"], TaClEnd=plot["TaCl"], LuBrEnd=plot["LuBr"], LuYlEnd=plot["LuYl"], BrMaEnd=plot["BrMa"], BrTaEnd=plot["BrTa"], MaTaEnd=plot["MaTa"], ClTaEnd=plot["ClTa"], address=address)
         else:
-            return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
+            return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnd=plot["SeTa"], SeLuEnd=plot["SeLu"], SeMaEnd=plot["SeMa"], TaYlEnd=plot["TaYl"], TaClEnd=plot["TaCl"], LuBrEnd=plot["LuBr"], LuYlEnd=plot["LuYl"], BrMaEnd=plot["BrMa"], BrTaEnd=plot["BrTa"], MaTaEnd=plot["MaTa"], ClTaEnd=plot["ClTa"], address=address)
 
 ##A function that retrieves and displays information on credits and contributions to the wiki; not really necessary as users cannot edit these,
 ##but it simply keeps all the information in one place, which seems more professional and tidy.
