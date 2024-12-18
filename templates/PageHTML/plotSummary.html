@@ -121,13 +121,13 @@
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             {% block footer %}
                 {% if address != 'Edit' %}
-                	Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
+                	Boundary of Shade and Future (© 2019) | Wiki Launched: 17/12/2024
                     <form action="{{ url_for( address, name=name ) }}">
                         <input id="editButton" type="submit" value="Edit">
                     </form>
                 {% else %}
-                    Boundary of Shade and Future (© 2019) | Last Wiki Edit: 00/00/0000
-                    <form action="{{ url_for( 'submit', address=address ) }}">
+                    Boundary of Shade and Future (© 2019) | Wiki Launched: 17/12/2024
+                    <form action="{{ url_for( "home" ) }}"  method="post">
                         <input id="editButton" type="submit" value="Submit">
                     </form>
                 {% endif %}

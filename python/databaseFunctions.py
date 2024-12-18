@@ -811,7 +811,7 @@ def generateEdit(editMessage, page):
         return False
     else:
         sql = "INSERT INTO Edits (page, datentime, change) VALUES (?, ?, ?)"
-        args = [page, editTime, editMessage]
+        args = [pageLink, editTime, editMessage]
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
