@@ -398,57 +398,180 @@ def loadList(tableName):
     #Probably the most complicated of the list types.
     elif tableName == "Equipment":
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Weapon'"
-        weaponData = []
+        weaponNData = []
+        weaponTData = []
+        weaponATKData = []
+        weaponDEFData = []
+        weaponMATData = []
+        weaponMDFData = []
+        weaponAGIData = []
+        weaponLUKData = []
+        weaponEffData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            weaponData.append(stringy)
+            weaponNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            weaponTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            weaponATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            weaponDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            weaponMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            weaponMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            weaponAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            weaponLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            weaponEffData.append(stringy)
         print(data)
         print("\n")
-        weaponTData = ''.join(weaponData)
-        print(weaponTData)
 
+        armourNData = []
+        armourTData = []
+        armourATKData = []
+        armourDEFData = []
+        armourMATData = []
+        armourMDFData = []
+        armourAGIData = []
+        armourLUKData = []
+        armourEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Armour'"
         armourData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            armourData.append(stringy)
+            armourNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            armourTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            armourATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            armourDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            armourMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            armourMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            armourAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            armourLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            armourEffData.append(stringy)
         print(armourData)
         print("\n")
-        armourTData = ''.join(armourData)
-        print(armourTData)
 
+        accNData = []
+        accTData = []
+        accATKData = []
+        accDEFData = []
+        accMATData = []
+        accMDFData = []
+        accAGIData = []
+        accLUKData = []
+        accEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Accessory'"
         accData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            accData.append(stringy)
+            accNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            accTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            accATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            accDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            accMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            accMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            accAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            accLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            accEffData.append(stringy)
         print(accData)
         print("\n")
-        accTData = ''.join(accData)
-        print(accTData)
 
+        spiritNData = []
+        spiritTData = []
+        spiritATKData = []
+        spiritDEFData = []
+        spiritMATData = []
+        spiritMDFData = []
+        spiritAGIData = []
+        spiritLUKData = []
+        spiritEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Spirit'"
         spiritData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            spiritData.append(stringy)
+            spiritNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            spiritTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            spiritATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            spiritDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            spiritMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            spiritMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            spiritAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            spiritLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            spiritEffData.append(stringy)
         print(spiritData)
         print("\n")
-        spiritTData = ''.join(spiritData)
-        print(spiritTData)
-        return render_template('PageHTML/equipList.html', weaponTable = weaponData, armourTable = armourData, accTable = accData, spiritTable = spiritData)
+        return render_template('PageHTML/equipList.html', weaponName = weaponNData, weaponType = weaponTData, weaponATK = weaponATKData, weaponDEF = weaponDEFData, weaponMAT = weaponMATData, weaponMDF = weaponMDFData, weaponAGI = weaponAGIData, weaponLUK = weaponLUKData, weaponEffect = weaponEffData, armourName=armourNData, armourType=armourTData, armourATK=armourATKData, armourDEF=armourDEFData, armourMAT=armourMATData, armourMDF=armourMDFData, armourAGI=armourAGIData, armourLUK=armourLUKData, armourEffect=armourEffData, accName=accNData, accType=accTData, accATK=accATKData, accDEF=accDEFData, accMAT=accMATData, accMDF=accMDFData, accAGI=accAGIData, accLUK=accLUKData, accEffect=accEffData, spiritName=spiritNData, spiritType=spiritTData, spiritATK=spiritATKData, spiritDEF=spiritDEFData, spiritMAT=spiritMATData, spiritMDF=spiritMDFData, spiritAGI=spiritAGIData, spiritLUK=spiritLUKData, spiritEffect=spiritEffData)
 
     ###Locations Section:
     #These are divided by act of the story where they first appear.
