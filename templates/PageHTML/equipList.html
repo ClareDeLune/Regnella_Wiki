@@ -5,8 +5,7 @@
 {% block header %}
     <h2 class="pageTitle">Equipment List:</h2>
     <br>
-    <p>A listing of all weapons, armour, accessories, and spirits found in Boundary of Shade and Future.<br>
-    Click on the name of any piece of equipment for more information.</p>
+    <p>A listing of all weapons, armour, accessories, and spirits found in Boundary of Shade and Future.</p>
 {% endblock header %}
 <br>
 <br>
@@ -15,13 +14,38 @@
         <h4 class="dropdownHeader">Weapons:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table class="bodyTable">
+        <table class="bodyTable">
                 <tr>
-                    <th class="bodyRow">Weapon Data</th>
+                    <th class="bodyRow">Name:</th>
+                    <th class="bodyRow">Type:</th>
+                    <th class="bodyRow">ATK:</th>
+                    <th class="bodyRow">DEF:</th>
+                    <th class="bodyRow">MAT:</th>
+                    <th class="bodyRow">MDF:</th>
+                    <th class="bodyRow">AGI:</th>
+                    <th class="bodyRow">LUK:</th>
+                    <th class="bodyRow">Eff:</th>
                 </tr>
-                 {% for item in weaponTable %}
+                {% for i in weaponName %}
+                    {% set name = weaponName[loop.index-1] %}
+                    {% set type = weaponType[loop.index-1] %}
+                    {% set atk = weaponATK[loop.index-1] %}
+                    {% set def = weaponDEF[loop.index-1] %}
+                    {% set mat = weaponMAT[loop.index-1] %}
+                    {% set mdf = weaponMDF[loop.index-1] %}
+                    {% set agi = weaponAGI[loop.index-1] %}
+                    {% set luk = weaponLUK[loop.index-1] %}
+                    {% set eff = weaponEffect[loop.index-1] %}
                     <tr>
-                        <td>{{ item }}</td>
+                        <td class="bodyRow">  {{ name }} </td>
+                        <td class="bodyRow">  {{ type }} </td>
+                        <td class="bodyRow">  {{ atk }} </td>
+                        <td class="bodyRow">  {{ def }} </td>
+                        <td class="bodyRow">  {{ mat }} </td>
+                        <td class="bodyRow">  {{ mdf }} </td>
+                        <td class="bodyRow">  {{ agi }} </td>
+                        <td class="bodyRow">  {{ luk }} </td>
+                        <td class="bodyRow">  {{ eff }} </td>
                     </tr>
                 {% endfor %}
             </table>
@@ -32,12 +56,37 @@
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
             <table class="bodyTable">
-                <tr>
-                    <th class="bodyRow">Armour</th>
-                </tr>
-                 {% for item in armourTable %}
                     <tr>
-                        <td>{{ item }}</td>
+                        <th class="bodyRow">Name:</th>
+                        <th class="bodyRow">Type:</th>
+                        <th class="bodyRow">ATK:</th>
+                        <th class="bodyRow">DEF:</th>
+                        <th class="bodyRow">MAT:</th>
+                        <th class="bodyRow">MDF:</th>
+                        <th class="bodyRow">AGI:</th>
+                        <th class="bodyRow">LUK:</th>
+                        <th class="bodyRow">Eff:</th>
+                    </tr>
+                    {% for i in armourName %}
+                        {% set name = armourName[loop.index-1] %}
+                        {% set type = armourType[loop.index-1] %}
+                        {% set atk = armourATK[loop.index-1] %}
+                        {% set def = armourDEF[loop.index-1] %}
+                        {% set mat = armourMAT[loop.index-1] %}
+                        {% set mdf = armourMDF[loop.index-1] %}
+                        {% set agi = armourAGI[loop.index-1] %}
+                        {% set luk = armourLUK[loop.index-1] %}
+                        {% set eff = armourEffect[loop.index-1] %}
+                    <tr>
+                        <td class="bodyRow">  {{ name }} </td>
+                        <td class="bodyRow">  {{ type }} </td>
+                        <td class="bodyRow">  {{ atk }} </td>
+                        <td class="bodyRow">  {{ def }} </td>
+                        <td class="bodyRow">  {{ mat }} </td>
+                        <td class="bodyRow">  {{ mdf }} </td>
+                        <td class="bodyRow">  {{ agi }} </td>
+                        <td class="bodyRow">  {{ luk }} </td>
+                        <td class="bodyRow">  {{ eff }} </td>
                     </tr>
                 {% endfor %}
             </table>
@@ -47,13 +96,38 @@
         <h4 class="dropdownHeader">Accessory:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table class="bodyTable">
+        <table class="bodyTable">
                 <tr>
-                    <th class="bodyRow">Acc. Data</th>
+                    <th class="bodyRow">Name:</th>
+                    <th class="bodyRow">Type:</th>
+                    <th class="bodyRow">ATK:</th>
+                    <th class="bodyRow">DEF:</th>
+                    <th class="bodyRow">MAT:</th>
+                    <th class="bodyRow">MDF:</th>
+                    <th class="bodyRow">AGI:</th>
+                    <th class="bodyRow">LUK:</th>
+                    <th class="bodyRow">Eff:</th>
                 </tr>
-                 {% for item in accTable %}
+                {% for i in accName %}
+                    {% set name = accName[loop.index-1] %}
+                    {% set type = accType[loop.index-1] %}
+                    {% set atk = accATK[loop.index-1] %}
+                    {% set def = accDEF[loop.index-1] %}
+                    {% set mat = accMAT[loop.index-1] %}
+                    {% set mdf = accMDF[loop.index-1] %}
+                    {% set agi = accAGI[loop.index-1] %}
+                    {% set luk = accLUK[loop.index-1] %}
+                    {% set eff = accEffect[loop.index-1] %}
                     <tr>
-                        <td>{{ item }}</td>
+                        <td class="bodyRow">  {{ name }} </td>
+                        <td class="bodyRow">  {{ type }} </td>
+                        <td class="bodyRow">  {{ atk }} </td>
+                        <td class="bodyRow">  {{ def }} </td>
+                        <td class="bodyRow">  {{ mat }} </td>
+                        <td class="bodyRow">  {{ mdf }} </td>
+                        <td class="bodyRow">  {{ agi }} </td>
+                        <td class="bodyRow">  {{ luk }} </td>
+                        <td class="bodyRow">  {{ eff }} </td>
                     </tr>
                 {% endfor %}
             </table>
@@ -63,13 +137,38 @@
         <h4 class="dropdownHeader">Spirit:</h4>
         <button type="button" class="collapsible" onclick="globalCollapsability()">Collapsible</button>
         <div class="content">
-            <table class="bodyTable">
+        <table class="bodyTable">
                 <tr>
-                    <th class="bodyRow">Spirit Data</th>
+                    <th class="bodyRow">Name:</th>
+                    <th class="bodyRow">Type:</th>
+                    <th class="bodyRow">ATK:</th>
+                    <th class="bodyRow">DEF:</th>
+                    <th class="bodyRow">MAT:</th>
+                    <th class="bodyRow">MDF:</th>
+                    <th class="bodyRow">AGI:</th>
+                    <th class="bodyRow">LUK:</th>
+                    <th class="bodyRow">Eff:</th>
                 </tr>
-                 {% for item in spiritTable %}
-                    <tr class="bodyRow">
-                        <td>{{ item }}</td>
+                {% for i in spiritName %}
+                    {% set name = spiritName[loop.index-1] %}
+                    {% set type = spiritType[loop.index-1] %}
+                    {% set atk = spiritATK[loop.index-1] %}
+                    {% set def = spiritDEF[loop.index-1] %}
+                    {% set mat = spiritMAT[loop.index-1] %}
+                    {% set mdf = spiritMDF[loop.index-1] %}
+                    {% set agi = spiritAGI[loop.index-1] %}
+                    {% set luk = spiritLUK[loop.index-1] %}
+                    {% set eff = spiritEffect[loop.index-1] %}
+                    <tr>
+                        <td class="bodyRow">  {{ name }} </td>
+                        <td class="bodyRow">  {{ type }} </td>
+                        <td class="bodyRow">  {{ atk }} </td>
+                        <td class="bodyRow">  {{ def }} </td>
+                        <td class="bodyRow">  {{ mat }} </td>
+                        <td class="bodyRow">  {{ mdf }} </td>
+                        <td class="bodyRow">  {{ agi }} </td>
+                        <td class="bodyRow">  {{ luk }} </td>
+                        <td class="bodyRow">  {{ eff }} </td>
                     </tr>
                 {% endfor %}
             </table>

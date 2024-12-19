@@ -170,13 +170,13 @@ def accessMember(name, address):
         return accessPageNotFound()
     else:
         skillList = getSkillsList(name, "Player")
-        member = {"firstName": data[1], "lastName": data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
+        member = {"name": data[1] + " " + data[2], "firstName": data[1], "lastName": data[2], "startingLevel": data[3], "MHP": data[4], "MMP": data[5], "ATK": data[6], "DEF": data[7], "MAT": data[8], "MDF": data[9], "AGI": data[10], "LUK": data[11], "support1N": data[12], "support1L": data[13], "support2N": data[14], "support2L": data[15], "support3N": data[16], "support3L": data[17], "support4N": data[18], "support4L": data[19], "support5N": data[20], "support5L": data[21], "overview": data[22], "description": data[23], "img": data[26], "skillList": skillList}
         print(member)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/individPartyEdit.html', firstName=member["firstName"], lastName=member["lastName"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], address=address)
+            return render_template('PageHTML/individPartyEdit.html', name=member["name"], firstName=member["firstName"], lastName=member["lastName"], level=member["startingLevel"], MHP=member["MHP"], MMP=member["MMP"], ATK=member["ATK"], DEF=member["DEF"], MAT=member["MAT"], MDF=member["MDF"], AGI=member["AGI"], LUK=member["LUK"], support1N=member["support1N"], support1L=member["support1L"], support2N=member["support2N"], support2L=member["support2L"], support3N=member["support3N"], support3L=member["support3L"], support4N=member["support4N"], support4L=member["support4L"], support5N=member["support5N"], support5L=member["support5L"], overview=member["overview"], description=member["description"], img = member["img"], address=address)
         else:
-            return render_template('PageHTML/individPartyPage.html', firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"],  skillList = member["skillList"], address=address)
+            return render_template('PageHTML/individPartyPage.html', name=member["name"], firstName=member["firstName"], lastName=member["lastName"], level = member["startingLevel"], MHP = member["MHP"], MMP = member["MMP"], ATK = member["ATK"], DEF = member["DEF"], MAT = member["MAT"], MDF = member["MDF"], AGI = member["AGI"], LUK = member["LUK"], support1N = member["support1N"], support1L = member["support1L"], support2N = member["support2N"], support2L = member["support2L"], support3N = member["support3N"], support3L = member["support3L"], support4N = member["support4N"], support4L = member["support4L"], support5N = member["support5N"], support5L = member["support5L"], overview = member["overview"], description = member["description"], img = member["img"],  skillList = member["skillList"], address=address)
 
 ##A function used to retrieve a specific location's details from the database and display them using the IndividLocation page template.
 def accessLocation(name, address):
@@ -232,9 +232,9 @@ def accessPlot(address):
         print(plot)
         db.close()
         if address == 'Edit':
-            return render_template('PageHTML/plotEdit.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
+            return render_template('PageHTML/plotEdit.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnd=plot["SeTa"], SeLuEnd=plot["SeLu"], SeMaEnd=plot["SeMa"], TaYlEnd=plot["TaYl"], TaClEnd=plot["TaCl"], LuBrEnd=plot["LuBr"], LuYlEnd=plot["LuYl"], BrMaEnd=plot["BrMa"], BrTaEnd=plot["BrTa"], MaTaEnd=plot["MaTa"], ClTaEnd=plot["ClTa"], address=address)
         else:
-            return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnding=plot["SeTa"], SeLuEnding=plot["SeLu"], SeMaEnding=plot["SeMa"], TaYlEnding=plot["TaYl"], TaClEnding=plot["TaCl"], LuBrEnding=plot["LuBr"], LuYlEnding=plot["LuYl"], BrMaEnding=plot["BrMa"], BrTaEnding=plot["BrTa"], MaTaEnding=plot["MaTa"], ClTaEnding=plot["ClTa"], address=address)
+            return render_template('PageHTML/plotSummary.html', overview=plot["overview"], actOne=plot["act1"], actTwo=plot["act2"], actThree=plot["act3"], SeTaEnd=plot["SeTa"], SeLuEnd=plot["SeLu"], SeMaEnd=plot["SeMa"], TaYlEnd=plot["TaYl"], TaClEnd=plot["TaCl"], LuBrEnd=plot["LuBr"], LuYlEnd=plot["LuYl"], BrMaEnd=plot["BrMa"], BrTaEnd=plot["BrTa"], MaTaEnd=plot["MaTa"], ClTaEnd=plot["ClTa"], address=address)
 
 ##A function that retrieves and displays information on credits and contributions to the wiki; not really necessary as users cannot edit these,
 ##but it simply keeps all the information in one place, which seems more professional and tidy.
@@ -398,57 +398,180 @@ def loadList(tableName):
     #Probably the most complicated of the list types.
     elif tableName == "Equipment":
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Weapon'"
-        weaponData = []
+        weaponNData = []
+        weaponTData = []
+        weaponATKData = []
+        weaponDEFData = []
+        weaponMATData = []
+        weaponMDFData = []
+        weaponAGIData = []
+        weaponLUKData = []
+        weaponEffData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            weaponData.append(stringy)
+            weaponNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            weaponTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            weaponATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            weaponDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            weaponMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            weaponMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            weaponAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            weaponLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            weaponEffData.append(stringy)
         print(data)
         print("\n")
-        weaponTData = ''.join(weaponData)
-        print(weaponTData)
 
+        armourNData = []
+        armourTData = []
+        armourATKData = []
+        armourDEFData = []
+        armourMATData = []
+        armourMDFData = []
+        armourAGIData = []
+        armourLUKData = []
+        armourEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Armour'"
         armourData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            armourData.append(stringy)
+            armourNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            armourTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            armourATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            armourDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            armourMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            armourMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            armourAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            armourLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            armourEffData.append(stringy)
         print(armourData)
         print("\n")
-        armourTData = ''.join(armourData)
-        print(armourTData)
 
+        accNData = []
+        accTData = []
+        accATKData = []
+        accDEFData = []
+        accMATData = []
+        accMDFData = []
+        accAGIData = []
+        accLUKData = []
+        accEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Accessory'"
         accData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            accData.append(stringy)
+            accNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            accTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            accATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            accDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            accMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            accMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            accAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            accLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            accEffData.append(stringy)
         print(accData)
         print("\n")
-        accTData = ''.join(accData)
-        print(accTData)
 
+        spiritNData = []
+        spiritTData = []
+        spiritATKData = []
+        spiritDEFData = []
+        spiritMATData = []
+        spiritMDFData = []
+        spiritAGIData = []
+        spiritLUKData = []
+        spiritEffData = []
         sql = "SELECT Equipment.name, Equipment.type, Equipment.atk, Equipment.def, Equipment.mat, Equipment.mdf, Equipment.agi, Equipment.luk, Equipment.extraEff FROM Equipment WHERE Equipment.slot = 'Spirit'"
         spiritData = []
         print(sql)
         print('\n')
         for row in db.cursor().execute(sql):
-            stringy = str(row)
+            stringy = str(row[0])
             stringy = stringFormat(stringy)
-            spiritData.append(stringy)
+            spiritNData.append(stringy)
+            stringy = str(row[1])
+            stringy = stringFormat(stringy)
+            spiritTData.append(stringy)
+            stringy = str(row[2])
+            stringy = stringFormat(stringy)
+            spiritATKData.append(stringy)
+            stringy = str(row[3])
+            stringy = stringFormat(stringy)
+            spiritDEFData.append(stringy)
+            stringy = str(row[4])
+            stringy = stringFormat(stringy)
+            spiritMATData.append(stringy)
+            stringy = str(row[5])
+            stringy = stringFormat(stringy)
+            spiritMDFData.append(stringy)
+            stringy = str(row[6])
+            stringy = stringFormat(stringy)
+            spiritAGIData.append(stringy)
+            stringy = str(row[7])
+            stringy = stringFormat(stringy)
+            spiritLUKData.append(stringy)
+            stringy = str(row[8])
+            stringy = stringFormat(stringy)
+            spiritEffData.append(stringy)
         print(spiritData)
         print("\n")
-        spiritTData = ''.join(spiritData)
-        print(spiritTData)
-        return render_template('PageHTML/equipList.html', weaponTable = weaponData, armourTable = armourData, accTable = accData, spiritTable = spiritData)
+        return render_template('PageHTML/equipList.html', weaponName = weaponNData, weaponType = weaponTData, weaponATK = weaponATKData, weaponDEF = weaponDEFData, weaponMAT = weaponMATData, weaponMDF = weaponMDFData, weaponAGI = weaponAGIData, weaponLUK = weaponLUKData, weaponEffect = weaponEffData, armourName=armourNData, armourType=armourTData, armourATK=armourATKData, armourDEF=armourDEFData, armourMAT=armourMATData, armourMDF=armourMDFData, armourAGI=armourAGIData, armourLUK=armourLUKData, armourEffect=armourEffData, accName=accNData, accType=accTData, accATK=accATKData, accDEF=accDEFData, accMAT=accMATData, accMDF=accMDFData, accAGI=accAGIData, accLUK=accLUKData, accEffect=accEffData, spiritName=spiritNData, spiritType=spiritTData, spiritATK=spiritATKData, spiritDEF=spiritDEFData, spiritMAT=spiritMATData, spiritMDF=spiritMDFData, spiritAGI=spiritAGIData, spiritLUK=spiritLUKData, spiritEffect=spiritEffData)
 
     ###Locations Section:
     #These are divided by act of the story where they first appear.
@@ -561,11 +684,11 @@ def getSkillsList(name, type):
         args = [name]
         for item in db.cursor().execute(sql, args):
             memberID = item
-            print(id)
+            print(item)
             print("\n")
-        sql = "SELECT ClassID FROM PartyMembers WHERE PartyMember.MemberID = ?"
+        sql = "SELECT ClassID FROM PartyMembers WHERE PartyMembers.MemberID = ?"
         args = [memberID]
-        for item in db.cursor().execute(sql, args):
+        for item in db.cursor().execute(sql, args[0]):
             if id == 0:
                 id = item
         sql = "SELECT SkillID, Level FROM SkillToUser WHERE SkillToUser.ClassID = ?"
@@ -811,7 +934,7 @@ def generateEdit(editMessage, page):
         return False
     else:
         sql = "INSERT INTO Edits (page, datentime, change) VALUES (?, ?, ?)"
-        args = [page, editTime, editMessage]
+        args = [pageLink, editTime, editMessage]
         print(args)
         db.cursor().execute(sql, args)
         db.commit()
